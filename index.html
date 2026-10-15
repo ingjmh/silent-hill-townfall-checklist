@@ -395,7 +395,7 @@ function render(){
  update();
 }
 function update(){
- // Los filtros controlan tanto los registros visibles como los acumulados del dashboard.
+ // Los filtros afectan tanto la lista como todos los acumulados del dashboard.
  applyFilter();
  const checks=[...document.querySelectorAll('input[type=checkbox][data-id]')]
    .filter(x=>x.closest('.item') && x.closest('.item').style.display!=='none');
@@ -418,7 +418,8 @@ function update(){
   card.querySelector('.dash-fill').style.width=pct+'%';
  });
  const statsFor=container=>{
-  const inputs=[...container.querySelectorAll('input[type=checkbox][data-id]')].filter(x=>x.closest('.item')?.style.display!=='none'),completed=inputs.filter(x=>x.checked).length,total=inputs.length,missing=total-completed;
+  const inputs=[...container.querySelectorAll('input[type=checkbox][data-id]')].filter(x=>x.closest('.item')?.style.display!=='none');
+  const completed=inputs.filter(x=>x.checked).length,total=inputs.length,missing=total-completed;
   return {completed,total,missing,pct:total?Math.round(completed/total*100):0};
  };
  document.querySelectorAll('.group').forEach(group=>{
@@ -434,6 +435,7 @@ function update(){
   if(badge){badge.querySelector('.counts').textContent=`${s.completed}/${s.total} completados · ${s.missing} pendientes`;badge.querySelector('.pct').textContent=`${s.pct}%`;badge.querySelector('.progress-mini span').style.width=s.pct+'%';}
  });
 }
+
 function populateLocationFilters(){
  const partSelect=document.getElementById('partFilter'), chapterSelect=document.getElementById('chapterFilter');
  const parts=[...new Set(data.map(ch=>ch.part||'OTROS'))];

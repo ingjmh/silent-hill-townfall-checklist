@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silent Hill: Townfall — Checklist de trofeos</title>
+<style>
+:root{color-scheme:light;--bg:#eae2b7;--panel:#f4f0d8;--panel2:#ffffff;--text:#003049;--muted:#475569;--line:#d4cda5;--accent:#f77f00;--gold:#d62828}
+*{box-sizing:border-box}body{margin:0;background:#f7f5e8;color:var(--text);font:16px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{padding:28px 18px 20px;background:linear-gradient(130deg,#003049,#074766);border-bottom:4px solid #d62828;color:#fff} header p,header .summary{color:#eae2b7}
+main{max-width:980px;margin:auto;padding:18px}
+h1{margin:0 0 6px;font-size:clamp(1.6rem,4vw,2.4rem)}h2{font-size:1.25rem;margin:0 0 10px}h3{font-size:1.05rem;margin:0}
+p{margin:6px 0;color:var(--muted)}.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+button,select,input[type=search]{background:var(--panel2);border:1px solid var(--line);border-radius:9px;color:var(--text);padding:10px 12px;font:inherit}
+button{cursor:pointer}button:hover{border-color:var(--accent)}.progress{height:9px;background:#303833;border-radius:9px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:var(--accent);transition:width .2s}
+.progress-meta{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.82rem;font-weight:600;color:var(--muted,#64748b);margin-left:auto}
+.progress-meta .pct{font-weight:800;color:var(--text,#111827)}
+.progress-mini{height:5px;background:rgba(148,163,184,.25);border-radius:99px;overflow:hidden;min-width:56px;width:72px;display:inline-block;vertical-align:middle}
+.progress-mini span{height:100%;display:block;width:0%;background:currentColor;transition:width .15s ease}
+.chapter-progress{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.group h4{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.section-progress{font-size:.78rem;font-weight:600;color:var(--muted,#64748b);margin-left:auto}
+.section-progress strong{color:var(--text,#111827)}
+.summary{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;color:var(--muted);font-size:.92rem}
+.notice{padding:13px 15px;background:#25251d;border:1px solid #514b36;border-radius:10px;margin:14px 0;color:#eee2bf}
+.part{margin:22px 0 10px;color:var(--gold);font-weight:700;letter-spacing:.08em;font-size:.82rem}
+.chapter{background:#fff;border:1px solid var(--line);border-radius:13px;margin:10px 0;overflow:hidden}
+.chapter summary{padding:15px;cursor:pointer;display:flex;align-items:center;justify-content:space-between;gap:12px;background:#eae2b7;color:#003049}
+.chapter summary span{color:var(--muted);font-size:.85rem;white-space:nowrap}
+.content{padding:12px 15px 16px}.group{margin:12px 0}.group h4{margin:0 0 7px;color:#003049;font-size:.92rem}
+label.item{display:flex;gap:10px;align-items:flex-start;padding:7px 4px;border-bottom:1px solid #2b332f;cursor:pointer}
+label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent-color:#b8d0a5;min-width:17px;min-height:17px}
+.item.done .txt{text-decoration:line-through;color:#64748b}.tag{display:inline-block;font-size:.72rem;color:#d8d0b3;border:1px solid #514b36;border-radius:5px;padding:1px 5px;margin-right:5px}
+.small{font-size:.85rem;color:var(--muted)}footer{padding:24px 0 45px;color:var(--muted);font-size:.85rem}
+@media print{body{background:white;color:black}.chapter{break-inside:avoid;background:white;border-color:#aaa}.chapter summary{background:#eee;color:black}.content{display:block}.tools,button,.notice{display:none}p,.small,.progress-meta{display:inline-flex;align-items:center;gap:8px;flex-wrap:wrap;font-size:.82rem;font-weight:600;color:var(--muted,#64748b);margin-left:auto}
+.progress-meta .pct{font-weight:800;color:var(--text,#111827)}
+.progress-mini{height:5px;background:rgba(148,163,184,.25);border-radius:99px;overflow:hidden;min-width:56px;width:72px;display:inline-block;vertical-align:middle}
+.progress-mini span{height:100%;display:block;width:0%;background:currentColor;transition:width .15s ease}
+.chapter-progress{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.group h4{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.section-progress{font-size:.78rem;font-weight:600;color:var(--muted,#64748b);margin-left:auto}
+.section-progress strong{color:var(--text,#111827)}
+.summary{color:#333}}
+
+.filter-panel{margin:16px 0 20px;padding:16px;background:#f0f0ed;border:1px solid #d0d0ca;border-radius:14px;color:#003049;box-shadow:0 2px 7px rgba(0,48,73,.08)}
+.filter-panel>h2{margin:0 0 12px;color:#003049;font-size:1.15rem}
+.filter-sections{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.filter-section{min-width:0;padding:12px;background:#e5e5e1;border:1px solid #d0d0ca;border-radius:10px}
+.filter-section h3{margin:0 0 9px;font-size:.84rem;text-transform:uppercase;letter-spacing:.06em;color:#003049}
+.filter-controls{display:grid;grid-template-columns:1fr;gap:9px;min-width:0}
+.filter-controls label{display:flex;flex-direction:column;gap:4px;font-size:.78rem;font-weight:800;color:#003049;min-width:0}
+.filter-controls select,.filter-controls input[type=search]{width:100%;min-width:0;max-width:100%;padding:9px 10px;background:#fff;border:1px solid #b8b8b2;border-radius:8px;font-size:.9rem;color:#003049}
+.action-controls{grid-template-columns:1fr 1fr}.action-controls button{min-width:0;padding:8px 9px;font-size:.82rem;overflow-wrap:anywhere}
+@media(max-width:760px){.filter-sections{grid-template-columns:1fr 1fr}.actions-filters{grid-column:1/-1}.action-controls{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:480px){.filter-sections{grid-template-columns:1fr}.actions-filters{grid-column:auto}.action-controls{grid-template-columns:1fr 1fr}}
+
+</style>
+
+<style>
+/* Colores por trofeo */
+#trophyFilter { border:2px solid #64748b; font-weight:700; }
+.item[data-trophy="docs"] { border-left:5px solid #3b82f6; background:rgba(59,130,246,.08); }
+.item[data-trophy="postcards"] { border-left:5px solid #a855f7; background:rgba(168,85,247,.09); }
+.item[data-trophy="calls"] { border-left:5px solid #14b8a6; background:rgba(20,184,166,.09); }
+.item[data-trophy="crtv"] { border-left:5px solid #f59e0b; background:rgba(245,158,11,.10); }
+.item[data-trophy="resources"] { border-left:5px solid #22c55e; background:rgba(34,197,94,.09); }
+.item[data-trophy="scifi"] { border-left:5px solid #06b6d4; background:rgba(6,182,212,.12); }
+.item[data-trophy="dog"] { border-left:5px solid #f97316; background:rgba(249,115,22,.12); }
+.item[data-trophy="other"] { border-left:5px solid #94a3b8; }
+.trophy-legend {display:flex;flex-wrap:wrap;gap:8px;margin:12px 0}
+.trophy-chip {font-size:.84rem;font-weight:700;border-radius:999px;padding:5px 10px;border:1px solid currentColor}
+.chip-docs{color:#2563eb;background:#dbeafe}.chip-postcards{color:#7e22ce;background:#f3e8ff}
+.chip-calls{color:#0f766e;background:#ccfbf1}.chip-crtv{color:#92400e;background:#fef3c7}
+.chip-resources{color:#15803d;background:#dcfce7}.chip-scifi{color:#0e7490;background:#cffafe}
+.chip-dog{color:#c2410c;background:#ffedd5}.chip-other{color:#475569;background:#f1f5f9}
+.final-route {padding:14px;border-radius:12px;margin:10px 0;border:2px solid}
+.final-scifi {border-color:#06b6d4;background:rgba(6,182,212,.10)}
+.final-dog {border-color:#f97316;background:rgba(249,115,22,.10)}
+.save-warning {border:2px solid #dc2626;background:rgba(220,38,38,.09);padding:12px;border-radius:10px;font-weight:700}
+.global-dashboard{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:10px;margin:16px 0 10px}
+.dashboard-card{background:#f0f0ed;border:1px solid #d0d0ca;border-radius:12px;padding:12px 14px;min-width:0;color:#003049;box-shadow:0 2px 5px rgba(0,48,73,.08)}
+.dashboard-card .dash-label{font-size:.76rem;text-transform:uppercase;letter-spacing:.055em;color:#003049;font-weight:800}
+.dashboard-card .dash-value{font-size:1.5rem;font-weight:850;line-height:1.35;color:#d62828;font-variant-numeric:tabular-nums}
+.dashboard-card .dash-sub{font-size:.78rem;color:#475569}
+.dashboard-card .dash-track{height:5px;background:#d8d8d2;border-radius:9px;margin-top:8px;overflow:hidden}
+.dashboard-card .dash-fill{height:100%;width:0;background:#f77f00;transition:width .2s}
+.dashboard-title{margin:18px 0 0;font-size:1rem;color:#eae2b7}
+</style>
+
+
+<style>
+.part-group{border:2px solid #64748b;border-radius:14px;margin:14px 0;overflow:hidden;background:rgba(100,116,139,.04)}
+.part-group>.part-summary{padding:14px 16px;background:rgba(100,116,139,.12);display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;cursor:pointer;list-style:none}
+.part-group>.part-summary::-webkit-details-marker{display:none}
+.part-group>.part-summary>strong{font-size:1.05rem}
+.part-content{padding:8px 12px 12px}
+.part-content>.chapter{margin:10px 0;border-color:rgba(148,163,184,.35)}
+.part-content>.chapter>summary{padding:10px 12px}
+.part-content>.chapter .content{padding:10px}
+</style>
+
+
+<style>
+.no-return-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;padding:10px 12px;margin:10px 0;border:1px solid #dc2626;background:rgba(220,38,38,.08);border-radius:10px}
+.no-return-flag{display:inline-flex;align-items:center;justify-content:center;color:#dc2626;font-size:1.1rem;font-weight:900;min-width:22px;margin-right:6px}
+.item.priority-no-return{border-left:4px solid #dc2626;background:rgba(220,38,38,.08)}
+.item.priority-no-return .no-return-flag{color:#dc2626}
+.item.priority-no-return .txt{font-weight:600}
+</style>
+
+
+<style>
+.location-tag{display:inline-flex;align-items:center;gap:4px;font-size:.8rem;line-height:1.35;color:#111827 !important;background:#fef3c7;border:1px solid #d97706;border-radius:6px;padding:4px 8px;margin:5px 0 0 0;white-space:normal;font-weight:700;text-shadow:none;opacity:1}
+.location-tag .pin{font-size:.8rem}
+.item .record-body{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1}
+.item .txt{display:block}.location-tag,.location-tag *{color:#111827 !important;opacity:1 !important}.location-tag .pin{color:#b91c1c !important}
+</style>
+
+</head>
+<body>
+<header><main>
+<h1>Silent Hill: Townfall</h1><p>Checklist de trofeos · documentos y pistas en secciones separadas, postales, llamadas, contenedores y finales NG+</p>
+<section class="filter-panel" aria-label="Filtros del reporte">
+  <h2>Filtros del reporte</h2>
+  <div class="filter-sections">
+    <div class="filter-section location-filters"><h3>Ubicación</h3><div class="filter-controls">
+      <label for="partFilter">Parte<select id="partFilter" aria-label="Filtrar por Parte"><option value="all">Todas las Partes</option></select></label>
+      <label for="chapterFilter">Capítulo<select id="chapterFilter" aria-label="Filtrar por capítulo"><option value="all">Todos los capítulos</option></select></label>
+    </div></div>
+    <div class="filter-section objective-filters"><h3>Objetivos</h3><div class="filter-controls">
+      <label for="trophyFilter">Trofeo / categoría<select id="trophyFilter" aria-label="Filtrar por trofeo"><option value="all">Todos los trofeos</option><option value="docs">Observation / Thorough Inspection</option><option value="postcards">Blur Your Eyes</option><option value="calls">Cold Calling</option><option value="resources">Resourceful</option><option value="scifi">Sci-fi-lent Hill</option><option value="dog">Let’s Talk This Out (Perro)</option><option value="other">Otros objetivos / notas</option></select></label>
+      <label for="filter">Estado<select id="filter"><option value="all">Todos los objetivos</option><option value="open">Solo capítulos incompletos</option><option value="remaining">Solo objetivos pendientes</option></select></label>
+      <label for="search">Buscar<input id="search" type="search" placeholder="Objeto, capítulo o número…" aria-label="Buscar"></label>
+    </div></div>
+    <div class="filter-section actions-filters"><h3>Acciones</h3><div class="filter-controls action-controls">
+      <button id="expand">Abrir capítulos</button><button id="collapse">Cerrar capítulos</button><button id="export">Exportar progreso</button><button id="reset">Borrar marcas</button>
+    </div></div>
+  </div>
+</section>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="summary"><span id="count">0 marcados</span><span>El progreso se guarda en este navegador (localStorage).</span></div>
+<h2 class="dashboard-title">Control total del reporte</h2>
+<div class="global-dashboard" id="globalDashboard" aria-live="polite">
+  <div class="dashboard-card" data-dash="all"><div class="dash-label">Progreso global</div><div class="dash-value">0%</div><div class="dash-sub">0 de 0 objetivos</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="docs"><div class="dash-label">Documentos y pistas</div><div class="dash-value">0/0</div><div class="dash-sub">Observation / Thorough Inspection</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="postcards"><div class="dash-label">Postales</div><div class="dash-value">0/0</div><div class="dash-sub">Blur Your Eyes</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="calls"><div class="dash-label">Llamadas</div><div class="dash-value">0/0</div><div class="dash-sub">Cold Calling</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="resources"><div class="dash-label">Contenedores</div><div class="dash-value">0/0</div><div class="dash-sub">Resourceful</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="endings"><div class="dash-label">Finales</div><div class="dash-value">0/0</div><div class="dash-sub">Sci-fi y Perro</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+</div>
+
+</main></header>
+<main>
+<div class="notice"><strong>Guardado para finales:</strong> en el capítulo 15, crea un guardado manual separado antes del lector de la Strange Access Card. Usa la tarjeta para Sci-fi; después carga ese guardado, no uses la tarjeta y continúa por la ruta normal para intentar el final Perro. No sobrescribas el guardado hasta confirmar ambos trofeos.</div>
+
+
+<div class="no-return-legend"><span class="no-return-flag" aria-hidden="true">✈</span><strong>PRIORIDAD — hacerlo antes de avanzar:</strong> objetivo marcado como potencialmente perdible o punto sin retorno. Revisa estos registros antes de abandonar la zona o capítulo.</div>
+
+<div id="checklist"></div>
+<section class="chapter" style="padding:16px;margin:12px 0">
+  <h2>Resumen de trofeos de coleccionables</h2>
+  <p>Marca cada objeto cuando lo hayas recogido, llamado, sintonizado o abierto. El progreso de estas categorías es acumulativo entre partidas, pero no hay selección de capítulos y no puedes volver libremente a zonas anteriores.</p>
+  <ul>
+    <li><strong>Observation:</strong> conseguir al menos el 50% de los 85 documentos y pistas.</li>
+    <li><strong>Thorough Inspection:</strong> conseguir los 85 documentos y pistas.</li>
+    <li><strong>Blur Your Eyes:</strong> recoger las 15 postales extrañas.</li>
+    <li><strong>Cold Calling:</strong> llamar a los 13 números y escuchar cada mensaje completo.</li>
+    <li><strong>Resourceful:</strong> abrir los 7 contenedores de recursos con sus llaves correspondientes.</li>
+  </ul>
+  
+<div class="trophy-legend" aria-label="Leyenda de colores por trofeo">
+  <span class="trophy-chip chip-docs">Azul · Observation / Thorough Inspection</span>
+  <span class="trophy-chip chip-postcards">Morado · Blur Your Eyes</span>
+  <span class="trophy-chip chip-calls">Turquesa · Cold Calling</span>
+  <span class="trophy-chip chip-resources">Verde · Resourceful</span>
+  <span class="trophy-chip chip-scifi">Cian · Final Sci-fi</span>
+  <span class="trophy-chip chip-dog">Naranja · Final Perro</span>
+</div>
+<section class="chapter" style="padding:16px;margin:12px 0">
+  <h2>Guardado estratégico para los finales</h2>
+  <p class="save-warning">NO sobrescribas este guardado: es el punto de retorno para conseguir ambos finales en NG+.</p>
+  <div class="final-route final-scifi">
+    <h3>Final Sci-fi-lent Hill · Cian</h3>
+    <label class="item" data-trophy="scifi" data-text="crear guardado manual antes de usar strange access card"><input type="checkbox"> Crear un guardado manual en una ranura independiente antes de usar la Strange Access Card.</label>
+    <label class="item" data-trophy="scifi" data-text="verificar requisitos sci-fi monedas libros"><input type="checkbox"> Confirmar que completaste los requisitos de la ruta Sci-fi (libros y monedas requeridos).</label>
+    <label class="item" data-trophy="scifi" data-text="usar strange access card y terminar"><input type="checkbox"> Cargar ese guardado, usar la Strange Access Card y terminar la ruta.</label>
+  </div>
+  <div class="final-route final-dog">
+    <h3>Final Let's Talk This Out (Perro) · Naranja</h3>
+    <label class="item" data-trophy="dog" data-text="recargar guardado estratégico antes de la tarjeta"><input type="checkbox"> Recargar el mismo guardado estratégico anterior a la tarjeta.</label>
+    <label class="item" data-trophy="dog" data-text="no usar strange access card"><input type="checkbox"> No usar la Strange Access Card.</label>
+    <label class="item" data-trophy="dog" data-text="seguir ruta perro y hablar con richard al final del muelle"><input type="checkbox"> Seguir la ruta Perro y completar el encuentro final con Richard.</label>
+  </div>
+  <p class="small">Consejo: antes de llegar al lector, conserva también tu guardado normal en otra ranura. Los requisitos exactos de finales pueden depender de los objetos/acciones previas; verifica la guía de finales si te falta alguno.</p>
+</section>
+
+  <p><strong>Guías de referencia:</strong>
+    <a href="https://www.powerpyx.com/silent-hill-townfall-collectible-guide-100-walkthrough/" target="_blank" rel="noopener">todos los coleccionables por capítulo</a> ·
+    <a href="https://www.townfallguide.online/guides/collectibles" target="_blank" rel="noopener">índice de coleccionables</a>
+  </p>
+</section>
+
+<footer>Nota de precisión: las ubicaciones y nombres están reunidos a partir de la ruta trabajada en esta conversación y pueden contener errores de guía. Si un objeto no aparece en tu versión, verifica el mapa/diario del juego antes de avanzar. Los checks son un registro personal; no leen automáticamente el progreso del juego.</footer>
+</main>
+<script>
+const data = [
+{part:"PARTE 1 · ARRIVAL",chapter:"Capítulo 1 — Cold Open",groups:[
+["Documentos y pistas",["Boat Tour Cancelled Notice — puerta del edificio pequeño del muelle.","Shorefront Family Clinic Notice — pared junto a la clínica, Town Square."]],
+["Postales extrañas",[]],
+["Llamadas",["900 — Emergency Services: teléfono de Town Square; usa el volante Your Local Services.","010 — Operator: número del mismo volante.","100 — Save Yourself: llamada de guardado indicada en el volante.","496 0496 — Tourist Center: número en la parte inferior del mapa de Shorefront."]],
+["Final Perro",["Recoger la moneda de bronce en la habitación trasera de VIDEO STAR, en West Shore Road.","Depositar la moneda de bronce en el banco Guide Dogs de Main Street, frente a la farmacia."]]]},
+{part:"PARTE 1 · ARRIVAL",chapter:"Capítulo 2 — Escape",groups:[
+["Documentos y pistas",["Room Service Card — mesa donde recoges el CRTV.","Hotel Room Note — mostrador del baño.","Hotel Reception Notice — recepción, al bajar del ascensor."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]],["Señales CRTV",["Señal CRTV #1 — Hotel de la Otra Dimensión, habitación 204: sintoniza aproximadamente el canal 50 y guarda la emisión de vídeo.","Señal CRTV #2 — Hotel de la Otra Dimensión, habitación 204: sintoniza aproximadamente el canal 60 y guarda la emisión de vídeo."]]]},
+{part:"PARTE 1 · ARRIVAL",chapter:"Capítulo 3 — A Connection",groups:[
+["Documentos y pistas",["Vigil and Protest Flyer — banco frente al cartel LET THE FERRIES IN.","Hand Delivered Letter — mesa de la sala de Zoe.","Organ Transplant Card — suelo del baño de arriba.","Power Card Credit Guide — bajo las escaleras; entra agachado.","Newsagents Note — mostrador de Peters Newsagent.","Zoe’s Email: Your Letter / Please Report In / For Attending… — lee los tres correos del ordenador de Zoe."]],
+["Postales extrañas",["#1 — mostrador de VIDEO STAR, al oeste de Town Square."]],
+["Llamadas",["496 0244 — Haldane Hotel: número de Hotel Reception Notice; llama tras salir del hotel.","496 0842 — Unknown: confirmar el número y la secuencia en la guía del teléfono del juego."]],
+["Final Sci-fi",["Examinar el primer libro extraño junto a la cama del dormitorio de Zoe."]],["Señales CRTV",["Señal CRTV #3 — Shorefront District – South, al comienzo del capítulo en la calle: sintoniza aproximadamente el canal 45."]]]},
+{part:"PARTE 1 · ARRIVAL",chapter:"Capítulo 4 — Searching for Zoe",groups:[
+["Documentos y pistas",["Note on Patient Records — cajón del Dr. Stevenson.","Resignation Letter — consulta de Z. Ellis, junto a la báscula.","Clinic emails / Reception Answer Phone Message — abre y lee los mensajes del ordenador de Z. Ellis.","Nurse’s Rounds Form — mostrador de recepción.","Restock Issues — mostrador de la farmacia.","Feeling Sick Note — apartamento 1/2, segundo piso, dormitorio izquierdo.","Jess’s Door Note — puerta trasera de la casa de Jess.","Task Assignment — mostrador de la cocina de Jess.","Jess Legal Advice — mesa de la sala de Jess."]],
+["Postales extrañas",["#2 — callejón trasero del edificio 3, junto al contenedor, entrando por el sur de St. Amelia Park.","#3 — extremo oeste de Farrow Street, pared del callejón sin salida.","#4 — apartamento 1/2, segundo piso, dormitorio sureste, al pie de la cama."]],["Llamadas",[]],["Finales",[]],["Señales CRTV",["Señal CRTV #4 — Shorefront District – South, al acercarte a Town Square: sintoniza aproximadamente el canal 17.","Señal CRTV #5 — Farmacia (edificio 7), habitación trasera: interactúa con la radio de la mesa y alinea los canales RGB; señal del canal 30."]],["Contenedores de recursos",["Contenedor #1 — Shorefront District – South, edificio de apartamentos al sur del número 14, apartamento 0/1, sala de estar: abre la caja azul con la llave.","Llave del contenedor #1 — Casa de Jess, cajón de la cocina. Recógela antes de salir de la zona."]]]},
+{part:"PARTE 2 · ZOE",chapter:"Capítulo 5 — Zoe Rounds",groups:[
+["Documentos y pistas",["Water Warning — mesa de la sala de Zoe.","Zoe’s Email: Coming Back — ordenador de Zoe.","Jane Chalmer’s Obituary — estante central del cobertizo de Community Gardens.","St. Amelia Standard — mesa de la sala de Mr. Stewart.","Medical Security Note — ventana de la garita frente al centro médico.","Community Help Needed — primera mesa a la derecha del aparcamiento.","Exhausted Supplies — cama de la tienda al fondo a la izquierda."]],
+["Postales extrañas",[]],["Llamadas",["0163 296 0595 — St. Amelia District Council: número al pie de Water Warning; llama desde el teléfono de Zoe.","496 0103 — Zoe Ellis: revisa el teléfono/carpeta junto al contestador en casa de Mr. Stewart; llama como Zoe.","496 0556 — D. Glenn: número de Medical Security Note, frente al centro médico."]],["Finales",[]]]},
+{part:"PARTE 2 · ZOE",chapter:"Capítulo 6 — Journey to Medical",groups:[
+["Documentos y pistas",["Scaffold Notice — puerta del apartamento al sur del centro médico.","Handwritten Note — apartamento 1/1, segundo piso, mesa de la sala.","Press Photos Note.txt — correo del ordenador del apartamento 2/2, tercer piso.","Photo1.jpg y Photo2.jpg — imprime ambos archivos desde el ordenador y recógelos en la impresora de la cocina."]],
+["Postales extrañas",["#5 — The Wynds: callejón al oeste de la cabina telefónica, baja las escaleras; junto a unas botas.","#6 — apartamento al sur del centro médico: sal por la puerta trasera y revisa el último cobertizo a la izquierda."]],
+["Llamadas",[]],
+["Final Sci-fi",["Resolver la puerta de símbolos del hotel según la pista del juego.","Recoger la Strange Access Card en la habitación desbloqueada, junto a la estatua del elefante."]],["Señales CRTV",["Señal CRTV #6 — Shorefront District – South, al salir de la clínica: sintoniza aproximadamente el canal 63.","Señal CRTV #7 — edificio de apartamentos al sur del Medical Centre, segundo piso: interactúa con la radio y alinea los canales RGB; canal aproximado 25."]],["Contenedores de recursos",["Contenedor #2 — Shorefront District – North, edificio de apartamentos al sur del Medical Centre, rellano del cuarto piso, sobre una mesa.","Llave del contenedor #2 — mismo edificio, apartamento 1/1 del segundo piso, sobre la cama de la habitación con el enemigo."]]]},
+{part:"PARTE 3 · THE PATIENT",chapter:"Capítulo 7 — The Patient",groups:[
+["Documentos y pistas",["Supply Situation Update / RE: Supply Situation Update — correos de Consult Room B, planta baja de Victoria Ward.","Unrealistic Expectations / Dailies – Infusion Status — correos del ordenador de Chapman Ward, primer piso.","Dailies – Records Room Code — tablero de la oficina superior izquierda de Chapman Ward.","Equipment Cleanup Notice — cama del pasillo del sótano de Victoria Ward."]],
+["Postales extrañas",[]],["Llamadas",["5353 — Hospital Storage: usa el número que aparece en la pista correspondiente desde el teléfono indicado."]],["Finales",[]]]},
+{part:"PARTE 3 · THE PATIENT",chapter:"Capítulo 8 — Many Into One",groups:[
+["Documentos y pistas",["Zoe’s Patient List — habitación al final del pasillo derecho; entra por el conducto y revisa la mesa junto al reproductor de cintas."]],
+["Postales extrañas",["#7 — X-Ray: abre con el código 7103; mostrador del fondo.","#8 — Ward W, habitación 06, sobre la mesa.","#9 — Ward P, habitación 08, dentro del armario médico de pared."]],["Llamadas",[]],["Finales",[]],["Señales CRTV",["Señal CRTV #8 — Medical Centre – Different, a través del hueco estrecho: interactúa con la radio y alinea los canales RGB; canal aproximado 28."]],["Contenedores de recursos",["Contenedor #3 — Medical Centre – Different, Ward S, habitación 01 (en el suelo); se abre con su llave.","Llave del contenedor #3 — Ward W, habitación 11, dentro del armario de llaves."]]]},
+{part:"PARTE 4 · CLARA WOODS",chapter:"Capítulo 9 — Begin Again",groups:[
+["Documentos y pistas",["Harbour Notice — barandilla a la izquierda del barco, junto a la rampa; recógelo antes de seguir.","Store Staff Notice — mostrador de la tienda accesible por la calle izquierda."]],
+["Postales extrañas",["#10 — en el cruce, toma el camino derecho; pasa el cadáver colgado, entra por el callejón y los dos portones; busca en el cobertizo."]],
+["Llamadas",[]],["Final Perro",["Recoger la moneda de plata en el cobertizo del patio de Clara Woods, tomando el camino derecho en el cruce."]]]},
+{part:"PARTE 4 · CLARA WOODS",chapter:"Capítulo 10 — Missing Parts",groups:[
+["Documentos y pistas",["Atlas Square Apartment Note — apartamento al noreste de Atlas Square, repisa a la izquierda del televisor.","Lost and Found / CEG Employee Locker List — correos del ordenador del edificio de taquillas.","CEG Lockers Managers Note — cajón del escritorio de la oficina trasera.","Gaming Magazine — 5 South Brae, dormitorio de arriba a la izquierda.","Reciprocating Compressor — impresora después del puzle del disquete.","Lamenting Poem — 6 North Brae, segundo dormitorio de arriba, silla.","The Code Today — 5 Upper Brae, habitación superior izquierda, mesa.","The Code Before — Tape: Yesterday, mesa de la cocina.","The Code After — Tape: Tomorrow, sala de estar de abajo.","Current Count — inserta Ammonite Disk en el ordenador con Tape: Yesterday y lee el archivo."]],
+["Postales extrañas",["#11 — apartamento de arriba, dormitorio posterior izquierdo, cajón de la cómoda.","#12 — rompe el escaparate de la tienda frente a Atlas Computers; mesa del interior.","#13 — callejón sin salida del Overpass, esquina sureste, junto al carrito metálico.","#14 — Upper Brae: selecciona Tape: Tomorrow, sal por la puerta trasera con Back Door Key y entra agachado al cobertizo; mesa."]],
+["Llamadas",["946 — W H O Dial Back Service: cartel a la derecha de la cabina telefónica donde comienza el capítulo.","496 0112 — Unknown: confirma el número y devuelve la llamada desde la cabina según las pistas del juego.","496 0993 — CEG Lockers: número asociado a las pistas de códigos de taquillas."]],
+["Final Perro",["Conseguir los Bolt Cutters y abrir la verja del callejón detrás del edificio de correos.","Depositar la moneda de plata en el banco Guide Dogs de la lavandería."]],
+["Final Sci-fi",["Examinar el segundo libro extraño en el estante de la tienda del suroeste de Atlas Square."]],["Señales CRTV",["Señal CRTV #9 — tienda antes del letrero del mapa de Clara Woods: interactúa con la radio y alinea RGB; canal 61.","Señal CRTV #10 — al final de Atlas Way, junto a Strange Gate: sintoniza aproximadamente el canal 62.","Señal CRTV #11 — a la izquierda del aparcamiento de empleados de CEG: sintoniza aproximadamente el canal 67.","Señal CRTV #12 — 5 South Brae, sala de estar, radio a la izquierda del televisor: alinea RGB en el canal 59.","Señal CRTV #13 — edificio CEG Lockers, después de abrir la taquilla 17: sintoniza aproximadamente el canal 59.","Señal CRTV #14 — al salir de 5 Upper Brae después del puzle de las cintas: sintoniza aproximadamente el canal 29.","Señal CRTV #15 — pasillo de CEG Lockers, después de recoger las piezas mecánicas: sintoniza aproximadamente el canal 65."]],["Contenedores de recursos",["Contenedor #4 — Clara Woods Estate, edificio de apartamentos al noreste de Atlas Square, planta baja, mostrador de la cocina.","Llave del contenedor #4 — tienda Post Service en Atlas Way, dentro de la caja registradora del mostrador.","Contenedor #5 — edificio CEG Lockers, oficina trasera, sobre una mesa.","Llave del contenedor #5 — lavandería al final del callejón detrás de Post Service, encima de una lavadora."]]]},
+{part:"PARTE 4 · CLARA WOODS",chapter:"Capítulo 11 — Inside CEG HQ",groups:[
+["Documentos y pistas",["Box IDs and Names — atril al fondo del vestíbulo.","Grid of Codes — papelera de Maintenance.","Grid of Codes — papelera de Security; combina ambas pistas en el inventario.","CEG Security: Out of Hours Access / Urgent Message — correos del ordenador de Security.","Employee File Cover Note — dentro de la caja de Richard."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]},
+{part:"PARTE 5 · RICHARD",chapter:"Capítulo 12 — Richard",groups:[
+["Documentos y pistas",["Construction Halted Notice — primer edificio del aparcamiento, segunda habitación izquierda, mesa del fondo.","CEG Kiosk Note — segundo edificio, entra por el garaje; mesa a la derecha.","CEG Memo — oficina del gerente, escritorio izquierdo.","Facilities: Works Halted / DONTREAD.DOC — correos del ordenador del primer edificio tras restablecer la energía."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]},
+{part:"PARTE 5 · RICHARD",chapter:"Capítulo 13 — Richard: Another Attempt",groups:[
+["Documentos y pistas",["CEG Tower Meeting Minutes — sala de reuniones del tercer piso, esquina sureste.","CEG Tower: Evening News / CEG Tower: Engineer Public Statement — correos del ordenador de PR.","PR Meeting Note — archivador de la pequeña sala sur de PR.","Richard’s Note — suelo junto al cadáver, sala sureste de PR.","CEG Checkout Sheet — armario GENERAL STORAGE del cuarto piso.","CEG Tower: He’s Done — correo del ordenador fuera de la oficina del CEO, décimo piso."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]},
+{part:"PARTE 6 · SIMON",chapter:"Capítulo 14 — Fix This",groups:[
+["Documentos y pistas",["Ordell File — escritorio al recuperar el control de Simon, décimo piso.","CEG Tower: What did you do? — correo del ordenador exterior a la oficina.","Reference Sheet — mesa a la derecha al entrar en la nueva zona."]],
+["Postales extrañas",["#15 — conductos de CEG HQ: tras la escalera corta y la rejilla, gira a la derecha y después a la izquierda en el cruce de cuatro vías; al fondo."]],
+["Llamadas",[]],["Finales",[]],["Señales CRTV",["Señal CRTV #16 — CEG HQ – Different, escritorio junto al puzle del pilar: interactúa con la radio y alinea RGB; canal 42.","Señal CRTV #17 — CEG HQ – Different, habitación lateral de los conductos después del puzle del pilar: interactúa con la radio y alinea RGB; canal 42."]]]},
+{part:"PARTE 6 · SIMON",chapter:"Capítulo 15 — Trying Again",groups:[
+["Documentos y pistas",["SWDP: Ordell Site Visit — correo del ordenador en la sala noreste tras el ascensor.","RCU Refit Note — cama después de pasar por el hueco de la pared.","Photo of Joe McKenzie — marco de la puerta tras el hueco.","Remote Systems Control — a la derecha del panel de la sala de control.","Auxiliary Lines — inserta AUX Disk en el ordenador y lee el archivo.","Clamp Release Procedure — impresora de la sala de control tras girar la válvula F."]],
+["Final Sci-fi",["Abrir la habitación 621 desde el panel Remote Systems Control y examinar el libro extraño 3.","Abrir el lector de la Strange Access Card para activar la ruta Sci-fi (después del guardado)."]],
+["Final Perro",["Abrir la habitación 793 desde el panel y recoger la moneda de oro de la consola.","Depositar la moneda de oro en el banco Guide Dogs al final del pasillo rojo, en el cruce de cuatro direcciones, después de soltar el contenedor."]],
+["Guardados y finales",["Crear un guardado manual en una ranura separada antes del lector de tarjetas del pasillo final. No sobrescribirlo.","Usar la Strange Access Card y completar la secuencia para obtener Sci-fi-lent Hill.","Cargar el guardado anterior al lector; no usar la tarjeta esta vez.","Continuar por la ruta normal y derrotar al jefe final.","Caminar hasta Richard al final del muelle para intentar activar Let's Talk This Out."]],["Señales CRTV",["Señal CRTV #18 — SWDP – Different, litera después de la habitación de la llave JOE: interactúa con la radio y alinea RGB; canal aproximado 55."]],["Contenedores de recursos",["Contenedor #6 — SWDP – Different, sala de control, a la derecha del panel.","Llave del contenedor #6 — planta principal de SWDP, sube por las escaleras del sur y entra en la habitación oeste; sobre el mostrador.","Contenedor #7 — SWDP – Different, sala larga del este con válvulas, después de abrir la puerta 621 desde el panel; sobre una mesa.","Llave del contenedor #7 — planta inferior de SWDP, habitación de la esquina noroeste, sobre el mostrador."]]]},
+{part:"PARTE 6 · SIMON",chapter:"Capítulo 17 — Returning",groups:[
+["Documentos y pistas",["Crew Patch — mono de trabajo en la playa; pasa de largo las escaleras sin subir."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]}
+,
+{part:"TROFEOS · CIERRE",chapter:"Verificación final de trofeos",groups:[
+["Coleccionables",[
+"Observation — confirmar que el juego registró al menos 43 de 85 documentos y pistas.",
+"Thorough Inspection — confirmar los 85 documentos y pistas.",
+"Blur Your Eyes — confirmar las 15 postales extrañas.",
+"Cold Calling — confirmar las 13 llamadas completas.",
+"Sweeping Signals — confirmar las 18 señales CRTV de vídeo.",
+"Resourceful — confirmar los 7 contenedores abiertos."
+]],
+["Finales NG+",[
+"Sci-fi-lent Hill — terminar usando la Strange Access Card después de crear un guardado manual.",
+"Let's Talk This Out (Perro) — cargar el guardado previo, no usar la tarjeta y hablar con Richard al final del muelle."
+]]]}
+
+];
+// Separar el grupo combinado en dos secciones visibles.
+// La clasificación se basa en el tipo de elemento descrito en el checklist.
+const pistaTerms = /\b(photo\d?\.jpg|\.txt\b|\.doc\b|email|emails|computer file|archivo|remote systems control|auxiliary lines|current count|the code (today|before|after)|grid of codes|reciprocating compressor|ammonite disk|tape:|reference sheet|room service card|organ transplant card|power card|press photos|code|código|photo of|photo1|photo2|clamp release procedure|strange access card)\b/i;
+data.forEach(ch => {
+  const split = [];
+  ch.groups.forEach(g => {
+    if (g[0] !== "Documentos y pistas") { split.push(g); return; }
+    const docs = [], clues = [];
+    g[1].forEach(item => (pistaTerms.test(item) ? clues : docs).push(item));
+    if (docs.length) split.push(["Documentos", docs]);
+    if (clues.length) split.push(["Pistas", clues]);
+  });
+  ch.groups = split;
+});
+const root=document.getElementById('checklist'), key='silentHillTownfallChecklistV2';
+let state={};try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch(e){} update()}
+function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function getAreaLabel(ch, groupName, itemText){
+ const chapter=(ch.chapter||'').toLowerCase(), part=(ch.part||'').toLowerCase(), item=itemText.toLowerCase(), group=groupName.toLowerCase();
+ // Prefer the specific named area mentioned in the entry, then add the chapter's broad region.
+ const hints = [
+  ['video star','VIDEO STAR / West Shore Road'],['town square','Town Square / cabina telefónica'],
+  ['peters newsagent','Peters Newsagent'],['zoe','Casa de Zoe'],['jess','Casa de Jess'],
+  ['clinic','Clínica / Medical Centre'],['medical centre','Clínica / Medical Centre'],
+  ['hospital','Medical Centre / hospital'],['victoria ward','Victoria Ward'],['chapman ward','Chapman Ward'],
+  ['ceg lockers','CEG Lockers'],['ceg hq','CEG HQ'],['ceg tower','CEG Tower'],
+  ['atlas square','Atlas Square'],['upper brae','Upper Brae'],['north brae','North Brae'],
+  ['south brae','South Brae'],['clara woods','Clara Woods'],['overpass','Overpass'],['the wynds','The Wynds'],
+  ['hotel','Hotel / Otro Mundo'],['shorefront','Shorefront'],['apartment','Bloques de apartamentos'],
+  ['pharmacy','Farmacia'],['pier','Muelle'],['beach','Playa'],['parking','Aparcamiento'],
+  ['room 621','CEG HQ · habitación 621'],['room 793','CEG HQ · habitación 793'],
+  ['red-lit corridor','Pasillo rojo final'],['bank guide dogs','Banco Guide Dogs']
+ ];
+ for(const [term,area] of hints){if(item.includes(term)) return area;}
+ if(chapter.includes('cold open')) return 'Shorefront South · muelle y Town Square';
+ if(chapter.includes('escape')) return 'Hotel · habitación del Otro Mundo';
+ if(chapter.includes('a connection')) return 'Shorefront South · Town Square / alrededores';
+ if(chapter.includes('searching for zoe')) return 'Shorefront South · clínica, apartamentos y casa de Jess';
+ if(chapter.includes('zoe rounds')) return 'Casa de Zoe / casa de Mr. Stewart / Medical Centre';
+ if(chapter.includes('journey to medical')) return 'Shorefront South · The Wynds y apartamentos al sur de la clínica';
+ if(chapter.includes('the patient')) return 'Medical Centre · Victoria Ward / Chapman Ward';
+ if(chapter.includes('many into one')) return 'Medical Centre alterado · salas y wards';
+ if(chapter.includes('begin again')) return 'Clara Woods · cruce, barco y cobertizos';
+ if(chapter.includes('missing parts')) return 'Clara Woods · Atlas Square / Upper Brae';
+ if(chapter.includes('inside ceg')) return 'Clara Woods · CEG Lockers / edificio CEG';
+ if(chapter.includes('richard: another attempt')) return 'CEG Tower · pisos y oficinas';
+ if(chapter.includes('richard')) return 'Zona de Richard · aparcamiento / edificios CEG';
+ if(chapter.includes('fix this')) return 'CEG HQ · planta 10 y conductos';
+ if(chapter.includes('trying again')) return 'CEG HQ / instalación SWDP · zona final';
+ if(chapter.includes('returning')) return 'Playa · zona final';
+ if(chapter.includes('contenedores')) return 'Varias zonas · llave y contenedor de la misma área';
+ if(chapter.includes('verificación final')) return 'Resumen de trofeos · todas las Partes';
+ return ch.part ? ch.part.replace('PARTE','Parte') : 'Ubicación indicada en la descripción';
+}
+
+function render(){
+ root.innerHTML='';
+ const partMap = new Map();
+ data.forEach((ch,ci)=>{
+  const partName=ch.part || 'OTROS';
+  if(!partMap.has(partName)){
+    const part=document.createElement('details');
+    part.className='part-group'; part.open=false; part.dataset.part=partName;
+    part.innerHTML=`<summary class="part-summary"><strong>${esc(partName)}</strong><span class="progress-meta" data-progress="part"><span class="counts">0/0 completados · 0 pendientes</span><span class="pct">0%</span><span class="progress-mini"><span></span></span></span></summary><div class="part-content"></div>`;
+    partMap.set(partName,part); root.appendChild(part);
+  }
+  const part=partMap.get(partName), partContent=part.querySelector('.part-content');
+  const det=document.createElement('details');det.className='chapter';det.open=false;det.dataset.chapter=ch.chapter;
+  const sum=document.createElement('summary');sum.innerHTML=`<div class="chapter-progress"><strong>${esc(ch.chapter)}</strong><span class="progress-meta" data-progress="chapter"><span class="counts">0/0 completados</span><span class="pct">0%</span><span class="progress-mini"><span></span></span></span></div>`;det.appendChild(sum);
+  const content=document.createElement('div');content.className='content';
+  ch.groups.forEach((g,gi)=>{
+   if(g[0].toLowerCase().includes('crtv') || g[0].toLowerCase().includes('señales')) return;
+   if(!g[1].length)return;
+   const sec=document.createElement('section');sec.className='group';
+   sec.innerHTML=`<h4><span>${esc(g[0])}</span><span class="section-progress" data-progress="section"><strong>0/0</strong> completados · 0% · 0 pendientes</span></h4>`;
+   g[1].forEach((txt,ti)=>{
+    const id=`${ci}-${gi}-${ti}`, label=document.createElement('label');
+    label.className='item'+(state[id]?' done':''); label.dataset.text=(ch.chapter+' '+g[0]+' '+txt).toLowerCase();
+    const gn=g[0].toLowerCase(), it=txt.toLowerCase(); let trophy='other';
+    if(gn.includes('documentos')||gn==='documentos'||gn.includes('pistas')||it.includes('observation')||it.includes('thorough inspection')) trophy='docs';
+    if(gn.includes('postales')||it.includes('blur your eyes')) trophy='postcards';
+    if(gn.includes('llamadas')||it.includes('cold calling')) trophy='calls';
+    if(gn.includes('contenedores')||it.includes('resourceful')) trophy='resources';
+    if(gn.includes('final sci-fi')||it.includes('sci-fi-lent hill')||it.includes('libro extraño')||it.includes('strange access card')) trophy='scifi';
+    if(gn.includes('final perro')||it.includes('perro')||it.includes('guide dogs')||it.includes('richard al final del muelle')) trophy='dog';
+    label.dataset.trophy=trophy;
+    const priorityText = (ch.chapter+' '+g[0]+' '+txt).toLowerCase();
+    const priorityTerms = [
+      'before', 'antes de', 'antes del', 'antes de avanzar', 'antes de seguir',
+      'no sobrescribir', 'guardado manual', 'strange access card',
+      'recoger la moneda', 'depositar la moneda', 'postal #', 'postal nº',
+      'postal ', 'harbour notice', 'room service card', 'crew patch',
+      'photo1.jpg', 'photo2.jpg', 'clamp release procedure', 'auxiliary lines',
+      'remote systems control', 'libro extraño', 'llama tras salir del hotel',
+      'antes de dejar la zona', 'antes de abandonar'
+    ];
+    const isPriority = priorityTerms.some(term => priorityText.includes(term));
+    if (isPriority) {
+      label.classList.add('priority-no-return');
+      label.innerHTML=`<span class="no-return-flag" title="Prioridad: posible punto sin retorno" aria-label="Prioridad: posible punto sin retorno">✈</span><input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body"><span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
+    } else {
+      label.innerHTML=`<input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body"><span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
+    }
+    sec.appendChild(label);
+   });
+   content.appendChild(sec);
+  });
+  det.appendChild(content); partContent.appendChild(det);
+ });
+ root.addEventListener('change',e=>{
+  if(e.target.matches('input[type=checkbox][data-id]')){
+   state[e.target.dataset.id]=e.target.checked;
+   e.target.closest('.item').classList.toggle('done',e.target.checked); save(); update();
+  }
+ });
+ update();
+}
+function update(){
+ // Los filtros controlan tanto los registros visibles como los acumulados del dashboard.
+ applyFilter();
+ const checks=[...document.querySelectorAll('input[type=checkbox][data-id]')]
+   .filter(x=>x.closest('.item') && x.closest('.item').style.display!=='none');
+ const done=checks.filter(x=>x.checked).length;
+ document.getElementById('count').textContent=`${done} de ${checks.length} objetivos marcados en la selección actual`;
+ document.getElementById('bar').style.width=(checks.length?done/checks.length*100:0)+'%';
+ const dashGroups={
+  all:checks,
+  docs:checks.filter(x=>x.closest('.item')?.dataset.trophy==='docs'),
+  postcards:checks.filter(x=>x.closest('.item')?.dataset.trophy==='postcards'),
+  calls:checks.filter(x=>x.closest('.item')?.dataset.trophy==='calls'),
+  resources:checks.filter(x=>x.closest('.item')?.dataset.trophy==='resources'),
+  endings:checks.filter(x=>['scifi','dog'].includes(x.closest('.item')?.dataset.trophy))
+ };
+ Object.entries(dashGroups).forEach(([name,arr])=>{
+  const card=document.querySelector(`[data-dash="${name}"]`); if(!card)return;
+  const completed=arr.filter(x=>x.checked).length,total=arr.length,pct=total?Math.round(completed/total*100):0;
+  card.querySelector('.dash-value').textContent=name==='all'?`${pct}%`:`${completed}/${total}`;
+  card.querySelector('.dash-sub').textContent=name==='all'?`${completed} completados · ${total-completed} pendientes`:`${completed} completados · ${total-completed} pendientes · ${pct}%`;
+  card.querySelector('.dash-fill').style.width=pct+'%';
+ });
+ const statsFor=container=>{
+  const inputs=[...container.querySelectorAll('input[type=checkbox][data-id]')].filter(x=>x.closest('.item')?.style.display!=='none'),completed=inputs.filter(x=>x.checked).length,total=inputs.length,missing=total-completed;
+  return {completed,total,missing,pct:total?Math.round(completed/total*100):0};
+ };
+ document.querySelectorAll('.group').forEach(group=>{
+  const s=statsFor(group),badge=group.querySelector('[data-progress="section"]');
+  if(badge)badge.innerHTML=`<strong>${s.completed}/${s.total}</strong> completados · ${s.pct}% · ${s.missing} pendientes`;
+ });
+ document.querySelectorAll('.chapter').forEach(ch=>{
+  const s=statsFor(ch),badge=ch.querySelector('[data-progress="chapter"]');
+  if(badge){badge.querySelector('.counts').textContent=`${s.completed}/${s.total} completados · ${s.missing} pendientes`;badge.querySelector('.pct').textContent=`${s.pct}%`;badge.querySelector('.progress-mini span').style.width=s.pct+'%';}
+ });
+ document.querySelectorAll('.part-group').forEach(part=>{
+  const s=statsFor(part),badge=part.querySelector('[data-progress="part"]');
+  if(badge){badge.querySelector('.counts').textContent=`${s.completed}/${s.total} completados · ${s.missing} pendientes`;badge.querySelector('.pct').textContent=`${s.pct}%`;badge.querySelector('.progress-mini span').style.width=s.pct+'%';}
+ });
+}
+function populateLocationFilters(){
+ const partSelect=document.getElementById('partFilter'), chapterSelect=document.getElementById('chapterFilter');
+ const parts=[...new Set(data.map(ch=>ch.part||'OTROS'))];
+ parts.forEach(part=>{const o=document.createElement('option');o.value=part;o.textContent=part;partSelect.appendChild(o)});
+ function refreshChapters(){
+  const selectedPart=partSelect.value, previous=chapterSelect.value;
+  chapterSelect.innerHTML='<option value="all">Todos los capítulos</option>' ;
+  data.filter(ch=>selectedPart==='all'||ch.part===selectedPart).forEach(ch=>{const o=document.createElement('option');o.value=ch.chapter;o.textContent=ch.chapter;chapterSelect.appendChild(o)});
+  if([...chapterSelect.options].some(o=>o.value===previous)) chapterSelect.value=previous;
+ }
+ partSelect.addEventListener('change',()=>{refreshChapters();update()});
+ chapterSelect.addEventListener('change',update); refreshChapters();
+}
+function applyFilter(){const q=document.getElementById('search').value.toLowerCase().trim(),f=document.getElementById('filter').value,t=document.getElementById('trophyFilter').value,part=document.getElementById('partFilter').value,chapter=document.getElementById('chapterFilter').value;
+ document.querySelectorAll('.chapter').forEach(d=>{let items=[...d.querySelectorAll('.item')];const partName=d.closest('.part-group')?.dataset.part||'OTROS';const chapterMatch=chapter==='all'||d.dataset.chapter===chapter;const partMatch=part==='all'||partName===part;items.forEach(it=>{const match=partMatch&&chapterMatch&&(!q||it.dataset.text.includes(q))&&(f!=='remaining'||!it.querySelector('input').checked)&&(t==='all'||it.dataset.trophy===t);it.style.display=match?'flex':'none'});const groups=[...d.querySelectorAll('.group')];groups.forEach(g=>g.style.display=[...g.querySelectorAll('.item')].some(it=>it.style.display!=='none')?'block':'none');const has=items.some(it=>it.style.display!=='none');d.style.display=(f==='open'&&items.every(it=>it.querySelector('input').checked))||(!has&&(q||part!=='all'||chapter!=='all'||t!=='all'||f==='remaining'))?'none':'block';});
+ document.querySelectorAll('.part-group').forEach(p=>{const has=[...p.querySelectorAll('.chapter')].some(ch=>ch.style.display!=='none');p.style.display=has?'block':'none'});
+}
+document.getElementById('search').addEventListener('input',update);document.getElementById('filter').addEventListener('change',update);document.getElementById('trophyFilter').addEventListener('change',update);
+document.getElementById('expand').onclick=()=>document.querySelectorAll('.chapter').forEach(d=>d.open=true);
+document.getElementById('collapse').onclick=()=>document.querySelectorAll('.chapter').forEach(d=>d.open=false);
+document.getElementById('reset').onclick=()=>{if(confirm('¿Borrar todas las marcas de este checklist?')){state={};save();render()}};
+document.getElementById('export').onclick=()=>{const blob=new Blob([JSON.stringify({checklist:'Silent Hill: Townfall',exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='silent-hill-townfall-progreso.json';a.click();URL.revokeObjectURL(a.href)};
+
+// Persistencia y progreso para la lista de cierre de cada Parte.
+document.querySelectorAll('#part-clearance input[type=checkbox][data-id]').forEach(input=>{
+  const saved=localStorage.getItem('townfall-part-'+input.dataset.id);
+  if(saved==='1') input.checked=true;
+  input.addEventListener('change',()=>{
+    localStorage.setItem('townfall-part-'+input.dataset.id,input.checked?'1':'0');
+    update();
+  });
+document.querySelectorAll('.part-group').forEach(part=>{const has=[...part.querySelectorAll('.chapter')].some(ch=>ch.style.display!=='none');part.style.display=has?'block':'none'});});
+
+populateLocationFilters();
+render();
+</script>
+</body>
+</html>

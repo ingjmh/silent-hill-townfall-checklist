@@ -115,6 +115,18 @@ label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent
 .item .record-body{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1}
 .item .txt{display:block}.location-tag,.location-tag *{color:#111827 !important;opacity:1 !important}.location-tag .pin{color:#b91c1c !important}
 
+
+/* Identificación del personaje controlable para cada tarea */
+.character-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0 10px;padding:10px 12px;background:#f0f0ed;border:1px solid #d0d0ca;border-radius:11px;color:#003049}
+.character-legend-title{width:100%;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;font-weight:850;color:#003049}
+.character-tag{display:inline-flex;align-items:center;gap:4px;flex:0 0 auto;border:1px solid transparent;border-radius:5px;padding:2px 6px;font-size:.67rem;font-weight:900;line-height:1.35;letter-spacing:.035em;white-space:nowrap}
+.character-simon{color:#fff;background:#003049;border-color:#003049}
+.character-zoe{color:#49206f;background:#eadcff;border-color:#c6a4f2}
+.character-richard{color:#713f12;background:#fef0bd;border-color:#f0c35b}
+.character-summary{color:#334155;background:#e2e8f0;border-color:#cbd5e1}
+.item .record-body{gap:3px}
+@media(max-width:480px){.character-legend{padding:8px}.character-tag{font-size:.63rem;padding:2px 5px}}
+
 /* Compacto y navegación horizontal por Partes */
 body{font-size:15px;line-height:1.42}
 main{max-width:1220px;padding:12px 15px}
@@ -214,6 +226,14 @@ footer{padding:16px 0 30px}
 
 <div class="no-return-legend"><span class="no-return-flag" aria-hidden="true">✈</span><strong>PRIORIDAD — hacerlo antes de avanzar:</strong> objetivo marcado como potencialmente perdible o punto sin retorno. Revisa estos registros antes de abandonar la zona o capítulo.</div>
 
+<div class="character-legend" role="note" aria-label="Leyenda de personajes">
+ <div class="character-legend-title">Personaje que controlas para cada tarea</div>
+ <span class="character-tag character-simon">SIMON · azul</span>
+ <span class="character-tag character-zoe">ZOE · morado</span>
+ <span class="character-tag character-richard">RICHARD · amarillo</span>
+ <span class="character-tag character-summary">RESUMEN · gris</span>
+ <span class="small">La etiqueta depende del capítulo en el que se realiza la tarea.</span>
+</div>
 <div class="part-tabs-wrap">
   <div class="part-tabs-label">Navegación por partes</div>
   <nav id="partTabs" class="part-tabs" role="tablist" aria-label="Navegar entre Partes"></nav>
@@ -394,6 +414,14 @@ function getAreaLabel(ch, groupName, itemText){
  return ch.part ? ch.part.replace('PARTE','Parte') : 'Ubicación indicada en la descripción';
 }
 
+function getCharacterForChapter(ch){
+ const chapter=(ch.chapter||'').toLowerCase();
+ if(chapter.includes('verificación final')) return {key:'summary',label:'RESUMEN'};
+ if(chapter.includes('zoe rounds') || chapter.includes('the patient')) return {key:'zoe',label:'ZOE'};
+ if(chapter.includes('richard')) return {key:'richard',label:'RICHARD'};
+ return {key:'simon',label:'SIMON'};
+}
+
 function render(){
  root.innerHTML='';
  const partMap = new Map();
@@ -409,6 +437,8 @@ function render(){
   const det=document.createElement('details');det.className='chapter';det.open=false;det.dataset.chapter=ch.chapter;
   const sum=document.createElement('summary');sum.innerHTML=`<div class="chapter-progress"><strong>${esc(ch.chapter)}</strong><span class="progress-meta" data-progress="chapter"><span class="counts">0/0 completados</span><span class="pct">0%</span><span class="progress-mini"><span></span></span></span></div>`;det.appendChild(sum);
   const content=document.createElement('div');content.className='content';
+  const character=getCharacterForChapter(ch);
+  const characterBadge=`<span class="character-tag character-${character.key}" aria-label="Personaje: ${character.label}">${character.label}</span>`;
   ch.groups.forEach((g,gi)=>{
    if(g[0].toLowerCase().includes('crtv') || g[0].toLowerCase().includes('señales')) return;
    if(!g[1].length)return;
@@ -438,9 +468,9 @@ function render(){
     const isPriority = priorityTerms.some(term => priorityText.includes(term));
     if (isPriority) {
       label.classList.add('priority-no-return');
-      label.innerHTML=`<span class="no-return-flag" title="Prioridad: posible punto sin retorno" aria-label="Prioridad: posible punto sin retorno">✈</span><input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body"><span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
+      label.innerHTML=`<span class="no-return-flag" title="Prioridad: posible punto sin retorno" aria-label="Prioridad: posible punto sin retorno">✈</span><input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body">${characterBadge}<span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
     } else {
-      label.innerHTML=`<input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body"><span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
+      label.innerHTML=`<input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body">${characterBadge}<span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
     }
     sec.appendChild(label);
    });

@@ -409,6 +409,8 @@ if(!data.some(ch=>ch.chapter==='Capítulo 16 — Eraser')){
 }
 moveTaskByFragment('Capítulo 15 — Trying Again','continuar por la ruta normal y derrotar al jefe final','Capítulo 16 — Eraser','Finales');
 moveTaskByFragment('Capítulo 15 — Trying Again','caminar hasta richard al final del muelle','Capítulo 17 — Returning','Final Perro');
+const closingCh=data.find(ch=>ch.chapter==='Verificación final de trofeos');
+if(closingCh)closingCh.groups.forEach(g=>{g[1]=g[1].filter(t=>!t.toLowerCase().startsWith('sweeping signals'));});
 const cegCh=data.find(ch=>ch.chapter==='Capítulo 11 — Inside CEG HQ');
 if(cegCh&&!cegCh.groups.some(g=>g[1].some(t=>t.toLowerCase().includes('inquiry preparation notice')))){
  findGroup('Capítulo 11 — Inside CEG HQ','Documentos').push('Inquiry Preparation Notice — mostrador detrás de recepción en el vestíbulo de CEG HQ, a la derecha del mapa.');
@@ -476,6 +478,27 @@ function getAreaLabel(ch,groupName,itemText){
  ];
  exact.sort((a,b)=>b[0].length-a[0].length);
  for(const [needle,place] of exact){if(l.includes(needle))return place;}
+ if(l.includes('496 0112'))return 'Cabina telefónica al inicio de Clara Woods · llama a 946 y luego a 496 0112 desde la misma cabina';
+ if(l.includes('496 0993'))return 'CEG Employee Lockers · esquina superior izquierda de la pista de códigos/barcodes de taquillas';
+ if(l.includes('reciprocating compressor'))return '5 South Brae · impresora a la izquierda del ordenador; imprime MANUAL.EML tras resolver el puzle de disquetes';
+ if(l.includes('photo1.jpg')||l.includes('photo2.jpg'))return 'Apartamento 2/2, tercer piso · ordenador de la izquierda; imprime ambas imágenes y recógelas en la impresora de la cocina';
+ if(l.includes('remote systems control'))return 'SWDP – Different · sala de control, panel de puertas a la derecha';
+ if(l.includes('auxiliary lines'))return 'SWDP – Different · ordenador de la sala AUX; inserta AUX Disk y abre el archivo';
+ if(l.includes('clamp release procedure'))return 'SWDP – Different · impresora de la sala de control, disponible después de girar la válvula F';
+ if(l.includes('grid of codes')&&l.includes('maintenance'))return 'CEG HQ · planta baja, papelera dentro de la sala Maintenance';
+ if(l.includes('grid of codes')&&l.includes('security'))return 'CEG HQ · planta baja, papelera dentro de la sala Security; combina esta hoja con la de Maintenance';
+ if(l.includes('box ids and names'))return 'CEG HQ · vestíbulo de planta baja, atril al fondo junto a las sillas';
+ if(l.includes('employee file cover note'))return 'CEG HQ · dentro de la caja de Richard en el vestíbulo, después de abrirla';
+ if(l.includes('lost and found'))return 'CEG Employee Lockers · ordenador de la oficina trasera, bandeja de entrada del correo';
+ if(l.includes('ceg lockers managers note'))return 'CEG Employee Lockers · oficina trasera, cajón del escritorio';
+ if(l.includes('current count'))return '5 Upper Brae · ordenador de la planta alta con Tape: Yesterday; inserta Ammonite Disk y lee el archivo';
+ if(l.includes('the code before'))return '5 Upper Brae · cocina, esquina de la mesa mientras la cinta está en Tape: Yesterday';
+ if(l.includes('the code after'))return '5 Upper Brae · sala de estar de la planta baja con Tape: Tomorrow';
+ if(l.includes('ordell file'))return 'CEG Tower – Different · décimo piso, escritorio junto a Simon al recuperar el control';
+ if(l.includes('ceg tower: what did you do'))return 'CEG Tower – Different · décimo piso, ordenador fuera de la oficina del CEO';
+ if(l.includes('reference sheet'))return 'CEG Tower – Different · zona nueva, escritorio a la derecha nada más entrar';
+ if(l.includes('facilities: works halted'))return 'Aparcamiento de CEG HQ · primer edificio, habitación de la derecha; lee los dos correos antes de tomar el ascensor';
+ if(l.includes('abrir la habitación 621'))return 'SWDP – Different · sala de control, panel Remote Systems Control; abre 621 y busca el libro en la mesa junto al contenedor';
  const sep=s.indexOf(' — ');
  if(sep>=0){
   let place=s.slice(sep+3).trim().replace(/\.$/,'').replace(/\s+/g,' ');
@@ -542,10 +565,10 @@ const routeOrder={
  'Capítulo 12 — Richard: Getting Inside':['construction halted notice','ceg kiosk note','ceg memo','facilities: works halted'],
  'Capítulo 13 — Richard: Another Attempt':['ceg tower meeting minutes','ceg tower: evening news','pr meeting note','richard’s note','ceg checkout sheet','ceg tower: he’s done'],
  'Capítulo 14 — Fix This':['ordell file','ceg tower: what did you do','reference sheet','^#15 —'],
- 'Capítulo 15 — Trying Again':['llave del contenedor #6','swpd: ordell site visit','rcu refit note','photo of joe mckenzie','remote systems control','contenedor #6','auxiliary lines','llave del contenedor #7','habitación 621','contenedor #7','abrir la habitación 793','clamp release procedure','depositar la moneda de oro','crear un guardado manual','usar la strange access card','cargar el guardado anterior'],
+ 'Capítulo 15 — Trying Again':['swdp: ordell site visit','llave del contenedor #6','rcu refit note','photo of joe mckenzie','remote systems control','contenedor #6','auxiliary lines','llave del contenedor #7','habitación 621','contenedor #7','abrir la habitación 793','clamp release procedure','depositar la moneda de oro','crear un guardado manual','abrir el lector de la strange access card','usar la strange access card','cargar el guardado anterior'],
  'Capítulo 16 — Eraser':['continuar por la ruta normal y derrotar al jefe final'],
  'Capítulo 17 — Returning':['crew patch','caminar hasta richard'],
- 'Verificación final de trofeos':['observation','thorough inspection','blur your eyes','cold calling','resourceful','sci-fi-lent hill','let’s talk this out']
+ 'Verificación final de trofeos':['observation','thorough inspection','blur your eyes','cold calling','resourceful','sci-fi-lent hill',"let's talk this out"]
 };
 function routeRank(chapter,txt,pos){
  const rules=routeOrder[chapter]||[],lower=txt.toLowerCase();

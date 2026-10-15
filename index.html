@@ -114,6 +114,64 @@ label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent
 .location-tag .pin{font-size:.8rem}
 .item .record-body{display:flex;flex-direction:column;align-items:flex-start;min-width:0;flex:1}
 .item .txt{display:block}.location-tag,.location-tag *{color:#111827 !important;opacity:1 !important}.location-tag .pin{color:#b91c1c !important}
+
+/* Compacto y navegación horizontal por Partes */
+body{font-size:15px;line-height:1.42}
+main{max-width:1220px;padding:12px 15px}
+header{padding:19px 15px 15px}
+h1{font-size:clamp(1.45rem,3.5vw,2.1rem)}
+h2{font-size:1.12rem;margin-bottom:8px}
+h3{font-size:.98rem}
+p{margin:4px 0}
+.filter-panel{margin:10px 0 12px;padding:12px}
+.filter-panel>h2{margin-bottom:8px;font-size:1.05rem}
+.filter-sections{gap:9px}
+.filter-section{padding:9px}
+.filter-section h3{margin-bottom:7px}
+.filter-controls{gap:7px}
+.filter-controls select,.filter-controls input[type=search]{padding:7px 9px;font-size:.86rem}
+.dashboard-title{margin-top:12px}
+.global-dashboard{gap:8px;margin:10px 0}
+.dashboard-card{padding:9px 11px}
+.dashboard-card .dash-value{font-size:1.32rem}
+.part-tabs-wrap{margin:7px 0 12px;padding:8px 9px 9px;background:#f0f0ed;border:1px solid #d0d0ca;border-radius:12px}
+.part-tabs-label{font-size:.72rem;font-weight:800;letter-spacing:.07em;text-transform:uppercase;color:#475569;margin:0 0 6px}
+.part-tabs{display:flex;align-items:stretch;gap:6px;overflow-x:auto;padding:0 0 3px;scrollbar-width:thin}
+.part-tab{flex:0 0 auto;border:1px solid #b8b8b2;background:#fff;color:#003049;border-radius:8px;padding:8px 12px;font-size:.82rem;font-weight:750;white-space:nowrap;line-height:1.2}
+.part-tab:hover{border-color:#f77f00;background:#fff8eb}
+.part-tab[aria-selected="true"]{background:#003049;color:#fff;border-color:#003049;box-shadow:inset 0 -3px 0 #d62828}
+.part-tab .tab-index{display:inline-flex;align-items:center;justify-content:center;margin-right:6px;width:20px;height:20px;border-radius:5px;background:#eae2b7;color:#003049;font-size:.72rem}
+.part-tab[aria-selected="true"] .tab-index{background:#d62828;color:#fff}
+.part-group{margin:8px 0 10px}
+.part-group>.part-summary{padding:10px 12px}
+.part-group>.part-summary>strong{font-size:.96rem}
+.part-content{padding:5px 9px 9px}
+.part-content>.chapter{margin:7px 0}
+.part-content>.chapter>summary{padding:8px 10px}
+.part-content>.chapter .content{padding:8px 10px}
+.group{margin:8px 0}
+.group h4{margin-bottom:5px;font-size:.86rem}
+label.item{gap:8px;padding:5px 4px;font-size:.91rem;line-height:1.35}
+.location-tag{font-size:.74rem;padding:3px 6px;margin-top:3px}
+.progress-meta{font-size:.75rem;gap:6px}
+.progress-mini{width:58px;min-width:42px}
+.notice{padding:10px 12px;margin:10px 0;font-size:.9rem}
+.no-return-legend{padding:8px 10px;margin:8px 0;font-size:.86rem}
+footer{padding:16px 0 30px}
+@media(max-width:760px){
+ main{padding:10px}
+ .global-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .filter-sections{grid-template-columns:1fr 1fr}
+ .part-tab{padding:7px 10px;font-size:.78rem}
+}
+@media(max-width:480px){
+ .filter-sections{grid-template-columns:1fr}
+ .global-dashboard{grid-template-columns:repeat(2,minmax(0,1fr))}
+ .dashboard-card .dash-value{font-size:1.15rem}
+ .part-tabs-wrap{padding:7px}
+ label.item{font-size:.88rem}
+}
+
 </style>
 
 </head>
@@ -156,6 +214,10 @@ label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent
 
 <div class="no-return-legend"><span class="no-return-flag" aria-hidden="true">✈</span><strong>PRIORIDAD — hacerlo antes de avanzar:</strong> objetivo marcado como potencialmente perdible o punto sin retorno. Revisa estos registros antes de abandonar la zona o capítulo.</div>
 
+<div class="part-tabs-wrap">
+  <div class="part-tabs-label">Navegación por partes</div>
+  <nav id="partTabs" class="part-tabs" role="tablist" aria-label="Navegar entre Partes"></nav>
+</div>
 <div id="checklist"></div>
 <section class="chapter" style="padding:16px;margin:12px 0">
   <h2>Resumen de trofeos de coleccionables</h2>
@@ -395,6 +457,7 @@ function render(){
  update();
 }
 function update(){
+ syncPartTabs();
  // Los filtros afectan tanto la lista como todos los acumulados del dashboard.
  applyFilter();
  const checks=[...document.querySelectorAll('input[type=checkbox][data-id]')]
@@ -441,14 +504,57 @@ function populateLocationFilters(){
  const parts=[...new Set(data.map(ch=>ch.part||'OTROS'))];
  parts.forEach(part=>{const o=document.createElement('option');o.value=part;o.textContent=part;partSelect.appendChild(o)});
  function refreshChapters(){
-  const selectedPart=partSelect.value, previous=chapterSelect.value;
-  chapterSelect.innerHTML='<option value="all">Todos los capítulos</option>' ;
-  data.filter(ch=>selectedPart==='all'||ch.part===selectedPart).forEach(ch=>{const o=document.createElement('option');o.value=ch.chapter;o.textContent=ch.chapter;chapterSelect.appendChild(o)});
-  if([...chapterSelect.options].some(o=>o.value===previous)) chapterSelect.value=previous;
+  const selectedPart=partSelect.value;
+  chapterSelect.innerHTML='<option value="all">Todos los capítulos</option>';
+  data.filter(ch=>selectedPart==='all'||ch.part===selectedPart).forEach(ch=>{
+   const o=document.createElement('option');o.value=ch.chapter;o.textContent=ch.chapter;chapterSelect.appendChild(o);
+  });
  }
- partSelect.addEventListener('change',()=>{refreshChapters();update()});
- chapterSelect.addEventListener('change',update); refreshChapters();
+ partSelect.addEventListener('change',()=>{
+  refreshChapters();
+  chapterSelect.value='all';
+  syncPartTabs();
+  update();
+ });
+ chapterSelect.addEventListener('change',update);
+ refreshChapters();
+ // Abrir por defecto en la primera Parte para reducir el scroll inicial.
+ if(parts.length){partSelect.value=parts[0];refreshChapters();}
 }
+function populatePartTabs(){
+ const tabs=document.getElementById('partTabs');
+ const parts=[...new Set(data.map(ch=>ch.part||'OTROS'))];
+ const allButton=document.createElement('button');
+ allButton.type='button';allButton.className='part-tab';allButton.dataset.partTab='all';
+ allButton.setAttribute('role','tab');allButton.innerHTML='<span class="tab-index">≡</span>Todas';
+ tabs.appendChild(allButton);
+ parts.forEach((part,i)=>{
+  const b=document.createElement('button');b.type='button';b.className='part-tab';
+  b.dataset.partTab=part;b.setAttribute('role','tab');
+  const label=part.includes('PARTE') ? part.replace('PARTE ','').split(' · ')[0] : '✓';
+  const name=part.includes(' · ') ? part.split(' · ').slice(1).join(' · ') : part;
+  b.innerHTML='<span class="tab-index">'+esc(label)+'</span>'+esc(name);
+  b.title=part;b.setAttribute('aria-label',part);tabs.appendChild(b);
+ });
+ tabs.addEventListener('click',e=>{
+  const b=e.target.closest('button[data-part-tab]');if(!b)return;
+  const partSelect=document.getElementById('partFilter');
+  const chapterSelect=document.getElementById('chapterFilter');
+  partSelect.value=b.dataset.partTab;
+  chapterSelect.value='all';
+  partSelect.dispatchEvent(new Event('change'));
+ });
+ syncPartTabs();
+}
+function syncPartTabs(){
+ const selected=document.getElementById('partFilter')?.value||'all';
+ document.querySelectorAll('#partTabs [data-part-tab]').forEach(b=>{
+  const active=b.dataset.partTab===selected;
+  b.setAttribute('aria-selected',active?'true':'false');
+  b.tabIndex=active?0:-1;
+ });
+}
+
 function applyFilter(){const q=document.getElementById('search').value.toLowerCase().trim(),f=document.getElementById('filter').value,t=document.getElementById('trophyFilter').value,part=document.getElementById('partFilter').value,chapter=document.getElementById('chapterFilter').value;
  document.querySelectorAll('.chapter').forEach(d=>{let items=[...d.querySelectorAll('.item')];const partName=d.closest('.part-group')?.dataset.part||'OTROS';const chapterMatch=chapter==='all'||d.dataset.chapter===chapter;const partMatch=part==='all'||partName===part;items.forEach(it=>{const match=partMatch&&chapterMatch&&(!q||it.dataset.text.includes(q))&&(f!=='remaining'||!it.querySelector('input').checked)&&(t==='all'||it.dataset.trophy===t);it.style.display=match?'flex':'none'});const groups=[...d.querySelectorAll('.group')];groups.forEach(g=>g.style.display=[...g.querySelectorAll('.item')].some(it=>it.style.display!=='none')?'block':'none');const has=items.some(it=>it.style.display!=='none');d.style.display=(f==='open'&&items.every(it=>it.querySelector('input').checked))||(!has&&(q||part!=='all'||chapter!=='all'||t!=='all'||f==='remaining'))?'none':'block';});
  document.querySelectorAll('.part-group').forEach(p=>{const has=[...p.querySelectorAll('.chapter')].some(ch=>ch.style.display!=='none');p.style.display=has?'block':'none'});
@@ -470,6 +576,7 @@ document.querySelectorAll('#part-clearance input[type=checkbox][data-id]').forEa
 document.querySelectorAll('.part-group').forEach(part=>{const has=[...part.querySelectorAll('.chapter')].some(ch=>ch.style.display!=='none');part.style.display=has?'block':'none'});});
 
 populateLocationFilters();
+populatePartTabs();
 render();
 </script>
 </body>

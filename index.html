@@ -116,6 +116,18 @@ label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent
 .item .txt{display:block}.location-tag,.location-tag *{color:#111827 !important;opacity:1 !important}.location-tag .pin{color:#b91c1c !important}
 
 
+/* Recorrido cronológico y categorías visuales */
+.route-group{margin:6px 0 10px}
+.route-group h4{position:sticky;top:0;z-index:2;background:#f0f0ed;padding:7px 2px;border-bottom:1px solid #d0d0ca}
+.route-row .record-body{display:flex;align-items:flex-start;gap:8px;min-width:0;flex:1}
+.route-number{display:inline-flex;align-items:center;justify-content:center;flex:0 0 25px;height:25px;margin-top:2px;border-radius:6px;background:#003049;color:white;font-size:.7rem;font-weight:900}
+.task-main{display:flex;flex-direction:column;align-items:flex-start;gap:3px;min-width:0;flex:1}
+.task-category{display:inline-flex;align-items:center;border:1px solid #cbd5e1;border-radius:5px;padding:1px 5px;font-size:.63rem;font-weight:850;line-height:1.35;color:#334155;background:#f1f5f9}
+.kind-docs{color:#1d4ed8;background:#dbeafe;border-color:#93c5fd}.kind-clues{color:#075985;background:#e0f2fe;border-color:#7dd3fc}
+.kind-postcards{color:#7e22ce;background:#f3e8ff;border-color:#d8b4fe}.kind-calls{color:#0f766e;background:#ccfbf1;border-color:#5eead4}
+.kind-resources{color:#166534;background:#dcfce7;border-color:#86efac}.kind-scifi{color:#0e7490;background:#cffafe;border-color:#67e8f9}
+.kind-dog{color:#c2410c;background:#ffedd5;border-color:#fdba74}.kind-endings{color:#9f1239;background:#ffe4e6;border-color:#fda4af}
+.kind-other{color:#475569;background:#e2e8f0;border-color:#cbd5e1}
 /* Identificación del personaje controlable para cada tarea */
 .character-legend{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin:8px 0 10px;padding:10px 12px;background:#f0f0ed;border:1px solid #d0d0ca;border-radius:11px;color:#003049}
 .character-legend-title{width:100%;font-size:.76rem;text-transform:uppercase;letter-spacing:.06em;font-weight:850;color:#003049}
@@ -309,7 +321,7 @@ const data = [
 ["Postales extrañas",["#5 — The Wynds: callejón al oeste de la cabina telefónica, baja las escaleras; junto a unas botas.","#6 — apartamento al sur del centro médico: sal por la puerta trasera y revisa el último cobertizo a la izquierda."]],
 ["Llamadas",[]],
 ["Final Sci-fi",["Resolver la puerta de símbolos del hotel según la pista del juego.","Recoger la Strange Access Card en la habitación desbloqueada, junto a la estatua del elefante."]],["Señales CRTV",["Señal CRTV #6 — Shorefront District – South, al salir de la clínica: sintoniza aproximadamente el canal 63.","Señal CRTV #7 — edificio de apartamentos al sur del Medical Centre, segundo piso: interactúa con la radio y alinea los canales RGB; canal aproximado 25."]],["Contenedores de recursos",["Contenedor #2 — Shorefront District – North, edificio de apartamentos al sur del Medical Centre, rellano del cuarto piso, sobre una mesa.","Llave del contenedor #2 — mismo edificio, apartamento 1/1 del segundo piso, sobre la cama de la habitación con el enemigo."]]]},
-{part:"PARTE 3 · THE PATIENT",chapter:"Capítulo 7 — The Patient",groups:[
+{part:"PARTE 3 · THE PATIENT",chapter:"Capítulo 7 — Zoe: The Patient",groups:[
 ["Documentos y pistas",["Supply Situation Update / RE: Supply Situation Update — correos de Consult Room B, planta baja de Victoria Ward.","Unrealistic Expectations / Dailies – Infusion Status — correos del ordenador de Chapman Ward, primer piso.","Dailies – Records Room Code — tablero de la oficina superior izquierda de Chapman Ward.","Equipment Cleanup Notice — cama del pasillo del sótano de Victoria Ward."]],
 ["Postales extrañas",[]],["Llamadas",["5353 — Hospital Storage: usa el número que aparece en la pista correspondiente desde el teléfono indicado."]],["Finales",[]]]},
 {part:"PARTE 3 · THE PATIENT",chapter:"Capítulo 8 — Many Into One",groups:[
@@ -327,7 +339,7 @@ const data = [
 ["Final Sci-fi",["Examinar el segundo libro extraño en el estante de la tienda del suroeste de Atlas Square."]],["Señales CRTV",["Señal CRTV #9 — tienda antes del letrero del mapa de Clara Woods: interactúa con la radio y alinea RGB; canal 61.","Señal CRTV #10 — al final de Atlas Way, junto a Strange Gate: sintoniza aproximadamente el canal 62.","Señal CRTV #11 — a la izquierda del aparcamiento de empleados de CEG: sintoniza aproximadamente el canal 67.","Señal CRTV #12 — 5 South Brae, sala de estar, radio a la izquierda del televisor: alinea RGB en el canal 59.","Señal CRTV #13 — edificio CEG Lockers, después de abrir la taquilla 17: sintoniza aproximadamente el canal 59.","Señal CRTV #14 — al salir de 5 Upper Brae después del puzle de las cintas: sintoniza aproximadamente el canal 29.","Señal CRTV #15 — pasillo de CEG Lockers, después de recoger las piezas mecánicas: sintoniza aproximadamente el canal 65."]],["Contenedores de recursos",["Contenedor #4 — Clara Woods Estate, edificio de apartamentos al noreste de Atlas Square, planta baja, mostrador de la cocina.","Llave del contenedor #4 — tienda Post Service en Atlas Way, dentro de la caja registradora del mostrador.","Contenedor #5 — edificio CEG Lockers, oficina trasera, sobre una mesa.","Llave del contenedor #5 — lavandería al final del callejón detrás de Post Service, encima de una lavadora."]]]},
 {part:"PARTE 4 · CLARA WOODS",chapter:"Capítulo 11 — Inside CEG HQ",groups:[
 ["Documentos y pistas",["Box IDs and Names — atril al fondo del vestíbulo.","Grid of Codes — papelera de Maintenance.","Grid of Codes — papelera de Security; combina ambas pistas en el inventario.","CEG Security: Out of Hours Access / Urgent Message — correos del ordenador de Security.","Employee File Cover Note — dentro de la caja de Richard."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]},
-{part:"PARTE 5 · RICHARD",chapter:"Capítulo 12 — Richard",groups:[
+{part:"PARTE 5 · RICHARD",chapter:"Capítulo 12 — Richard: Getting Inside",groups:[
 ["Documentos y pistas",["Construction Halted Notice — primer edificio del aparcamiento, segunda habitación izquierda, mesa del fondo.","CEG Kiosk Note — segundo edificio, entra por el garaje; mesa a la derecha.","CEG Memo — oficina del gerente, escritorio izquierdo.","Facilities: Works Halted / DONTREAD.DOC — correos del ordenador del primer edificio tras restablecer la energía."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]},
 {part:"PARTE 5 · RICHARD",chapter:"Capítulo 13 — Richard: Another Attempt",groups:[
 ["Documentos y pistas",["CEG Tower Meeting Minutes — sala de reuniones del tercer piso, esquina sureste.","CEG Tower: Evening News / CEG Tower: Engineer Public Statement — correos del ordenador de PR.","PR Meeting Note — archivador de la pequeña sala sur de PR.","Richard’s Note — suelo junto al cadáver, sala sureste de PR.","CEG Checkout Sheet — armario GENERAL STORAGE del cuarto piso.","CEG Tower: He’s Done — correo del ordenador fuera de la oficina del CEO, décimo piso."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]},
@@ -372,120 +384,233 @@ data.forEach(ch => {
   });
   ch.groups = split;
 });
+
+const legacyIdByText=new Map();
+data.forEach((ch,ci)=>ch.groups.forEach((g,gi)=>g[1].forEach((txt,ti)=>{
+ if(!legacyIdByText.has(txt))legacyIdByText.set(txt,`${ci}-${gi}-${ti}`);
+})));
+function findGroup(chapterName,groupName){
+ const ch=data.find(x=>x.chapter===chapterName);if(!ch)return null;
+ let g=ch.groups.find(x=>x[0]===groupName);if(!g){g=[groupName,[]];ch.groups.push(g);}return g;
+}
+function moveTaskByFragment(fromChapter,fragment,toChapter,toGroup){
+ const src=data.find(x=>x.chapter===fromChapter),dst=data.find(x=>x.chapter===toChapter);
+ if(!src||!dst)return null;
+ for(const g of src.groups){
+  const idx=g[1].findIndex(t=>t.toLowerCase().includes(fragment.toLowerCase()));
+  if(idx>=0){const [txt]=g[1].splice(idx,1);findGroup(toChapter,toGroup)[1].push(txt);return txt;}
+ }
+ return null;
+}
+moveTaskByFragment('Capítulo 3 — A Connection','496 0244','Capítulo 2 — Escape','Llamadas');
+if(!data.some(ch=>ch.chapter==='Capítulo 16 — Eraser')){
+ const idx=data.findIndex(ch=>ch.chapter==='Capítulo 17 — Returning');
+ data.splice(idx<0?data.length:idx,0,{part:'PARTE 6 · SIMON',chapter:'Capítulo 16 — Eraser',groups:[['Finales',[]]]});
+}
+moveTaskByFragment('Capítulo 15 — Trying Again','continuar por la ruta normal y derrotar al jefe final','Capítulo 16 — Eraser','Finales');
+moveTaskByFragment('Capítulo 15 — Trying Again','caminar hasta richard al final del muelle','Capítulo 17 — Returning','Final Perro');
+const cegCh=data.find(ch=>ch.chapter==='Capítulo 11 — Inside CEG HQ');
+if(cegCh&&!cegCh.groups.some(g=>g[1].some(t=>t.toLowerCase().includes('inquiry preparation notice')))){
+ findGroup('Capítulo 11 — Inside CEG HQ','Documentos').push('Inquiry Preparation Notice — mostrador detrás de recepción en el vestíbulo de CEG HQ, a la derecha del mapa.');
+}
 const root=document.getElementById('checklist'), key='silentHillTownfallChecklistV2';
 let state={};try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
 function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch(e){} update()}
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
-function getAreaLabel(ch, groupName, itemText){
- const chapter=(ch.chapter||'').toLowerCase(), part=(ch.part||'').toLowerCase(), item=itemText.toLowerCase(), group=groupName.toLowerCase();
- // Prefer the specific named area mentioned in the entry, then add the chapter's broad region.
- const hints = [
-  ['video star','VIDEO STAR / West Shore Road'],['town square','Town Square / cabina telefónica'],
-  ['peters newsagent','Peters Newsagent'],['zoe','Casa de Zoe'],['jess','Casa de Jess'],
-  ['clinic','Clínica / Medical Centre'],['medical centre','Clínica / Medical Centre'],
-  ['hospital','Medical Centre / hospital'],['victoria ward','Victoria Ward'],['chapman ward','Chapman Ward'],
-  ['ceg lockers','CEG Lockers'],['ceg hq','CEG HQ'],['ceg tower','CEG Tower'],
-  ['atlas square','Atlas Square'],['upper brae','Upper Brae'],['north brae','North Brae'],
-  ['south brae','South Brae'],['clara woods','Clara Woods'],['overpass','Overpass'],['the wynds','The Wynds'],
-  ['hotel','Hotel / Otro Mundo'],['shorefront','Shorefront'],['apartment','Bloques de apartamentos'],
-  ['pharmacy','Farmacia'],['pier','Muelle'],['beach','Playa'],['parking','Aparcamiento'],
-  ['room 621','CEG HQ · habitación 621'],['room 793','CEG HQ · habitación 793'],
-  ['red-lit corridor','Pasillo rojo final'],['bank guide dogs','Banco Guide Dogs']
+function getAreaLabel(ch,groupName,itemText){
+ const s=(itemText||'').trim(),l=s.toLowerCase();
+ const exact=[
+  ['boat tour cancelled notice','Muelle · puerta del edificio pequeño a la derecha del letrero de St. Amelia'],
+  ['shorefront family clinic notice','Clínica (6) · pared exterior junto a la puerta principal'],
+  ['900 —','Town Square (5) · primera cabina telefónica, volante “Your Local Services” a la derecha'],
+  ['010 —','Town Square (5) · primera cabina telefónica, volante “Your Local Services”'],
+  ['100 —','Town Square (5) · primera cabina telefónica, volante “Your Local Services”'],
+  ['496 0496','Mapa de Shorefront · borde inferior del mapa'],
+  ['496 0842','Town Square (5) · cabina telefónica; marca 946 primero y después llama a 496 0842 durante el capítulo 3'],
+  ['496 0244','Salida del Haldane Hotel · cabina de pago junto a la salida, antes de abandonar la zona'],
+  ['496 0103','Casa de Mr. Stewart · teléfono de la sala; revisa la carpeta junto al contestador'],
+  ['0163 296 0595','Casa de Zoe · teléfono de la sala, después de leer Water Warning'],
+  ['496 0556','Medical Centre · exterior, ventana de la caseta de seguridad'],
+  ['5353 — hospital storage','Medical Centre · recepción; llamada como Zoe después de hablar con Dr. Glenn'],
+  ['feeling sick note','Apartamentos al sur del edificio 14 · apartamento 1/2, segundo piso, dormitorio izquierdo, cómoda'],
+  ['#2 —','St. Amelia Park · callejón trasero del edificio 3, junto al contenedor; entrada por el acceso sur del parque'],
+  ['#3 —','Farrow Street · pared al final del callejón sin salida del extremo oeste, lado norte del mapa'],
+  ['#4 —','Apartamentos al sur del edificio 14 · apartamento 1/2, segundo piso, dormitorio sureste, al pie de la cama'],
+  ['#5 —','The Wynds · callejón al oeste de la cabina telefónica; baja las escaleras y busca junto a las botas'],
+  ['#6 —','Apartamentos al sur de Medical Centre · exterior, al otro lado de la puerta trasera, último cobertizo a la izquierda'],
+  ['#7 —','Medical Centre – Different · sala X-Ray, mostrador del fondo; abre con el código 7103'],
+  ['#8 —','Medical Centre – Different · Ward W, habitación 06, encima de la mesa'],
+  ['#9 —','Medical Centre – Different · Ward P, habitación 08, dentro del armario médico de pared'],
+  ['#10 —','Clara Woods · tras el primer cruce, camino de la derecha, callejón tras el cuerpo colgado y dos portones; estante del cobertizo'],
+  ['#11 —','Clara Woods Estate · apartamento de planta alta, dormitorio trasero izquierdo desde la entrada, cajón de la cómoda'],
+  ['#12 —','Atlas Square · escaparate frente a Atlas Computers; rompe el cristal y recoge la postal de la mesa interior'],
+  ['#13 —','Overpass · callejón sin salida de la esquina sureste, junto al carrito metálico'],
+  ['#14 —','Upper Brae · casa con Tape: Tomorrow; sal por Back Door Key y entra agachado al cobertizo del callejón, sobre la mesa'],
+  ['#15 —','CEG HQ – Different · conductos; después de la escalera corta y la rejilla, derecha y luego izquierda en el cruce de cuatro vías'],
+  ['recoger la moneda de bronce','VIDEO STAR (1) · estante de la habitación trasera de la tienda · NG+'],
+  ['depositar la moneda de bronce','Main Street · banco Guide Dogs for the Blind justo antes de la Farmacia · NG+'],
+  ['recoger la moneda de plata','Clara Woods · patio trasero después de tomar la derecha en el primer cruce; estante del cobertizo · NG+'],
+  ['depositar la moneda de plata','Lavandería detrás de Post Service · abre la verja del callejón con Boltcutters y usa el banco Guide Dogs interior · NG+'],
+  ['recoger la moneda de oro','SWDP – Different · habitación 793, encima de la consola · NG+'],
+  ['depositar la moneda de oro','SWDP – Different · banco Guide Dogs al final del pasillo rojo, después del cruce de cuatro direcciones · NG+'],
+  ['llave del contenedor #1','Casa de Jess · cajón de la cocina'],
+  ['contenedor #1','Apartamentos al sur del edificio 14 · apartamento 0/1, planta baja, sala de estar, caja azul'],
+  ['llave del contenedor #2','Bloque de apartamentos al sur de Medical Centre · apartamento 1/1, segundo piso, cama del dormitorio con el enemigo; entra desde el andamio por la ventana'],
+  ['contenedor #2','Apartamentos al sur de Medical Centre · rellano del cuarto piso, sobre la mesa'],
+  ['llave del contenedor #3','Medical Centre – Different · Ward W, habitación 11, armario de llaves'],
+  ['contenedor #3','Medical Centre – Different · Ward S, habitación 01, en el suelo'],
+  ['llave del contenedor #4','Atlas Way · tienda Post Service, caja registradora del mostrador delantero'],
+  ['contenedor #4','Clara Woods Estate · apartamento al noreste de Atlas Square, planta baja, encimera de la cocina'],
+  ['llave del contenedor #5','Lavandería detrás de Post Service · encima de una lavadora; abre primero la verja con Boltcutters'],
+  ['contenedor #5','CEG Employee Lockers · oficina trasera, sobre la mesa'],
+  ['llave del contenedor #6','SWDP – Different · planta principal, escaleras del sur, habitación oeste, sobre el mostrador'],
+  ['contenedor #6','SWDP – Different · sala de control, a la derecha del panel'],
+  ['llave del contenedor #7','SWDP – Different · planta inferior, habitación 047, mostrador de la esquina noroeste'],
+  ['contenedor #7','SWDP – Different · habitación 621, sala larga de válvulas al este; entra y gira a la izquierda'],
+  ['examinar el primer libro extraño','Casa de Zoe · dormitorio, en el suelo a la izquierda de la cama · NG+'],
+  ['examinar el segundo libro extraño','Atlas Square · tienda de la esquina suroeste, estante de la esquina izquierda al entrar · “Freeze Me / Wake Me – Elias Fisher” · NG+'],
+  ['habitación 621','SWDP – Different · habitación 621, junto al contenedor de recursos, libro “A Map of Nowhere Else – The Future of Interstellar Travel” · NG+'],
+  ['inquiry preparation notice','CEG HQ · vestíbulo de planta baja, detrás de recepción, a la derecha del mapa'],
+  ['crew patch','Playa de Shorefront · mono de trabajo junto a las escaleras; pasa las escaleras sin subir y revisa el mono'],
+  ['caminar hasta richard al final del muelle','Tras el jefe final, sigue la playa hasta el extremo del muelle y habla con Richard; solo tras donar las tres monedas · NG+']
  ];
- for(const [term,area] of hints){if(item.includes(term)) return area;}
- if(chapter.includes('cold open')) return 'Shorefront South · muelle y Town Square';
- if(chapter.includes('escape')) return 'Hotel · habitación del Otro Mundo';
- if(chapter.includes('a connection')) return 'Shorefront South · Town Square / alrededores';
- if(chapter.includes('searching for zoe')) return 'Shorefront South · clínica, apartamentos y casa de Jess';
- if(chapter.includes('zoe rounds')) return 'Casa de Zoe / casa de Mr. Stewart / Medical Centre';
- if(chapter.includes('journey to medical')) return 'Shorefront South · The Wynds y apartamentos al sur de la clínica';
- if(chapter.includes('the patient')) return 'Medical Centre · Victoria Ward / Chapman Ward';
- if(chapter.includes('many into one')) return 'Medical Centre alterado · salas y wards';
- if(chapter.includes('begin again')) return 'Clara Woods · cruce, barco y cobertizos';
- if(chapter.includes('missing parts')) return 'Clara Woods · Atlas Square / Upper Brae';
- if(chapter.includes('inside ceg')) return 'Clara Woods · CEG Lockers / edificio CEG';
- if(chapter.includes('richard: another attempt')) return 'CEG Tower · pisos y oficinas';
- if(chapter.includes('richard')) return 'Zona de Richard · aparcamiento / edificios CEG';
- if(chapter.includes('fix this')) return 'CEG HQ · planta 10 y conductos';
- if(chapter.includes('trying again')) return 'CEG HQ / instalación SWDP · zona final';
- if(chapter.includes('returning')) return 'Playa · zona final';
- if(chapter.includes('contenedores')) return 'Varias zonas · llave y contenedor de la misma área';
- if(chapter.includes('verificación final')) return 'Resumen de trofeos · todas las Partes';
- return ch.part ? ch.part.replace('PARTE','Parte') : 'Ubicación indicada en la descripción';
+ exact.sort((a,b)=>b[0].length-a[0].length);
+ for(const [needle,place] of exact){if(l.includes(needle))return place;}
+ const sep=s.indexOf(' — ');
+ if(sep>=0){
+  let place=s.slice(sep+3).trim().replace(/\.$/,'').replace(/\s+/g,' ');
+  if(place.length>230)place=place.slice(0,227)+'…';
+  return place;
+ }
+ if(l.includes('guardado manual'))return 'Pasillo final de SWDP – Different · antes del lector de la Strange Access Card';
+ if(l.includes('strange access card'))return 'SWDP – Different · lector de tarjeta del pasillo final, antes del jefe; activa el final Sci-fi y omite Eraser/Returning';
+ if(l.includes('derrotar al jefe final')||l.includes('the weight'))return 'Capítulo 16 — Eraser · arena del jefe The Weight; ruta normal sin usar Strange Access Card';
+ if(l.includes('recargar el mismo guardado'))return 'Pasillo final de SWDP – Different · recarga el guardado anterior al lector';
+ if(l.includes('no usar la strange access card'))return 'SWDP – Different · pasa de largo el lector de la tarjeta para continuar hacia Eraser y Returning';
+ if(l.includes('sci-fi-lent hill')||l.includes('let’s talk this out'))return 'Pantalla de estadísticas al finalizar la ruta correspondiente';
+ if(l.includes('496 0112'))return 'Cabina telefónica al inicio de Clara Woods · llama a 946 y luego a 496 0112 desde la misma cabina';
+ if(l.includes('496 0993'))return 'CEG Employee Lockers · esquina superior izquierda de las pistas de códigos/barcodes de taquillas';
+ if(l.includes('clamp release procedure'))return 'SWDP – Different · impresora de la sala de control, después de girar la válvula F';
+ if(l.includes('remote systems control'))return 'SWDP – Different · sala de control, a la derecha del panel de puertas';
+ if(l.includes('auxiliary lines'))return 'SWDP – Different · ordenador de la sala AUX; inserta AUX Disk y abre el archivo';
+ if(l.includes('photo1.jpg')||l.includes('photo2.jpg'))return 'Apartamento 2/2, tercer piso · ordenador de la izquierda; imprime y recoge ambas fotos en la impresora de la cocina';
+ if(l.includes('grid of codes'))return 'CEG HQ · papelera de la sala indicada en el nombre de la tarea (Maintenance o Security)';
+ if(l.includes('facilities: works halted'))return 'Edificio del aparcamiento · primer edificio, habitación a la derecha; lee ambos correos ANTES de tomar el ascensor';
+ if(l.includes('observation —')||l.includes('thorough inspection')||l.includes('blur your eyes')||l.includes('cold calling')||l.includes('resourceful'))return 'Pantalla de estadísticas al finalizar la partida';
+ return 'Ubicación no precisada en la descripción original; no se asigna una ubicación genérica para evitar confusiones';
 }
-
 function getCharacterForChapter(ch){
  const chapter=(ch.chapter||'').toLowerCase();
- if(chapter.includes('verificación final')) return {key:'summary',label:'RESUMEN'};
- if(chapter.includes('zoe rounds') || chapter.includes('the patient')) return {key:'zoe',label:'ZOE'};
- if(chapter.includes('richard')) return {key:'richard',label:'RICHARD'};
+ if(chapter.includes('verificación final'))return {key:'summary',label:'RESUMEN'};
+ if(chapter.includes('zoe rounds')||chapter.includes('zoe: the patient')||chapter.includes('the patient'))return {key:'zoe',label:'ZOE'};
+ if(chapter.includes('richard'))return {key:'richard',label:'RICHARD'};
  return {key:'simon',label:'SIMON'};
 }
 
+function displayTaskText(ch,groupName,txt){
+ const l=txt.toLowerCase();
+ if(l.includes('496 0842'))return '496 0842 — Unknown: desde la cabina de Town Square, marca primero 946 y después llama a 496 0842; hazlo durante el capítulo 3 para que conecte.';
+ if(l.includes('496 0244'))return '496 0244 — Haldane Hotel: lee Hotel Reception Notice y llama desde la cabina de pago al salir del hotel, antes de dejar la zona.';
+ if(l.includes('496 0993'))return '496 0993 — CEG Lockers: está en la esquina superior izquierda de las pistas de códigos/barcodes de taquillas; llama durante el capítulo 10.';
+ if(l.includes('reciprocating compressor'))return 'Reciprocating Compressor — imprime MANUAL.EML en la impresora a la izquierda del ordenador de 5 South Brae después del puzle de los disquetes.';
+ if(l.includes('examinar el segundo libro extraño')||l.includes('segundo libro extraño'))return 'Libro Sci-fi 2 — “Freeze Me / Wake Me – Elias Fisher”, estante en la esquina suroeste de la tienda de Atlas Square, a la izquierda al entrar (NG+).';
+ if(l.includes('habitación 621')&&l.includes('libro extraño'))return 'Libro Sci-fi 3 — abre habitación 621 con Remote Systems Control; dentro, examina el libro en la mesa junto al contenedor (NG+).';
+ if(l.includes('abrir la habitación 793'))return 'Moneda de oro — abre habitación 793 desde Remote Systems Control y recoge la moneda de la consola (NG+).';
+ if(l.includes('contenedor #7'))return 'Contenedor #7 — abre habitación 621; es la sala larga de válvulas al este. Entra y gira a la izquierda para abrir la caja con la llave #7.';
+ if(l.includes('inquiry preparation notice'))return 'Inquiry Preparation Notice — vestíbulo de CEG HQ, detrás del mostrador de recepción, a la derecha del mapa.';
+ if(l.includes('facilities: works halted'))return 'Facilities: Works Halted / DONTREAD.DOC — vuelve al primer edificio del aparcamiento, habitación a la derecha, y lee ambos correos antes de usar el ascensor hacia CEG HQ.';
+ if(l.includes('crear un guardado manual')&&l.includes('lector de tarjetas'))return 'Crea un guardado manual en otra ranura justo antes del lector de la Strange Access Card del pasillo final; no lo sobrescribas para poder hacer ambas rutas NG+.';
+ if(l.includes('usar la strange access card'))return 'Usa la Strange Access Card en el lector del pasillo final para activar Sci-fi-lent Hill. El final se dispara enseguida y omite el jefe final, Eraser y Returning; luego carga el guardado previo para la ruta Perro.';
+ if(l.includes('cargar el guardado anterior al lector'))return 'Después de obtener Sci-fi, carga el guardado previo al lector y no uses la tarjeta; sigue la ruta normal hasta el jefe para intentar el final Perro.';
+ if(l.includes('continuar por la ruta normal y derrotar al jefe final'))return 'En el capítulo 16 — Eraser, sigue la ruta normal (sin usar Strange Access Card) y derrota a The Weight para avanzar hacia Returning.';
+ if(l.includes('caminar hasta richard al final del muelle'))return 'Después de derrotar a The Weight, en Returning pasa de largo las escaleras de la playa y recoge Crew Patch del mono; luego ve al final del muelle y habla con Richard. Debes haber donado las tres monedas NG+.';
+ if(l.includes('depositar la moneda de plata'))return 'Deposita la moneda de plata en el banco Guide Dogs del interior de la lavandería detrás de Post Service; entra tras abrir la verja con Boltcutters (NG+).';
+ return txt;
+}
+const routeOrder={
+ 'Capítulo 1 — Cold Open':['boat tour cancelled notice','recoger la moneda de bronce','depositar la moneda de bronce','900 — emergency','010 — operator','100 — save yourself','496 0496','shorefront family clinic notice'],
+ 'Capítulo 2 — Escape':['room service card','hotel room note','hotel reception notice','496 0244'],
+ 'Capítulo 3 — A Connection':['vigil and protest flyer','496 0842','^#1 —','hand delivered letter','examinar el primer libro extraño','organ transplant card','power card credit guide','newsagents note','zoe’s email'],
+ 'Capítulo 4 — Searching for Zoe':['note on patient records','resignation letter','clinic emails','nurse’s rounds form','restock issues','^#2 —','^#3 —','feeling sick note','^#4 —','jess’s door note','task assignment','lockbox key','jess legal advice','broken stethoscope','llave del contenedor #1','contenedor #1'],
+ 'Capítulo 5 — Zoe Rounds':['water warning','0163 296 0595','zoe’s email: coming back','jane chalmer','st. amelia standard','496 0103','medical security note','496 0556','community help needed','exhausted supplies'],
+ 'Capítulo 6 — Journey to Medical':['^#5 —','scaffold notice','handwritten note','press photos','photo1.jpg','llave del contenedor #2','contenedor #2','^#6 —','resolver la puerta de símbolos','strange access card'],
+ 'Capítulo 7 — Zoe: The Patient':['supply situation update','unrealistic expectations','dailies – infusion status','dailies – records room code','5353 — hospital storage','equipment cleanup notice'],
+ 'Capítulo 8 — Many Into One':['^#7 —','zoe’s patient list','^#8 —','llave del contenedor #3','contenedor #3','^#9 —'],
+ 'Capítulo 9 — Begin Again':['harbour notice','^#10 —','recoger la moneda de plata','store staff notice'],
+ 'Capítulo 10 — Missing Parts':['946 — w h o','496 0112','examinar el segundo libro extraño','llave del contenedor #4','atlas square apartment note','contenedor #4','^#12 —','lost and found','ceg lockers managers note','496 0993','^#11 —','gaming magazine','reciprocating compressor','conseguir los bolt cutters','^#13 —','lamenting poem','the code today','the code before','the code after','^#14 —','current count','llave del contenedor #5','depositar la moneda de plata','contenedor #5'],
+ 'Capítulo 11 — Inside CEG HQ':['inquiry preparation notice','box ids and names','grid of codes','out of hours access','urgent message','employee file cover note'],
+ 'Capítulo 12 — Richard: Getting Inside':['construction halted notice','ceg kiosk note','ceg memo','facilities: works halted'],
+ 'Capítulo 13 — Richard: Another Attempt':['ceg tower meeting minutes','ceg tower: evening news','pr meeting note','richard’s note','ceg checkout sheet','ceg tower: he’s done'],
+ 'Capítulo 14 — Fix This':['ordell file','ceg tower: what did you do','reference sheet','^#15 —'],
+ 'Capítulo 15 — Trying Again':['llave del contenedor #6','swpd: ordell site visit','rcu refit note','photo of joe mckenzie','remote systems control','contenedor #6','auxiliary lines','llave del contenedor #7','habitación 621','contenedor #7','abrir la habitación 793','clamp release procedure','depositar la moneda de oro','crear un guardado manual','usar la strange access card','cargar el guardado anterior'],
+ 'Capítulo 16 — Eraser':['continuar por la ruta normal y derrotar al jefe final'],
+ 'Capítulo 17 — Returning':['crew patch','caminar hasta richard'],
+ 'Verificación final de trofeos':['observation','thorough inspection','blur your eyes','cold calling','resourceful','sci-fi-lent hill','let’s talk this out']
+};
+function routeRank(chapter,txt,pos){
+ const rules=routeOrder[chapter]||[],lower=txt.toLowerCase();
+ for(let i=0;i<rules.length;i++){const rule=rules[i];if(rule.startsWith('^')?lower.startsWith(rule.slice(1)):lower.includes(rule))return i;}
+ return rules.length+pos/1000;
+}
+function stableTaskHash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
+function taskCategoryClass(name){
+ const n=name.toLowerCase();
+ if(n.includes('document'))return 'kind-docs';if(n.includes('pista'))return 'kind-clues';if(n.includes('postal'))return 'kind-postcards';if(n.includes('llamada'))return 'kind-calls';if(n.includes('contenedor'))return 'kind-resources';if(n.includes('sci-fi'))return 'kind-scifi';if(n.includes('perro'))return 'kind-dog';if(n.includes('guardado')||n.includes('final'))return 'kind-endings';return 'kind-other';
+}
 function render(){
  root.innerHTML='';
- const partMap = new Map();
+ const partMap=new Map();
  data.forEach((ch,ci)=>{
-  const partName=ch.part || 'OTROS';
+  const partName=ch.part||'OTROS';
   if(!partMap.has(partName)){
-    const part=document.createElement('details');
-    part.className='part-group'; part.open=false; part.dataset.part=partName;
-    part.innerHTML=`<summary class="part-summary"><strong>${esc(partName)}</strong><span class="progress-meta" data-progress="part"><span class="counts">0/0 completados · 0 pendientes</span><span class="pct">0%</span><span class="progress-mini"><span></span></span></span></summary><div class="part-content"></div>`;
-    partMap.set(partName,part); root.appendChild(part);
+   const part=document.createElement('details');part.className='part-group';part.open=false;part.dataset.part=partName;
+   part.innerHTML=`<summary class="part-summary"><strong>${esc(partName)}</strong><span class="progress-meta" data-progress="part"><span class="counts">0/0 completados · 0 pendientes</span><span class="pct">0%</span><span class="progress-mini"><span></span></span></span></summary><div class="part-content"></div>`;
+   partMap.set(partName,part);root.appendChild(part);
   }
-  const part=partMap.get(partName), partContent=part.querySelector('.part-content');
+  const part=partMap.get(partName),partContent=part.querySelector('.part-content');
   const det=document.createElement('details');det.className='chapter';det.open=false;det.dataset.chapter=ch.chapter;
   const sum=document.createElement('summary');sum.innerHTML=`<div class="chapter-progress"><strong>${esc(ch.chapter)}</strong><span class="progress-meta" data-progress="chapter"><span class="counts">0/0 completados</span><span class="pct">0%</span><span class="progress-mini"><span></span></span></span></div>`;det.appendChild(sum);
-  const content=document.createElement('div');content.className='content';
-  const character=getCharacterForChapter(ch);
-  const characterBadge=`<span class="character-tag character-${character.key}" aria-label="Personaje: ${character.label}">${character.label}</span>`;
+  const content=document.createElement('div');content.className='content';const character=getCharacterForChapter(ch);
+  const tasks=[];let pos=0;
   ch.groups.forEach((g,gi)=>{
-   if(g[0].toLowerCase().includes('crtv') || g[0].toLowerCase().includes('señales')) return;
-   if(!g[1].length)return;
-   const sec=document.createElement('section');sec.className='group';
-   sec.innerHTML=`<h4><span>${esc(g[0])}</span><span class="section-progress" data-progress="section"><strong>0/0</strong> completados · 0% · 0 pendientes</span></h4>`;
-   g[1].forEach((txt,ti)=>{
-    const id=`${ci}-${gi}-${ti}`, label=document.createElement('label');
-    label.className='item'+(state[id]?' done':''); label.dataset.text=(ch.chapter+' '+g[0]+' '+txt).toLowerCase();
-    const gn=g[0].toLowerCase(), it=txt.toLowerCase(); let trophy='other';
-    if(gn.includes('documentos')||gn==='documentos'||gn.includes('pistas')||it.includes('observation')||it.includes('thorough inspection')) trophy='docs';
-    if(gn.includes('postales')||it.includes('blur your eyes')) trophy='postcards';
-    if(gn.includes('llamadas')||it.includes('cold calling')) trophy='calls';
-    if(gn.includes('contenedores')||it.includes('resourceful')) trophy='resources';
-    if(gn.includes('final sci-fi')||it.includes('sci-fi-lent hill')||it.includes('libro extraño')||it.includes('strange access card')) trophy='scifi';
-    if(gn.includes('final perro')||it.includes('perro')||it.includes('guide dogs')||it.includes('richard al final del muelle')) trophy='dog';
-    label.dataset.trophy=trophy;
-    const priorityText = (ch.chapter+' '+g[0]+' '+txt).toLowerCase();
-    const priorityTerms = [
-      'before', 'antes de', 'antes del', 'antes de avanzar', 'antes de seguir',
-      'no sobrescribir', 'guardado manual', 'strange access card',
-      'recoger la moneda', 'depositar la moneda', 'postal #', 'postal nº',
-      'postal ', 'harbour notice', 'room service card', 'crew patch',
-      'photo1.jpg', 'photo2.jpg', 'clamp release procedure', 'auxiliary lines',
-      'remote systems control', 'libro extraño', 'llama tras salir del hotel',
-      'antes de dejar la zona', 'antes de abandonar'
-    ];
-    const isPriority = priorityTerms.some(term => priorityText.includes(term));
-    if (isPriority) {
-      label.classList.add('priority-no-return');
-      label.innerHTML=`<span class="no-return-flag" title="Prioridad: posible punto sin retorno" aria-label="Prioridad: posible punto sin retorno">✈</span><input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body">${characterBadge}<span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
-    } else {
-      label.innerHTML=`<input type="checkbox" data-id="${id}" ${state[id]?'checked':''}><span class="record-body">${characterBadge}<span class="txt">${esc(txt)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch, g[0], txt))}</span></span>`;
-    }
-    sec.appendChild(label);
-   });
-   content.appendChild(sec);
+   if(g[0].toLowerCase().includes('crtv')||g[0].toLowerCase().includes('señales'))return;
+   g[1].forEach(txt=>tasks.push({txt,groupName:g[0],id:legacyIdByText.get(txt)||('new-'+stableTaskHash(ch.chapter+'|'+g[0]+'|'+txt)),pos:pos++}));
   });
-  det.appendChild(content); partContent.appendChild(det);
+  tasks.sort((a,b)=>routeRank(ch.chapter,a.txt,a.pos)-routeRank(ch.chapter,b.txt,b.pos));
+  const sec=document.createElement('section');sec.className='group route-group';
+  sec.innerHTML=`<h4><span>Recorrido en orden de juego</span><span class="section-progress" data-progress="section"><strong>0/0</strong> completados · 0% · 0 pendientes</span></h4>`;
+  tasks.forEach((task,ti)=>{
+   const txt=task.txt,gName=task.groupName,id=task.id,label=document.createElement('label'),shown=displayTaskText(ch,gName,txt);
+   label.className='item route-row'+(state[id]?' done':'');
+   label.dataset.text=(ch.chapter+' '+gName+' '+txt+' '+shown+' '+getAreaLabel(ch,gName,txt)).toLowerCase();
+   const gn=gName.toLowerCase(),it=txt.toLowerCase();let trophy='other';
+   if(gn.includes('documentos')||gn==='documentos'||gn.includes('document')||gn.includes('pistas')||it.includes('observation')||it.includes('thorough inspection'))trophy='docs';
+   if(gn.includes('postales')||it.includes('blur your eyes'))trophy='postcards';
+   if(gn.includes('llamadas')||it.includes('cold calling'))trophy='calls';
+   if(gn.includes('contenedores')||it.includes('resourceful'))trophy='resources';
+   if(gn.includes('final sci-fi')||it.includes('sci-fi-lent hill')||it.includes('libro extraño')||it.includes('strange access card'))trophy='scifi';
+   if(gn.includes('final perro')||gn.includes('perro')||gn.includes('guide dogs')||it.includes('moneda de bronce')||it.includes('moneda de plata')||it.includes('moneda de oro')||it.includes('richard al final del muelle'))trophy='dog';
+   label.dataset.trophy=trophy;
+   const priorityText=(ch.chapter+' '+gName+' '+shown).toLowerCase();
+   const priorityTerms=['antes de','antes del','no sobrescribir','guardado manual','strange access card','recoger la moneda','depositar la moneda','postal #','postal nº','postal ','harbour notice','room service card','crew patch','photo1.jpg','photo2.jpg','clamp release procedure','auxiliary lines','remote systems control','libro sci-fi','libro extraño','496 0842','496 0244','antes de abandonar'];
+   const isPriority=priorityTerms.some(term=>priorityText.includes(term));
+   const category=`<span class="task-category ${taskCategoryClass(gName)}">${esc(gName)}</span>`;
+   const body=`<span class="record-body"><span class="route-number">${String(ti+1).padStart(2,'0')}</span><span class="task-main">${category}<span class="character-tag character-${character.key}">${character.label}</span><span class="txt">${esc(shown)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch,gName,txt))}</span></span></span>`;
+   if(isPriority){label.classList.add('priority-no-return');label.innerHTML=`<span class="no-return-flag" title="Prioridad: posible punto sin retorno" aria-label="Prioridad: posible punto sin retorno">✈</span><input type="checkbox" data-id="${id}" ${state[id]?'checked':''}>${body}`;}
+   else label.innerHTML=`<input type="checkbox" data-id="${id}" ${state[id]?'checked':''}>${body}`;
+   sec.appendChild(label);
+  });
+  content.appendChild(sec);det.appendChild(content);partContent.appendChild(det);
  });
  root.addEventListener('change',e=>{
   if(e.target.matches('input[type=checkbox][data-id]')){
    state[e.target.dataset.id]=e.target.checked;
-   e.target.closest('.item').classList.toggle('done',e.target.checked); save(); update();
+   e.target.closest('.item').classList.toggle('done',e.target.checked);save();update();
   }
  });
  update();
 }
+
 function update(){
  syncPartTabs();
  // Los filtros afectan tanto la lista como todos los acumulados del dashboard.

@@ -139,6 +139,20 @@ label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent
 .item .record-body{gap:3px}
 @media(max-width:480px){.character-legend{padding:8px}.character-tag{font-size:.63rem;padding:2px 5px}}
 
+
+/* Panel dorado: trofeos y avance de correos */
+.dashboard-title{color:#f9df8b;font-size:1.12rem;letter-spacing:.035em;margin:10px 0 0}
+#globalDashboard{grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:8px;margin:8px 0 14px}
+#globalDashboard .dashboard-card{background:linear-gradient(145deg,#fff8df,#ffedb0);border:1px solid #d4a72c;color:#5b4200;box-shadow:0 3px 9px rgba(0,0,0,.15);padding:10px 12px}
+#globalDashboard .dash-label{color:#634800;font-size:.73rem}
+#globalDashboard .dash-value{color:#9a6700;font-size:1.35rem}
+#globalDashboard .dash-sub{color:#705a25;font-size:.75rem}
+#globalDashboard .dash-track{background:#e6cf78}
+#globalDashboard .dash-fill{background:linear-gradient(90deg,#b8860b,#ffd700)}
+#globalDashboard .dashboard-card[data-dash="all"]{background:linear-gradient(145deg,#ffe28a,#f3bf37);border-color:#fff0a8}
+#globalDashboard .dashboard-card[data-dash="all"] .dash-value{color:#6b4300}
+@media(max-width:600px){#globalDashboard{grid-template-columns:repeat(2,minmax(0,1fr))}#globalDashboard .dashboard-card{padding:9px}}
+
 /* Compacto y navegación horizontal por Partes */
 body{font-size:15px;line-height:1.42}
 main{max-width:1220px;padding:12px 15px}
@@ -202,6 +216,19 @@ footer{padding:16px 0 30px}
 <body>
 <header><main>
 <h1>Silent Hill: Townfall</h1><p>Checklist de trofeos · documentos y pistas en secciones separadas, postales, llamadas, contenedores y finales NG+</p>
+<div class="progress"><div class="bar" id="bar"></div></div>
+<div class="summary"><span id="count">0 marcados</span><span>El progreso se guarda en este navegador (localStorage).</span></div>
+<h2 class="dashboard-title">Control total del reporte</h2>
+<div class="global-dashboard" id="globalDashboard" aria-live="polite">
+  <div class="dashboard-card" data-dash="all"><div class="dash-label">Progreso global</div><div class="dash-value">0%</div><div class="dash-sub">0 de 0 objetivos</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="docs"><div class="dash-label">Observation / Thorough Inspection</div><div class="dash-value">0/0</div><div class="dash-sub">Documentos y pistas marcados</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="postcards"><div class="dash-label">Postales</div><div class="dash-value">0/0</div><div class="dash-sub">Blur Your Eyes</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="calls"><div class="dash-label">Llamadas</div><div class="dash-value">0/0</div><div class="dash-sub">Cold Calling</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="resources"><div class="dash-label">Contenedores</div><div class="dash-value">0/0</div><div class="dash-sub">Resourceful</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="scifi"><div class="dash-label">Sci-fi-lent Hill</div><div class="dash-value">0/0</div><div class="dash-sub">Final Sci-fi · checklist</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="dog"><div class="dash-label">Let’s Talk This Out</div><div class="dash-value">0/0</div><div class="dash-sub">Final Perro · checklist</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+  <div class="dashboard-card" data-dash="emails"><div class="dash-label">Correos / mensajes</div><div class="dash-value">0/0</div><div class="dash-sub">Leídos y pendientes</div><div class="dash-track"><div class="dash-fill"></div></div></div>
+</div>
 <section class="filter-panel" aria-label="Filtros del reporte">
   <h2>Filtros del reporte</h2>
   <div class="filter-sections">
@@ -219,17 +246,7 @@ footer{padding:16px 0 30px}
     </div></div>
   </div>
 </section>
-<div class="progress"><div class="bar" id="bar"></div></div>
-<div class="summary"><span id="count">0 marcados</span><span>El progreso se guarda en este navegador (localStorage).</span></div>
-<h2 class="dashboard-title">Control total del reporte</h2>
-<div class="global-dashboard" id="globalDashboard" aria-live="polite">
-  <div class="dashboard-card" data-dash="all"><div class="dash-label">Progreso global</div><div class="dash-value">0%</div><div class="dash-sub">0 de 0 objetivos</div><div class="dash-track"><div class="dash-fill"></div></div></div>
-  <div class="dashboard-card" data-dash="docs"><div class="dash-label">Documentos y pistas</div><div class="dash-value">0/0</div><div class="dash-sub">Observation / Thorough Inspection</div><div class="dash-track"><div class="dash-fill"></div></div></div>
-  <div class="dashboard-card" data-dash="postcards"><div class="dash-label">Postales</div><div class="dash-value">0/0</div><div class="dash-sub">Blur Your Eyes</div><div class="dash-track"><div class="dash-fill"></div></div></div>
-  <div class="dashboard-card" data-dash="calls"><div class="dash-label">Llamadas</div><div class="dash-value">0/0</div><div class="dash-sub">Cold Calling</div><div class="dash-track"><div class="dash-fill"></div></div></div>
-  <div class="dashboard-card" data-dash="resources"><div class="dash-label">Contenedores</div><div class="dash-value">0/0</div><div class="dash-sub">Resourceful</div><div class="dash-track"><div class="dash-fill"></div></div></div>
-  <div class="dashboard-card" data-dash="endings"><div class="dash-label">Finales</div><div class="dash-value">0/0</div><div class="dash-sub">Sci-fi y Perro</div><div class="dash-track"><div class="dash-fill"></div></div></div>
-</div>
+
 
 </main></header>
 <main>
@@ -389,6 +406,32 @@ const legacyIdByText=new Map();
 data.forEach((ch,ci)=>ch.groups.forEach((g,gi)=>g[1].forEach((txt,ti)=>{
  if(!legacyIdByText.has(txt))legacyIdByText.set(txt,`${ci}-${gi}-${ti}`);
 })));
+const emailSplitMigrations=[];
+function splitEmailBundle(original,subjects,location){
+ data.forEach(ch=>ch.groups.forEach(g=>{
+  const index=g[1].indexOf(original);if(index<0)return;
+  const children=subjects.map(subject=>`Correo: ${subject} — ${location}`);
+  emailSplitMigrations.push({chapter:ch.chapter,groupName:g[0],original,children});
+  g[1].splice(index,1,...children);
+ }));
+}
+splitEmailBundle('Zoe’s Email: Your Letter / Please Report In / For Attending… — lee los tres correos del ordenador de Zoe.',
+ ['Your Letter','Please Report In','For Attending…'],'ordenador de Zoe; abre este correo y lee el mensaje completo.');
+splitEmailBundle('Clinic emails / Reception Answer Phone Message — abre y lee los mensajes del ordenador de Z. Ellis.',
+ ['Clinic Emails','Reception Answer Phone Message'],'ordenador de Z. Ellis en la clínica; lee el correo o mensaje completo.');
+splitEmailBundle('Supply Situation Update / RE: Supply Situation Update — correos de Consult Room B, planta baja de Victoria Ward.',
+ ['Supply Situation Update','RE: Supply Situation Update'],'Consult Room B, planta baja de Victoria Ward; ordenador de la sala, abre cada mensaje por separado.');
+splitEmailBundle('Unrealistic Expectations / Dailies – Infusion Status — correos del ordenador de Chapman Ward, primer piso.',
+ ['Unrealistic Expectations','Dailies – Infusion Status'],'Chapman Ward, primer piso; ordenador del mostrador de recepción, abre cada correo por separado.');
+splitEmailBundle('Lost and Found / CEG Employee Locker List — correos del ordenador del edificio de taquillas.',
+ ['Lost and Found','CEG Employee Locker List'],'CEG Employee Lockers; ordenador de la oficina trasera, abre cada correo por separado.');
+splitEmailBundle('CEG Security: Out of Hours Access / Urgent Message — correos del ordenador de Security.',
+ ['CEG Security: Out of Hours Access','Urgent Message'],'CEG HQ, sala Security; ordenador de la sala, abre cada correo por separado.');
+splitEmailBundle('Facilities: Works Halted / DONTREAD.DOC — correos del ordenador del primer edificio tras restablecer la energía.',
+ ['Facilities: Works Halted','DONTREAD.DOC'],'primer edificio del aparcamiento de CEG HQ, habitación derecha; ordenador tras restablecer la energía. Lee ambos registros antes del ascensor.');
+splitEmailBundle('CEG Tower: Evening News / CEG Tower: Engineer Public Statement — correos del ordenador de PR.',
+ ['CEG Tower: Evening News','CEG Tower: Engineer Public Statement'],'CEG Tower, tercer piso, oficina de Public Relations; ordenador, abre cada correo por separado.');
+
 function findGroup(chapterName,groupName){
  const ch=data.find(x=>x.chapter===chapterName);if(!ch)return null;
  let g=ch.groups.find(x=>x[0]===groupName);if(!g){g=[groupName,[]];ch.groups.push(g);}return g;
@@ -417,6 +460,15 @@ if(cegCh&&!cegCh.groups.some(g=>g[1].some(t=>t.toLowerCase().includes('inquiry p
 }
 const root=document.getElementById('checklist'), key='silentHillTownfallChecklistV2';
 let state={};try{state=JSON.parse(localStorage.getItem(key)||'{}')}catch(e){}
+
+emailSplitMigrations.forEach(m=>{
+ const oldId=legacyIdByText.get(m.original);
+ if(oldId&&state[oldId]){
+  m.children.forEach(child=>{state['new-'+stableTaskHash(m.chapter+'|'+m.groupName+'|'+child)]=true;});
+ }
+});
+try{localStorage.setItem(key,JSON.stringify(state))}catch(e){}
+
 function save(){try{localStorage.setItem(key,JSON.stringify(state))}catch(e){} update()}
 function esc(s){return s.replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
 function getAreaLabel(ch,groupName,itemText){
@@ -576,6 +628,10 @@ function routeRank(chapter,txt,pos){
  return rules.length+pos/1000;
 }
 function stableTaskHash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0).toString(36);}
+function isEmailTask(txt,shown){
+ const s=(String(txt||'')+' '+String(shown||'')).toLowerCase();
+ return /correo:|correo clínico:|zoe.s email:|email:|\be-?mail\b|\bcorreos?\b|reception answer phone message|clinic emails|urgent message|dailies\s*[–-]\s*infusion status|dontread\.doc|ceg employee locker list|ceg tower: evening news|engineer public statement|facilities: works halted|ordell site visit|ceg tower: he.s done|ceg tower: what did you do/.test(s);
+}
 function taskCategoryClass(name){
  const n=name.toLowerCase();
  if(n.includes('document'))return 'kind-docs';if(n.includes('pista'))return 'kind-clues';if(n.includes('postal'))return 'kind-postcards';if(n.includes('llamada'))return 'kind-calls';if(n.includes('contenedor'))return 'kind-resources';if(n.includes('sci-fi'))return 'kind-scifi';if(n.includes('perro'))return 'kind-dog';if(n.includes('guardado')||n.includes('final'))return 'kind-endings';return 'kind-other';
@@ -614,6 +670,7 @@ function render(){
    if(gn.includes('final sci-fi')||it.includes('sci-fi-lent hill')||it.includes('libro extraño')||it.includes('strange access card'))trophy='scifi';
    if(gn.includes('final perro')||gn.includes('perro')||gn.includes('guide dogs')||it.includes('moneda de bronce')||it.includes('moneda de plata')||it.includes('moneda de oro')||it.includes('richard al final del muelle'))trophy='dog';
    label.dataset.trophy=trophy;
+   label.dataset.email=isEmailTask(txt,shown)?'true':'false';
    const priorityText=(ch.chapter+' '+gName+' '+shown).toLowerCase();
    const priorityTerms=['antes de','antes del','no sobrescribir','guardado manual','strange access card','recoger la moneda','depositar la moneda','postal #','postal nº','postal ','harbour notice','room service card','crew patch','photo1.jpg','photo2.jpg','clamp release procedure','auxiliary lines','remote systems control','libro sci-fi','libro extraño','496 0842','496 0244','antes de abandonar'];
    const isPriority=priorityTerms.some(term=>priorityText.includes(term));
@@ -649,7 +706,9 @@ function update(){
   postcards:checks.filter(x=>x.closest('.item')?.dataset.trophy==='postcards'),
   calls:checks.filter(x=>x.closest('.item')?.dataset.trophy==='calls'),
   resources:checks.filter(x=>x.closest('.item')?.dataset.trophy==='resources'),
-  endings:checks.filter(x=>['scifi','dog'].includes(x.closest('.item')?.dataset.trophy))
+  scifi:checks.filter(x=>x.closest('.item')?.dataset.trophy==='scifi'),
+  dog:checks.filter(x=>x.closest('.item')?.dataset.trophy==='dog'),
+  emails:checks.filter(x=>x.closest('.item')?.dataset.email==='true')
  };
  Object.entries(dashGroups).forEach(([name,arr])=>{
   const card=document.querySelector(`[data-dash="${name}"]`); if(!card)return;

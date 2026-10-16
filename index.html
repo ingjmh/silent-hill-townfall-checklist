@@ -372,20 +372,6 @@ const data = [
 ["Guardados y finales",["Crear un guardado manual en una ranura separada antes del lector de tarjetas del pasillo final. No sobrescribirlo.","Usar la Strange Access Card y completar la secuencia para obtener Sci-fi-lent Hill.","Cargar el guardado anterior al lector; no usar la tarjeta esta vez.","Continuar por la ruta normal y derrotar al jefe final.","Caminar hasta Richard al final del muelle para intentar activar Let's Talk This Out."]],["Señales CRTV",["Señal CRTV #18 — SWDP – Different, litera después de la habitación de la llave JOE: interactúa con la radio y alinea RGB; canal aproximado 55."]],["Contenedores de recursos",["Contenedor #6 — SWDP – Different, sala de control, a la derecha del panel.","Llave del contenedor #6 — planta principal de SWDP, sube por las escaleras del sur y entra en la habitación oeste; sobre el mostrador.","Contenedor #7 — SWDP – Different, sala larga del este con válvulas, después de abrir la puerta 621 desde el panel; sobre una mesa.","Llave del contenedor #7 — planta inferior de SWDP, habitación de la esquina noroeste, sobre el mostrador."]]]},
 {part:"PARTE 6 · SIMON",chapter:"Capítulo 17 — Returning",groups:[
 ["Documentos y pistas",["Crew Patch — mono de trabajo en la playa; pasa de largo las escaleras sin subir."]],["Postales extrañas",[]],["Llamadas",[]],["Finales",[]]]}
-,
-{part:"TROFEOS · CIERRE",chapter:"Verificación final de trofeos",groups:[
-["Coleccionables",[
-"Observation — confirmar que el juego registró al menos 43 de 85 documentos y pistas.",
-"Thorough Inspection — confirmar los 85 documentos y pistas.",
-"Blur Your Eyes — confirmar las 15 postales extrañas.",
-"Cold Calling — confirmar las 13 llamadas completas.",
-"Sweeping Signals — confirmar las 18 señales CRTV de vídeo.",
-"Resourceful — confirmar los 7 contenedores abiertos."
-]],
-["Finales NG+",[
-"Sci-fi-lent Hill — terminar usando la Strange Access Card después de crear un guardado manual.",
-"Let's Talk This Out (Perro) — cargar el guardado previo, no usar la tarjeta y hablar con Richard al final del muelle."
-]]]}
 
 ];
 // Separar el grupo combinado en dos secciones visibles.
@@ -453,8 +439,6 @@ if(!data.some(ch=>ch.chapter==='Capítulo 16 — Eraser')){
 }
 moveTaskByFragment('Capítulo 15 — Trying Again','continuar por la ruta normal y derrotar al jefe final','Capítulo 16 — Eraser','Finales');
 moveTaskByFragment('Capítulo 15 — Trying Again','caminar hasta richard al final del muelle','Capítulo 17 — Returning','Final Perro');
-const closingCh=data.find(ch=>ch.chapter==='Verificación final de trofeos');
-if(closingCh)closingCh.groups.forEach(g=>{g[1]=g[1].filter(t=>!t.toLowerCase().startsWith('sweeping signals'));});
 const cegCh=data.find(ch=>ch.chapter==='Capítulo 11 — Inside CEG HQ');
 if(cegCh&&!cegCh.groups.some(g=>g[1].some(t=>t.toLowerCase().includes('inquiry preparation notice')))){
  findGroup('Capítulo 11 — Inside CEG HQ','Documentos').push('Inquiry Preparation Notice — mostrador detrás de recepción en el vestíbulo de CEG HQ, a la derecha del mapa.');
@@ -621,7 +605,6 @@ const routeOrder={
  'Capítulo 15 — Trying Again':['swdp: ordell site visit','llave del contenedor #6','rcu refit note','photo of joe mckenzie','remote systems control','contenedor #6','auxiliary lines','llave del contenedor #7','habitación 621','contenedor #7','abrir la habitación 793','clamp release procedure','depositar la moneda de oro','crear un guardado manual','abrir el lector de la strange access card','usar la strange access card','cargar el guardado anterior'],
  'Capítulo 16 — Eraser':['continuar por la ruta normal y derrotar al jefe final'],
  'Capítulo 17 — Returning':['crew patch','caminar hasta richard'],
- 'Verificación final de trofeos':['observation','thorough inspection','blur your eyes','cold calling','resourceful','sci-fi-lent hill',"let's talk this out"]
 };
 function routeRank(chapter,txt,pos){
  const rules=routeOrder[chapter]||[],lower=txt.toLowerCase();
@@ -806,15 +789,6 @@ document.getElementById('collapse').onclick=()=>document.querySelectorAll('.chap
 document.getElementById('reset').onclick=()=>{if(confirm('¿Borrar todas las marcas de este checklist?')){state={};save();render()}};
 document.getElementById('export').onclick=()=>{const blob=new Blob([JSON.stringify({checklist:'Silent Hill: Townfall',exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='silent-hill-townfall-progreso.json';a.click();URL.revokeObjectURL(a.href)};
 
-// Persistencia y progreso para la lista de cierre de cada Parte.
-document.querySelectorAll('#part-clearance input[type=checkbox][data-id]').forEach(input=>{
-  const saved=localStorage.getItem('townfall-part-'+input.dataset.id);
-  if(saved==='1') input.checked=true;
-  input.addEventListener('change',()=>{
-    localStorage.setItem('townfall-part-'+input.dataset.id,input.checked?'1':'0');
-    update();
-  });
-document.querySelectorAll('.part-group').forEach(part=>{const has=[...part.querySelectorAll('.chapter')].some(ch=>ch.style.display!=='none');part.style.display=has?'block':'none'});});
 
 populateLocationFilters();
 populatePartTabs();

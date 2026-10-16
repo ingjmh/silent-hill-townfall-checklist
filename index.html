@@ -140,18 +140,19 @@ label.item:last-child{border-bottom:0}input[type=checkbox]{margin-top:5px;accent
 @media(max-width:480px){.character-legend{padding:8px}.character-tag{font-size:.63rem;padding:2px 5px}}
 
 
-/* Panel dorado: trofeos y avance de correos */
-.dashboard-title{color:#f9df8b;font-size:1.12rem;letter-spacing:.035em;margin:10px 0 0}
-#globalDashboard{grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:8px;margin:8px 0 14px}
-#globalDashboard .dashboard-card{background:linear-gradient(145deg,#fff8df,#ffedb0);border:1px solid #d4a72c;color:#5b4200;box-shadow:0 3px 9px rgba(0,0,0,.15);padding:10px 12px}
-#globalDashboard .dash-label{color:#634800;font-size:.73rem}
-#globalDashboard .dash-value{color:#9a6700;font-size:1.35rem}
-#globalDashboard .dash-sub{color:#705a25;font-size:.75rem}
-#globalDashboard .dash-track{background:#e6cf78}
+/* Panel dorado compacto: acumulados globales de trofeos y correos */
+.dashboard-title{color:#f9df8b;font-size:.88rem;letter-spacing:.025em;margin:5px 0 0}
+#globalDashboard{grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;margin:4px 0 7px}
+#globalDashboard .dashboard-card{background:linear-gradient(145deg,#fff8df,#ffedb0);border:1px solid #d4a72c;color:#5b4200;box-shadow:0 1px 4px rgba(0,0,0,.12);padding:5px 7px;border-radius:8px}
+#globalDashboard .dash-label{color:#634800;font-size:.61rem;letter-spacing:.025em;line-height:1.2}
+#globalDashboard .dash-value{color:#9a6700;font-size:1rem;line-height:1.15;margin:2px 0}
+#globalDashboard .dash-sub{color:#705a25;font-size:.61rem;line-height:1.2}
+#globalDashboard .dash-track{background:#e6cf78;height:3px;margin-top:4px}
 #globalDashboard .dash-fill{background:linear-gradient(90deg,#b8860b,#ffd700)}
-#globalDashboard .dashboard-card[data-dash="all"]{background:linear-gradient(145deg,#ffe28a,#f3bf37);border-color:#fff0a8}
+#globalDashboard .dashboard-card[data-dash="all"]{background:linear-gradient(145deg,#ffe28a,#f3bf37);border-color:#d4a72c}
 #globalDashboard .dashboard-card[data-dash="all"] .dash-value{color:#6b4300}
-@media(max-width:600px){#globalDashboard{grid-template-columns:repeat(2,minmax(0,1fr))}#globalDashboard .dashboard-card{padding:9px}}
+@media(max-width:1050px){#globalDashboard{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:600px){#globalDashboard{grid-template-columns:repeat(2,minmax(0,1fr));gap:5px}#globalDashboard .dashboard-card{padding:6px 7px}#globalDashboard .dash-label,#globalDashboard .dash-sub{font-size:.64rem}}
 
 /* Compacto y navegación horizontal por Partes */
 body{font-size:15px;line-height:1.42}
@@ -693,22 +694,25 @@ function render(){
 
 function update(){
  syncPartTabs();
- // Los filtros afectan tanto la lista como todos los acumulados del dashboard.
+ // Los filtros solo afectan la lista y los contadores locales; el panel dorado es siempre global.
  applyFilter();
- const checks=[...document.querySelectorAll('input[type=checkbox][data-id]')]
-   .filter(x=>x.closest('.item') && x.closest('.item').style.display!=='none');
- const done=checks.filter(x=>x.checked).length;
- document.getElementById('count').textContent=`${done} de ${checks.length} objetivos marcados en la selección actual`;
- document.getElementById('bar').style.width=(checks.length?done/checks.length*100:0)+'%';
+ const allChecks=[...document.querySelectorAll('input[type=checkbox][data-id]')]
+   .filter(x=>x.closest('.item'));
+ const visibleChecks=allChecks.filter(x=>x.closest('.item').style.display!=='none');
+ const doneVisible=visibleChecks.filter(x=>x.checked).length;
+ document.getElementById('count').textContent=`${doneVisible} de ${visibleChecks.length} objetivos marcados en la selección actual`;
+ document.getElementById('bar').style.width=(visibleChecks.length?doneVisible/visibleChecks.length*100:0)+'%';
+ // Las tarjetas superiores ignoran filtros de Parte, Capítulo, trofeo, búsqueda y pendientes.
+ // Solo cambian al marcar/desmarcar un objetivo.
  const dashGroups={
-  all:checks,
-  docs:checks.filter(x=>x.closest('.item')?.dataset.trophy==='docs'),
-  postcards:checks.filter(x=>x.closest('.item')?.dataset.trophy==='postcards'),
-  calls:checks.filter(x=>x.closest('.item')?.dataset.trophy==='calls'),
-  resources:checks.filter(x=>x.closest('.item')?.dataset.trophy==='resources'),
-  scifi:checks.filter(x=>x.closest('.item')?.dataset.trophy==='scifi'),
-  dog:checks.filter(x=>x.closest('.item')?.dataset.trophy==='dog'),
-  emails:checks.filter(x=>x.closest('.item')?.dataset.email==='true')
+  all:allChecks,
+  docs:allChecks.filter(x=>x.closest('.item')?.dataset.trophy==='docs'),
+  postcards:allChecks.filter(x=>x.closest('.item')?.dataset.trophy==='postcards'),
+  calls:allChecks.filter(x=>x.closest('.item')?.dataset.trophy==='calls'),
+  resources:allChecks.filter(x=>x.closest('.item')?.dataset.trophy==='resources'),
+  scifi:allChecks.filter(x=>x.closest('.item')?.dataset.trophy==='scifi'),
+  dog:allChecks.filter(x=>x.closest('.item')?.dataset.trophy==='dog'),
+  emails:allChecks.filter(x=>x.closest('.item')?.dataset.email==='true')
  };
  Object.entries(dashGroups).forEach(([name,arr])=>{
   const card=document.querySelector(`[data-dash="${name}"]`); if(!card)return;

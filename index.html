@@ -213,6 +213,82 @@ footer{padding:16px 0 30px}
 
 </style>
 
+
+<style id="minimal-shared-theme">
+:root{--bg:#f4f5f2;--panel:#fff;--panel-soft:#f8faf8;--text:#263b42;--muted:#748187;--line:#e1e7e4;--accent:#7a9b91;--accent-soft:#e8f0ed;--red:#a96a6a}
+body{background:var(--bg);color:var(--text);font-size:14px;line-height:1.55;letter-spacing:.005em}
+header{background:#fff!important;color:var(--text)!important;border-bottom:1px solid var(--line)!important;padding:20px 16px 16px!important}
+header p,header .summary{color:var(--muted)!important}
+main{max-width:1000px}
+h1{font-size:1.35rem!important;font-weight:650!important;letter-spacing:-.025em!important;margin-bottom:4px!important}
+h2{font-size:1rem!important;font-weight:650!important;letter-spacing:-.01em!important;margin-bottom:8px!important}
+h3{font-size:.9rem!important;font-weight:650!important}
+p{color:var(--muted)}
+button,select,input[type=search]{border-color:var(--line)!important;border-radius:8px!important;font-size:.82rem!important;padding:8px 10px!important}
+button:hover{border-color:#bfd0ca!important;background:var(--accent-soft)!important}
+.progress{height:5px!important;background:#e8ece9!important}
+.bar{background:var(--accent)!important}
+.notice,.no-return-legend,.character-legend,.filter-panel,.dashboard-card,.part-group,.chapter,.final-route{box-shadow:0 2px 10px rgba(36,57,63,.035)!important}
+.notice{background:#f0f5f3!important;border:1px solid #dce7e2!important;color:#52655e!important;border-radius:10px!important;font-size:.85rem!important}
+.no-return-legend{background:#fcf6f5!important;border:1px solid #e8d7d4!important;color:#966565!important;border-radius:9px!important}
+.character-legend,.filter-panel{background:#fff!important;border:1px solid var(--line)!important;border-radius:12px!important;padding:13px!important}
+.filter-section{background:#f8faf8!important;border:1px solid var(--line)!important;border-radius:9px!important}
+.filter-panel>h2,.filter-section h3{color:var(--text)!important}
+.filter-controls select,.filter-controls input[type=search]{border-color:var(--line)!important;border-radius:7px!important}
+.dashboard-card{background:#fff!important;border-color:var(--line)!important;border-radius:10px!important;box-shadow:none!important}
+.dashboard-card .dash-label{font-size:.7rem!important;font-weight:650!important;letter-spacing:.04em!important;color:var(--muted)!important}
+.dashboard-card .dash-value{font-size:1.25rem!important;font-weight:700!important;color:#52796f!important}
+.dashboard-card .dash-sub{font-size:.75rem!important;color:var(--muted)!important}
+.dashboard-card .dash-track{background:#e8ece9!important}.dashboard-card .dash-fill{background:var(--accent)!important}
+.part-tabs-wrap{background:#fff!important;border:1px solid var(--line)!important;border-radius:10px!important;padding:9px!important}
+.part-tabs-label{font-size:.7rem!important;letter-spacing:.08em!important;color:var(--muted)!important}
+.part-tab{border-color:var(--line)!important;background:#fff!important;color:var(--muted)!important;border-radius:7px!important;font-size:.78rem!important;font-weight:550!important;padding:6px 9px!important;box-shadow:none!important}
+.part-tab[aria-selected="true"]{background:var(--accent-soft)!important;color:#355a50!important;border-color:#cfddd7!important;box-shadow:inset 0 -2px 0 #7a9b91!important}
+.part-tab .tab-index{background:#edf2ef!important;color:#52796f!important}
+.part-tab[aria-selected="true"] .tab-index{background:#7a9b91!important;color:#fff!important}
+.part-group{border:1px solid var(--line)!important;border-radius:11px!important;background:#fff!important}
+.part-group>.part-summary{background:#fff!important;padding:11px 13px!important}
+.part-group>.part-summary>strong{font-size:.9rem!important;font-weight:650!important}
+.part-content{padding:5px 9px 9px!important}
+.chapter{border:1px solid var(--line)!important;border-radius:9px!important;box-shadow:none!important}
+.chapter>summary{background:#fff!important;color:var(--text)!important;padding:10px 12px!important;font-size:.87rem!important;font-weight:600!important}
+.chapter>summary strong{font-weight:600!important}
+.chapter>summary span{font-size:.75rem!important;color:var(--muted)!important}
+.content{padding:8px 11px 12px!important}
+.group h4{font-size:.8rem!important;font-weight:650!important;color:#61766e!important}
+label.item{border-bottom:1px solid #edf0ee!important;border-left:3px solid transparent!important;border-radius:5px!important;padding:8px 7px!important;gap:8px!important;background:transparent!important}
+label.item .record-body{gap:7px!important}
+.route-number{font-size:.7rem!important;color:#a0aaa5!important;font-weight:600!important}
+.task-category{font-size:.68rem!important;font-weight:600!important;border-radius:4px!important;padding:2px 5px!important}
+.character-tag{font-size:.65rem!important;font-weight:600!important;padding:2px 5px!important;border-radius:4px!important}
+.txt{font-size:.84rem!important;line-height:1.48!important;color:#3c4c50!important}
+.location-tag{font-size:.73rem!important;color:#82908a!important;margin-top:4px!important}
+.location-tag .pin{font-size:.68rem!important;filter:grayscale(.4)}
+input[type=checkbox]{accent-color:#7a9b91!important;min-width:15px!important;min-height:15px!important}
+.item.done .txt{text-decoration:line-through;color:#9aa4a0!important}
+.item[data-trophy="docs"]{border-left-color:#91b4c7!important;background:rgba(145,180,199,.055)!important}
+.item[data-trophy="postcards"]{border-left-color:#b8a2c9!important;background:rgba(184,162,201,.055)!important}
+.item[data-trophy="calls"]{border-left-color:#8fbdb5!important;background:rgba(143,189,181,.055)!important}
+.item[data-trophy="resources"]{border-left-color:#a4c3a0!important;background:rgba(164,195,160,.055)!important}
+.item[data-trophy="scifi"]{border-left-color:#8bbfc6!important;background:rgba(139,191,198,.06)!important}
+.item[data-trophy="dog"]{border-left-color:#d5ad8c!important;background:rgba(213,173,140,.06)!important}
+.item[data-trophy="other"]{border-left-color:#e0e6e3!important}
+.no-return-flag{font-size:.75rem!important;color:#b37d7a!important}
+.final-route{border-radius:10px!important}
+.final-scifi{border-color:#b5d5d9!important;background:#f5faf9!important}
+.final-dog{border-color:#e5c9b0!important;background:#fdf9f5!important}
+.save-warning{border:1px solid #e8d0cd!important;background:#fbf1f0!important;color:#8b5b5b!important;padding:10px!important;border-radius:8px!important;font-size:.84rem!important}
+footer{font-size:.78rem!important;color:var(--muted)!important}
+header nav a{font-size:.8rem!important;font-weight:550!important}
+@media(max-width:520px){main{padding:10px!important}.txt{font-size:.82rem!important}.part-group>.part-summary{padding:10px!important}.chapter>summary{padding:9px 10px!important}}
+</style>
+<style id="minimal-step-icons">
+.item .step-icon{width:22px;min-width:22px;height:22px;display:inline-flex;align-items:center;justify-content:center;border-radius:6px;background:#f0f4f1;color:#6d8b80;font-size:.78rem;line-height:1;margin-top:1px}
+.item .record-body{display:flex;align-items:flex-start;min-width:0;flex:1;gap:7px}
+.item .task-main{min-width:0;flex:1}
+.item.priority-no-return .step-icon{background:#fbf1f0;color:#a96a6a}
+@media(max-width:480px){.item .step-icon{width:20px;min-width:20px;height:20px;font-size:.72rem}.item .record-body{gap:5px}}
+</style>
 </head>
 <body>
 <header><main>
@@ -620,6 +696,24 @@ function taskCategoryClass(name){
  const n=name.toLowerCase();
  if(n.includes('document'))return 'kind-docs';if(n.includes('pista'))return 'kind-clues';if(n.includes('postal'))return 'kind-postcards';if(n.includes('llamada'))return 'kind-calls';if(n.includes('contenedor'))return 'kind-resources';if(n.includes('sci-fi'))return 'kind-scifi';if(n.includes('perro'))return 'kind-dog';if(n.includes('guardado')||n.includes('final'))return 'kind-endings';return 'kind-other';
 }
+
+function smallStepIcon(text){
+ const s=String(text||'').toLowerCase();
+ if(/autoguardado|guardar|guardado manual/.test(s))return '↻';
+ if(/teléfono|llama|llamada|marcar|número/.test(s))return '☎';
+ if(/código|\bcode\b|\d{3,}/.test(s))return '⌗';
+ if(/ordenador|computador|correo|email|disquete|disk|impresora|imprime/.test(s))return '▤';
+ if(/puerta|llave|abre|abrir|casillero|locker|tarjeta|key/.test(s))return '⌑';
+ if(/puzle|panel|interruptor|válvula|tubería|flujo|gas|báscula|rueda/.test(s))return '⚙';
+ if(/combate|enemigo|jefe|derrota|escóndete|monstruo/.test(s))return '◇';
+ if(/recoge|recoger|consigue|bolsa|pistola|linterna|objeto|moneda/.test(s))return '⌖';
+ if(/avanza|sigue|camina|salir|entra|sube|baja|regresa|atraviesa/.test(s))return '➜';
+ if(/cinta|tape|radio|canal|sintoniza|crtv/.test(s))return '◉';
+ if(/medicación|medicina|intuba|sangre|radiografía|paciente/.test(s))return '＋';
+ if(/final|trofeo|secuencia|cinemática/.test(s))return '✧';
+ return '·';
+}
+
 function render(){
  root.innerHTML='';
  const partMap=new Map();
@@ -659,7 +753,7 @@ function render(){
    const priorityTerms=['antes de','antes del','no sobrescribir','guardado manual','strange access card','recoger la moneda','depositar la moneda','postal #','postal nº','postal ','harbour notice','room service card','crew patch','photo1.jpg','photo2.jpg','clamp release procedure','auxiliary lines','remote systems control','libro sci-fi','libro extraño','496 0842','496 0244','antes de abandonar'];
    const isPriority=priorityTerms.some(term=>priorityText.includes(term));
    const category=`<span class="task-category ${taskCategoryClass(gName)}">${esc(gName)}</span>`;
-   const body=`<span class="record-body"><span class="route-number">${String(ti+1).padStart(2,'0')}</span><span class="task-main">${category}<span class="character-tag character-${character.key}">${character.label}</span><span class="txt">${esc(shown)}</span><span class="location-tag"><span class="pin">📍</span> ${esc(getAreaLabel(ch,gName,txt))}</span></span></span>`;
+   const body=`<span class="step-icon" aria-hidden="true">${smallStepIcon(shown+" "+gName)}</span><span class="record-body"><span class="route-number">${String(ti+1).padStart(2,'0')}</span><span class="task-main">${category}<span class="character-tag character-${character.key}">${character.label}</span><span class="txt">${esc(shown)}</span><span class="location-tag"><span class="pin">⌖</span> ${esc(getAreaLabel(ch,gName,txt))}</span></span></span>`;
    if(isPriority){label.classList.add('priority-no-return');label.innerHTML=`<span class="no-return-flag" title="Prioridad: posible punto sin retorno" aria-label="Prioridad: posible punto sin retorno">✈</span><input type="checkbox" data-id="${id}" ${state[id]?'checked':''}>${body}`;}
    else label.innerHTML=`<input type="checkbox" data-id="${id}" ${state[id]?'checked':''}>${body}`;
    sec.appendChild(label);

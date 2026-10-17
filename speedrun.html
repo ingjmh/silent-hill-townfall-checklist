@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silent Hill: Townfall — Ruta rápida y sin guardado por teléfono</title>
+<style>
+:root{color-scheme:light;--bg:#f7f5e8;--panel:#fff;--sand:#eae2b7;--ink:#003049;--muted:#475569;--line:#d4cda5;--red:#d62828;--orange:#f77f00;--green:#166534}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
+header{background:linear-gradient(130deg,#003049,#074766);color:#fff;padding:24px 16px;border-bottom:4px solid var(--red)}header p{color:#eae2b7;max-width:900px}
+main{max-width:1000px;margin:auto;padding:16px}h1{font-size:clamp(1.55rem,4vw,2.35rem);margin:0 0 6px}h2{font-size:1.25rem;margin:0 0 8px}h3{font-size:1.02rem;margin:0}
+a{color:#075985}button{font:inherit;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:8px 11px;cursor:pointer}
+.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.nav a{display:inline-block;padding:8px 12px;border:1px solid #eae2b7;border-radius:9px;color:#fff;text-decoration:none;font-weight:700}.nav a.active{background:#eae2b7;color:#003049}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px;margin:12px 0}.warning{border:2px solid var(--red);background:#fff1f2;padding:13px;border-radius:10px;font-weight:750}.info{background:#eef6f8;border:1px solid #9bc5d5;padding:12px;border-radius:10px;margin:12px 0}
+.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.progress{height:8px;background:#d8d8d2;border-radius:9px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:var(--orange);transition:width .2s}.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.88rem}
+.part{margin:18px 0 8px;font-size:.78rem;letter-spacing:.09em;font-weight:850;color:var(--red);text-transform:uppercase}
+.chapter{background:#fff;border:1px solid var(--line);border-radius:12px;margin:9px 0;overflow:hidden}.chapter summary{background:var(--sand);padding:12px;cursor:pointer;font-weight:800;display:flex;justify-content:space-between;gap:10px}.chapter summary span{font-size:.78rem;font-weight:700;color:#475569;white-space:nowrap}.items{padding:9px 13px}
+.task{display:flex;align-items:flex-start;gap:9px;padding:9px 2px;border-bottom:1px solid #e5e7eb}.task:last-child{border-bottom:0}.task input{margin-top:5px;min-width:17px;min-height:17px;accent-color:var(--green)}.task.done .tasktext{text-decoration:line-through;color:#64748b}.tasktext{flex:1;min-width:0}.task small{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
+.code{display:inline-block;background:#e0f2fe;color:#075985;border:1px solid #7dd3fc;border-radius:5px;padding:0 5px;font-weight:850}
+.autosave{margin:10px 0;padding:10px 12px;border:2px solid #b91c1c;background:#fff1f2;border-radius:10px;color:#991b1b;font-weight:850}
+.autosave small{display:block;color:#7f1d1d;font-weight:500}
+.optional{color:#64748b}.badge{display:inline-block;border-radius:5px;padding:2px 6px;font-size:.72rem;font-weight:850;background:#dcfce7;color:#166534;margin-right:5px}
+footer{padding:20px 0 35px;color:var(--muted);font-size:.85rem}
+@media(max-width:520px){main{padding:10px}.items{padding:8px 10px}.chapter summary{padding:10px}.task{padding:7px 1px}}
+@media print{header{background:#fff;color:#000;border-bottom:2px solid #000}header p{color:#333}.nav,.toolbar,.warning button{display:none}.chapter{break-inside:avoid}.chapter summary{background:#eee}.autosave{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header>
+  <main>
+    <h1>Silent Hill: Townfall — Ruta rápida</h1>
+    <p>Guía independiente para completar la historia en menos de 4 horas y evitar guardar manualmente desde teléfonos. Solo incluye los enigmas y acciones imprescindibles para avanzar, ordenados por capítulo.</p>
+    <nav class="nav" aria-label="Secciones principales">
+      <a href="index.html">Checklist 100% / coleccionables</a>
+      <a class="active" href="speedrun.html">Ruta rápida &lt; 4 h + sin guardado telefónico</a>
+    </nav>
+  </main>
+</header>
+<main>
+  <section class="card">
+    <h2>Antes de empezar</h2>
+    <div class="warning">NO marques el teléfono como guardado: no llames al <span class="code">100</span> ni selecciones ninguna opción de guardar durante esta ruta. Los autoguardados del juego siguen funcionando.</div>
+    <ul>
+      <li>El trofeo por completar el juego en menos de 4 horas es <strong>Fleeting Visit</strong>.</li>
+      <li>El trofeo de no guardar por teléfono se conoce como <strong>Reject the Help</strong>. Para evitar dudas, esta ruta no hace ningún guardado manual desde teléfonos.</li>
+      <li>Corre siempre que sea seguro, evita desvíos y no recojas documentos, postales, monedas ni contenedores opcionales.</li>
+      <li>El juego exige recoger las pistas clave de cada enigma aunque ya conozcas la solución. Si un código no funciona, revisa que hayas recogido el objeto/documento previo.</li>
+      <li><strong>Autoguardado:</strong> los marcadores rojos de abajo indican los hitos donde normalmente se guarda al completar objetivos o cambiar de capítulo. El juego no publica un registro exacto de cada escritura; espera a ver el icono de autoguardado antes de avanzar.</li>
+    </ul>
+    <div class="progress"><div class="bar" id="bar"></div></div>
+    <div class="meta"><span id="count">0 completados</span><span>El progreso de esta guía se guarda en el navegador, no en el juego.</span></div>
+    <div class="toolbar">
+      <button id="openAll">Abrir capítulos</button><button id="closeAll">Cerrar capítulos</button><button id="reset">Reiniciar marcas</button><button onclick="window.print()">Imprimir ruta</button>
+    </div>
+  </section>
+
+  <div class="info"><strong>Importante:</strong> no confundas los números telefónicos de enigmas con un guardado. Puedes marcar los números que exige la historia (por ejemplo, <span class="code">496 0556</span>); lo que debes evitar es usar el servicio de guardado <span class="code">100</span>.</div>
+
+  <div class="part">Parte 1 · Arrival</div>
+  <details class="chapter" open>
+    <summary>Capítulo 1 — Cold Open <span>Shorefront District – South</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Avanza a través de la niebla roja hasta Town Square y recoge el mapa automáticamente.<small>No te detengas por coleccionables.</small></span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el primer teléfono, lee el volante “Your Local Services” solo para conocer el sistema. <strong>No llames al 100 para guardar.</strong></span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al completar el objetivo y entrar en la secuencia de otro mundo.<small>Espera a que desaparezca el indicador antes de seguir; no hagas un guardado manual.</small></div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 2 — Escape <span>A Different Place</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge el CRTV y la Room Service Card; sintoniza el canal 60 para la pista de fecha.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Resuelve la rueda de la puerta: <span class="code">18</span> / <span class="code">January</span> / <span class="code">1996</span>.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge la Room 204 Key del mostrador del baño y úsala para salir del hotel.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al salir de A Different Place y regresar a Shorefront.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 3 — A Connection <span>Zoe’s House</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge la linterna sin baterías en el cajón junto al órgano y las AA Batteries en el dormitorio de arriba; combínalas.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge Organ Transplant Card en el baño de arriba y Power Card Credit Guide en el espacio bajo las escaleras.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Peters Newsagent, toma la Prepaid Power Card de la caja registradora.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el panel eléctrico bajo las escaleras: inserta la tarjeta, pulsa A hasta “Card Credit”, pulsa B y activa el interruptor principal.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Enciende el ordenador de Zoe, actualiza el correo y lee “For Attending…”.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Caja del órgano en la cocina: código izquierdo <span class="code">956</span>, derecho <span class="code">133</span>. Recoge Zoe’s Lanyard.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — después de completar el objetivo principal de la casa y avanzar la historia.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 4 — Searching for Zoe <span>Clínica / Farmacia</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Abre la clínica usando Zoe’s Lanyard. En la consulta Z. Ellis, recoge el Scalpel de la caja verde junto al ordenador.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Abre la puerta oxidada de la farmacia usando el Scalpel; en el cuarto trasero, abre el locker con <span class="code">6539</span> y recoge Prescription Dosage Error.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Abre con el Scalpel la puerta sur de St. Amelia Park. En el edificio de apartamentos al sur del número 14, recoge la llave de la puerta trasera de 21 Farrow St. en el apartamento 1/2, segundo piso, mesa de la sala.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Usa esa llave en la puerta trasera de Jess. Recoge Broken Stethoscope de la cama del dormitorio.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Regresa a la consulta Z. Ellis y resuelve la báscula: izquierda Broken Stethoscope; centro Prescription Dosage Error; derecha Zoe’s Lanyard.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al cerrar el objetivo de la clínica y pasar a la parte de Zoe.</div>
+    </div>
+  </details>
+
+  <div class="part">Parte 2 · Zoe</div>
+  <details class="chapter">
+    <summary>Capítulo 5 — Zoe: Rounds <span>Community Gardens / Mr. Stewart</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">En Community Gardens, abre el cobertizo con <span class="code">1993</span> (año de la jardinera de Jane Chalmers); recoge la llave del jardín y abre la verja.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En casa de Mr. Stewart, después de ver al monstruo, vuelve al baño y recoge la llave junto a la bañera; úsala en la puerta trasera para salir.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Fuera del Medical Centre, lee la Medical Security Note en la ventana de la garita.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Vuelve a la cabina telefónica y llama a <span class="code">496 0556</span>; cuando lo pidan, pulsa <span class="code">3 → 2 → 2 → 1</span>. No marques 100.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al completar la llamada/objetivo que abre el acceso al centro médico.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 6 — Journey to Medical <span>Shorefront North / South</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">En Town Square, recoge la pistola del cajón y acepta la opción “Yes” para activar el cambio de mundo.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Flemington Street, abre la puerta oxidada con el Scalpel y sigue el camino hacia el Medical Centre.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al completar la transición al Medical Centre.</div>
+    </div>
+  </details>
+
+  <div class="part">Parte 3 · The Patient</div>
+  <details class="chapter">
+    <summary>Capítulo 7 — Zoe: The Patient <span>Medical Centre</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">En la intercomunicación, responde las lecturas: presión sistólica/diastólica <span class="code">70 / 40</span>, pulso <span class="code">160</span>, SpO2 <span class="code">80</span>. Usa el monitor más cercano a esos valores.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Abre Surgery con el código del pager <span class="code">7103</span>.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">X-Ray: alinea “Patient Skull – Aligned”; POWER ON, SITE Skull, kV <span class="code">3</span>, mA <span class="code">7</span>, Time <span class="code">1</span>; confirma con el botón verde.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Repite para el pecho: “Patient Chest – Aligned”; SITE Chest, kV <span class="code">7</span>, mA <span class="code">3</span>, Time <span class="code">1.2</span>. Recoge las radiografías impresas y colócalas en el tablero junto al intercomunicador.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge Tensobromide en Pharmacy Store (Victoria Ward, planta baja), Dextracyclate en Chapman Ward, Bay 6 (primer piso) y Hydroxalene en el Records Room.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Abre Records Room con <span class="code">2605</span>. Para la medicación, peso 88 kg: Dextracyclate <span class="code">15</span>, Hydroxalene <span class="code">7</span>, Tensobromide <span class="code">8</span>. En cada bomba: SET RATE, introduce dosis, marca ✓, READY PUMP; activa la consola lateral.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge el Medical Intubation Kit en el almacén del sótano, pasando por el hueco entre los casilleros. Intuba en orden: lado derecho → abajo a la izquierda → arriba; inserta cuando el indicador parpadee rojo.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — tras completar la secuencia médica y activar la transición al Otro Mundo.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 8 — Many Into One <span>Medical Centre – Different</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge Alan Duncan Blood Bag en la habitación del extremo del pasillo derecho, entrando por el conducto; recoge también Zoe’s Patient List junto al reproductor de cintas.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Coloca Alan Duncan Blood Bag en la máquina marcada S.W. y activa el interruptor de transfusión.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Ward S, recoge Sarah Watson Blood Bag en la habitación 05. En Ward W, recoge Ward W Master Key en la habitación 04 y úsala en la 13; sube por la escalera a la habitación 12 para recoger Lesley Greer Blood Bag.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Coloca Lesley Greer Blood Bag en la máquina D.P. y activa la transfusión.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Ward D, usa el ascensor de la habitación 02 para bajar Matthew Clark Blood Bag. En Ward P, atraviesa el conducto al norte de la habitación 06, baja y recoge George McEwan Blood Bag en la habitación 10; obtén Ward P Master Key y abre la habitación 03 para recoger Matthew Clark Blood Bag.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Ward D, gira las válvulas de las habitaciones 05 y 10 del piso superior cuando el enemigo esté lejos. Escóndete si se acerca.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En la sala central, coloca las bolsas: ranura izquierda superior Sarah Watson; izquierda inferior Matthew Clark; derecha George McEwan. Activa el interruptor junto a las puertas dobles.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el puzle de círculos, conecta solo O−, O+, A− y A+ al centro: enlaza las iniciales T.F., H.M. y S.W.; confirma en ORDELL.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Abre la puerta final con Room 204 Key y avanza tras la cinemática.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al completar el puzle de sangre y avanzar al siguiente capítulo.</div>
+    </div>
+  </details>
+
+  <div class="part">Parte 4 · Clara Woods</div>
+  <details class="chapter">
+    <summary>Capítulo 9 — Begin Again <span>Clara Woods</span></summary>
+    <div class="items"><label class="task"><input type="checkbox"><span class="tasktext">Sigue la carretera hasta el cruce y toma la izquierda para activar el avance de la historia. No recojas postales ni monedas.</span></label><div class="autosave">🔴 AUTOGUARDADO — al cerrar la transición a Clara Woods.</div></div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 10 — Missing Parts <span>Clara Woods Estate</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">En la oficina trasera de CEG Employee Lockers, abre LOST AND FOUND con <span class="code">772</span> y recoge South Brae House Key.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Toma el código de barras de Locker 75, usa el escáner y abre el casillero con <span class="code">184</span>. Recoge Flare Gun.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En 5 South Brae, recoge Disk Case Key del cajón del dormitorio superior; abre el estuche junto a la caja fuerte para Grouped Floppy Disks. En Atlas Computers, recoge el disquete Fix-A-Disk!.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el ordenador de 5 South Brae: introduce Fix-A-Disk!, elige “Insert a disk to scan” y vuelve atrás sin Cancel; inserta Floppy Disk (2 of 3), Repair Volume; luego usa 1, 2 y 3 en orden, descomprimiendo el primero. Imprime MANUAL.EML y recoge el papel.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Caja fuerte junto al ordenador: <span class="code">956</span>. Lleva el código de barras a los casilleros y abre Locker 17 con <span class="code">575</span>; recoge Boltcutters y la primera pieza mecánica.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Corta la verja hacia 6 North Brae. Lee Lamenting Poem y abre la caja fuerte con <span class="code">736</span>; guarda el código de barras para Locker 204.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En 5 Upper Brae, recoge Tape: Today y la pista The Code Today. Obtén Tape: Yesterday del contenedor del dormitorio; úsala en el reproductor para cambiar el día y recoger Tape: Tomorrow en la caja negra de la sala. Lee The Code Before y The Code After según las épocas.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Obtén Tape: Do Not Play; úsala para encontrar Back Door Key. Cambia a Tape: Today, sal por la puerta trasera y recoge Ammonite Disk en el callejón.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Cambia a Tape: Yesterday, inserta Ammonite Disk en el lector del ordenador y lee Current Count. Cambia a Tape: Today y abre la caja fuerte con <span class="code">129</span>; recoge el código de barras para Locker 94.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En CEG Lockers: escanea el código de Locker 204 y abre con <span class="code">971</span>; escanea Locker 94 y abre con <span class="code">490</span>. Combina las tres piezas mecánicas (primero los dos discos y luego la pieza cilíndrica) y úsala en Strange Gate.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — hito importante al completar Missing Parts / avanzar hacia CEG HQ. No se requiere guardado manual.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 11 — Inside CEG HQ <span>CEG HQ, planta baja</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Entra en Security con <span class="code">4895</span> (pista en la pizarra de Maintenance).</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Employee Database, introduce Employee ID <span class="code">00007820518</span>; enciende la impresora, imprime y recoge Printed Access Card para usar el ascensor.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — tras completar el acceso a CEG HQ y activar el ascensor/cambio de parte.</div>
+    </div>
+  </details>
+
+  <div class="part">Parte 5 · Richard</div>
+  <details class="chapter">
+    <summary>Capítulo 12 — Richard: Getting Inside <span>Exterior de CEG HQ</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Entra en la garita junto a la entrada y pulsa el botón para abrir la verja. En Manager’s Office recoge Generator Key del armario.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Generador: en el panel trasero, coloca la palanca derecha en diagonal y deja las palancas izquierda y central verticales (OFF). En el frente, inserta la llave a la derecha y tira de la palanca roja izquierda para arrancar el generador.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — después de completar el objetivo del generador y entrar al edificio.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 13 — Richard: Another Attempt <span>CEG HQ, pisos 2–5</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Tras la cinemática en Boardroom, recoge Access Card – Level 3/4. Úsala para acceder a Finance / Public Relations en el tercer piso.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Media Department, recoge CEG Storeroom Key; abre GENERAL STORAGE y recoge Projector Bulb.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Finance, abre la puerta con Access Card y código <span class="code">2709</span>; en la oficina CFO recoge Projector Lens.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En Boardroom, instala Projector Bulb y Projector Lens y pulsa el interruptor rojo. Recoge CEG Maintenance Key del cuerpo; abre Maintenance.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge Projector Sliders en Mezzanine Meeting Room. Vuelve al proyector y coloca las diapositivas en orden: <span class="code">D → F → B → C → E → A</span>. Tras la cinemática, recibe CEO Access Card.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — tras la secuencia del proyector y la transición a la parte de Simon.</div>
+    </div>
+  </details>
+
+  <div class="part">Parte 6 · Simon</div>
+  <details class="chapter">
+    <summary>Capítulo 14 — Fix This <span>CEG HQ – Different</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge Reference Sheet en el escritorio a la derecha al entrar. En el segundo piso, abre la caja de la consola junto a la rueda roja y recoge Controller Key.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el panel de alarma, usa Controller Key; introduce <span class="code">A5D7</span> y OK. En el panel derecho introduce <span class="code">E3E3</span> y OK.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Alinea las tuberías rojas con las manivelas: piso 1, gira dos veces; piso 2, una vez a la izquierda; piso 3, dos veces; piso 4, dos veces.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el panel derecho, selecciona Gas Flow → Flow Test (todas las luces verdes) → IGNITE.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al completar la secuencia de gas y entrar a SWDP – Different.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 15 — Trying Again <span>SWDP – Different / Remote Systems Control</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge JOE Key en la mesa del cuarto con ordenador. Abre la puerta JOE al suroeste; después de pasar por el hueco, recoge Access Card en el mostrador junto a la cama.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Sube a la planta superior y abre Control Room con Access Card. En Remote Systems Control, enciende los dos interruptores de alimentación.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Primera orden: OPEN → VALVE → <span class="code">245</span> → ENTER. Segunda: START → FILTER → <span class="code">130</span> → ENTER.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Introduce <span class="code">0825</span> en el casillero junto al terminal; recoge AUX Key. Baja en el ascensor y abre AUX Room en la esquina noroeste.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Recoge AUX Disk, insértalo en el ordenador y lee Auxiliary Lines. Ajusta los interruptores de las tres líneas para que coincidan con el diagrama; cada luz debe quedar verde.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Vuelve al terminal: FLUSH → AUX LINE → <span class="code">246</span>; STOP → REGULATOR → <span class="code">781</span>; UNLOCK → DOOR → <span class="code">592</span>. Pulsa ENTER en cada operación.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Baja a Valve F y gira la rueda roja. Vuelve a la impresora y recoge Clamp Release Procedure.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">En el panel Clamp Release: BALANCE ambos en Intermediate; NOTIFY Self y All ON; RUN OFF Disengaged; Clamp Connection <span class="code">D71</span>; REPORT interruptores 1, 3 y 6 ON; PRESSURE CONTROL SET; INTUBATE FLOW NONE; BATTERY ONE B; BATTERY TWO C. Pulsa RELEASE y gira la manivela roja inferior.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — tras completar el clamp release y el objetivo principal de SWDP. Espera el indicador antes de seguir.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 16 — Eraser <span>Encuentro final</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Sigue la ruta principal hasta el jefe final. Para una ruta rápida, evita combates opcionales y pasa de largo a los enemigos que no bloqueen el camino.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Derrota al jefe final o, si ya has cumplido los requisitos de la ruta Sci-fi, utiliza esa salida para terminar la partida más rápido.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO — al completar el encuentro final / activar la secuencia de desenlace.</div>
+    </div>
+  </details>
+  <details class="chapter">
+    <summary>Capítulo 17 — Returning <span>Desenlace</span></summary>
+    <div class="items">
+      <label class="task"><input type="checkbox"><span class="tasktext">Deja que termine la secuencia final y confirma que aparece el trofeo Fleeting Visit por terminar con el tiempo de juego por debajo de 4 horas.</span></label>
+      <label class="task"><input type="checkbox"><span class="tasktext">Confirma también Reject the Help si cumpliste la condición de no guardar manualmente por teléfono.</span></label>
+      <div class="autosave">🔴 AUTOGUARDADO FINAL — tras completar el desenlace.</div>
+    </div>
+  </details>
+
+  <section class="card">
+    <h2>Fuentes y precisión de los autoguardados</h2>
+    <p>Las soluciones de los enigmas obligatorios siguen la guía cronológica de PowerPyx. Los autoguardados se producen a menudo al completar objetivos principales y transiciones, pero el juego no ofrece una lista pública exacta de cada punto. Por eso, cada marcador rojo indica el hito práctico donde debes detenerte un instante y confirmar el icono de autoguardado; no representa una garantía de guardado en un segundo concreto.</p>
+    <p><a href="https://www.powerpyx.com/silent-hill-townfall-speedrun-walkthrough-all-puzzle-solutions/" target="_blank" rel="noopener">PowerPyx — Speedrun walkthrough y soluciones de enigmas</a> · <a href="https://silenthilltownfall.online/saving" target="_blank" rel="noopener">Guía de teléfonos y autoguardados</a></p>
+  </section>
+  <footer>Checklist independiente. Las marcas de esta página se guardan localmente en tu navegador; no realizan ningún guardado dentro del juego.</footer>
+</main>
+<script>
+const storageKey='townfallSpeedrunChecklistV1';
+const boxes=[...document.querySelectorAll('.task input[type=checkbox]')];
+function persist(){const state=boxes.map((b,i)=>!!b.checked);try{localStorage.setItem(storageKey,JSON.stringify(state))}catch(e){}update()}
+function update(){let done=0;boxes.forEach(b=>{if(b.checked)done++;b.closest('.task').classList.toggle('done',b.checked)});document.getElementById('count').textContent=done+' de '+boxes.length+' pasos completados';document.getElementById('bar').style.width=(boxes.length?done/boxes.length*100:0)+'%'}
+try{const saved=JSON.parse(localStorage.getItem(storageKey)||'[]');boxes.forEach((b,i)=>b.checked=!!saved[i])}catch(e){}
+boxes.forEach(b=>b.addEventListener('change',persist));
+document.getElementById('openAll').onclick=()=>document.querySelectorAll('.chapter').forEach(d=>d.open=true);
+document.getElementById('closeAll').onclick=()=>document.querySelectorAll('.chapter').forEach(d=>d.open=false);
+document.getElementById('reset').onclick=()=>{if(confirm('¿Reiniciar todas las marcas de esta ruta?')){boxes.forEach(b=>b.checked=false);persist()}};
+update();
+</script>
+</body>
+</html>

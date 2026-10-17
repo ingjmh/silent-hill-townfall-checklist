@@ -5,31 +5,29 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Silent Hill: Townfall — Ruta rápida y sin guardado por teléfono</title>
 <style>
-:root{color-scheme:light;--bg:#f7f5e8;--panel:#fff;--sand:#eae2b7;--ink:#003049;--muted:#475569;--line:#d4cda5;--red:#d62828;--orange:#f77f00;--green:#166534}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,Segoe UI,sans-serif}
-header{background:linear-gradient(130deg,#003049,#074766);color:#fff;padding:24px 16px;border-bottom:4px solid var(--red)}header p{color:#eae2b7;max-width:900px}
-main{max-width:1000px;margin:auto;padding:16px}h1{font-size:clamp(1.55rem,4vw,2.35rem);margin:0 0 6px}h2{font-size:1.25rem;margin:0 0 8px}h3{font-size:1.02rem;margin:0}
-a{color:#075985}button{font:inherit;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:8px 11px;cursor:pointer}
-.nav{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.nav a{display:inline-block;padding:8px 12px;border:1px solid #eae2b7;border-radius:9px;color:#fff;text-decoration:none;font-weight:700}.nav a.active{background:#eae2b7;color:#003049}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:13px;padding:14px;margin:12px 0}.warning{border:2px solid var(--red);background:#fff1f2;padding:13px;border-radius:10px;font-weight:750}.info{background:#eef6f8;border:1px solid #9bc5d5;padding:12px;border-radius:10px;margin:12px 0}
-.toolbar{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0}.progress{height:8px;background:#d8d8d2;border-radius:9px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:var(--orange);transition:width .2s}.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.88rem}
-.part{margin:18px 0 8px;font-size:.78rem;letter-spacing:.09em;font-weight:850;color:var(--red);text-transform:uppercase}
-.chapter{background:#fff;border:1px solid var(--line);border-radius:12px;margin:9px 0;overflow:hidden}.chapter summary{background:var(--sand);padding:12px;cursor:pointer;font-weight:800;display:flex;justify-content:space-between;gap:10px}.chapter summary span{font-size:.78rem;font-weight:700;color:#475569;white-space:nowrap}.items{padding:9px 13px}
-.task{display:flex;align-items:flex-start;gap:9px;padding:9px 2px;border-bottom:1px solid #e5e7eb}.task:last-child{border-bottom:0}.task input{margin-top:5px;min-width:17px;min-height:17px;accent-color:var(--green)}.task.done .tasktext{text-decoration:line-through;color:#64748b}.tasktext{flex:1;min-width:0}.task small{display:block;color:var(--muted);font-size:.82rem;margin-top:2px}
-.code{display:inline-block;background:#e0f2fe;color:#075985;border:1px solid #7dd3fc;border-radius:5px;padding:0 5px;font-weight:850}
-.autosave{margin:10px 0;padding:10px 12px;border:2px solid #b91c1c;background:#fff1f2;border-radius:10px;color:#991b1b;font-weight:850}
-.autosave small{display:block;color:#7f1d1d;font-weight:500}
-.optional{color:#64748b}.badge{display:inline-block;border-radius:5px;padding:2px 6px;font-size:.72rem;font-weight:850;background:#dcfce7;color:#166534;margin-right:5px}
-footer{padding:20px 0 35px;color:var(--muted);font-size:.85rem}
-@media(max-width:520px){main{padding:10px}.items{padding:8px 10px}.chapter summary{padding:10px}.task{padding:7px 1px}}
-@media print{header{background:#fff;color:#000;border-bottom:2px solid #000}header p{color:#333}.nav,.toolbar,.warning button{display:none}.chapter{break-inside:avoid}.chapter summary{background:#eee}.autosave{break-inside:avoid}}
+:root{color-scheme:light;--bg:#f4f5f2;--panel:#fff;--panel-soft:#f8faf8;--ink:#263b42;--muted:#748187;--line:#e1e7e4;--accent:#7a9b91;--accent-soft:#e8f0ed;--danger:#a96a6a;--danger-soft:#fbf1f0;--shadow:0 3px 14px rgba(36,57,63,.045)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;letter-spacing:.005em}
+header{background:#fff;color:var(--ink);padding:22px 16px 16px;border-bottom:1px solid var(--line)}header p{color:var(--muted);max-width:760px;margin:5px 0 0;font-size:.92rem}
+main{max-width:900px;margin:auto;padding:16px}h1{font-size:1.32rem;font-weight:650;letter-spacing:-.025em;margin:0 0 4px}h2{font-size:1rem;font-weight:650;letter-spacing:-.01em;margin:0 0 8px}h3{font-size:.92rem;font-weight:650;margin:0}
+a{color:#52796f}button{font:inherit;font-size:.82rem;border:1px solid var(--line);background:#fff;color:var(--ink);border-radius:8px;padding:7px 10px;cursor:pointer;transition:background .15s,border-color .15s}button:hover{background:var(--accent-soft);border-color:#bfd0ca}
+.nav{display:flex;flex-wrap:wrap;gap:7px;margin-top:13px}.nav a{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:8px;color:var(--muted);text-decoration:none;font-size:.8rem;font-weight:550}.nav a.active{background:var(--accent-soft);color:#355a50;border-color:#cfddd7}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px;margin:10px 0;box-shadow:var(--shadow)}.warning{border:1px solid #e8d0cd;background:var(--danger-soft);padding:10px 12px;border-radius:9px;font-weight:600;font-size:.88rem;color:#805454}.info{background:#f0f5f3;border:1px solid #dce7e2;padding:10px 12px;border-radius:9px;margin:10px 0;font-size:.86rem;color:#52655e}
+.toolbar{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0}.progress{height:5px;background:#e8ece9;border-radius:9px;overflow:hidden;margin:10px 0}.bar{height:100%;width:0;background:var(--accent);transition:width .2s}.meta{display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;color:var(--muted);font-size:.78rem}
+.part{margin:18px 0 7px;font-size:.7rem;letter-spacing:.12em;font-weight:750;color:#7b928a;text-transform:uppercase}
+.chapter{background:var(--panel);border:1px solid var(--line);border-radius:10px;margin:7px 0;overflow:hidden;box-shadow:0 1px 3px rgba(36,57,63,.025)}.chapter summary{background:#fff;padding:10px 12px;cursor:pointer;font-weight:600;font-size:.9rem;display:flex;justify-content:space-between;align-items:center;gap:10px;list-style:none}.chapter summary::-webkit-details-marker{display:none}.chapter summary:after{content:"＋";font-size:.8rem;color:#91a09a}.chapter[open] summary:after{content:"−"}.chapter summary span{font-size:.74rem;font-weight:450;color:var(--muted);white-space:nowrap}
+.items{padding:3px 12px 9px}.task{display:flex;align-items:flex-start;gap:9px;padding:8px 2px;border-bottom:1px solid #edf0ee}.task:last-child{border-bottom:0}.task input{margin-top:4px;min-width:15px;min-height:15px;accent-color:var(--accent)}.task.done .tasktext{text-decoration:line-through;color:#9aa4a0}.tasktext{flex:1;min-width:0;font-size:.86rem}.task small{display:block;color:var(--muted);font-size:.78rem;margin-top:2px}
+.step-icon{width:25px;height:25px;flex:0 0 25px;display:inline-flex;align-items:center;justify-content:center;border-radius:7px;background:#f0f4f1;color:#617f74;font-size:.83rem;margin-top:-2px}.code{display:inline-block;background:#f0f4f1;color:#48665c;border:1px solid #dfe8e3;border-radius:4px;padding:0 4px;font-size:.82em;font-weight:700}
+.autosave{margin:9px 0 4px;padding:9px 10px;border:1px solid #e8d7d4;background:#fcf6f5;border-radius:8px;color:#966565;font-size:.8rem;font-weight:650}.autosave small{display:block;color:#8b7472;font-weight:400;font-size:.76rem;margin-top:2px}
+.optional{color:#8b9691}.badge{display:inline-block;border-radius:4px;padding:2px 5px;font-size:.68rem;font-weight:750;background:#e8f0ed;color:#52796f;margin-right:5px}footer{padding:18px 0 30px;color:var(--muted);font-size:.78rem}
+@media(max-width:520px){main{padding:10px}.items{padding:3px 9px 8px}.chapter summary{padding:10px;font-size:.86rem}.task{gap:7px;padding:8px 1px}.step-icon{width:23px;height:23px;flex-basis:23px}.tasktext{font-size:.83rem}.chapter summary span{font-size:.69rem}}
+@media print{header{background:#fff;color:#000;border-bottom:1px solid #aaa}header p{color:#333}.nav,.toolbar,.warning button{display:none}.chapter{break-inside:avoid}.chapter summary{background:#f4f4f4}.autosave{break-inside:avoid}}
 </style>
 </head>
 <body>
 <header>
   <main>
-    <h1>Silent Hill: Townfall — Ruta rápida</h1>
-    <p>Guía independiente para completar la historia en menos de 4 horas y evitar guardar manualmente desde teléfonos. Solo incluye los enigmas y acciones imprescindibles para avanzar, ordenados por capítulo.</p>
+    <h1>Townfall <span style="font-weight:400;color:#81918b">/ ruta rápida</span></h1>
+    <p>Ruta de historia para menos de 4 h · sin guardados manuales desde teléfonos. Enigmas esenciales, en orden.</p>
     <nav class="nav" aria-label="Secciones principales">
       <a href="index.html">Checklist 100% / coleccionables</a>
       <a class="active" href="speedrun.html">Ruta rápida &lt; 4 h + sin guardado telefónico</a>
@@ -39,7 +37,7 @@ footer{padding:20px 0 35px;color:var(--muted);font-size:.85rem}
 <main>
   <section class="card">
     <h2>Antes de empezar</h2>
-    <div class="warning">NO marques el teléfono como guardado: no llames al <span class="code">100</span> ni selecciones ninguna opción de guardar durante esta ruta. Los autoguardados del juego siguen funcionando.</div>
+    <div class="warning">Evita guardar desde teléfonos: no llames al <span class="code">100</span> ni elijas una opción de guardado. Los autoguardados siguen funcionando.</div>
     <ul>
       <li>El trofeo por completar el juego en menos de 4 horas es <strong>Fleeting Visit</strong>.</li>
       <li>El trofeo de no guardar por teléfono se conoce como <strong>Reject the Help</strong>. Para evitar dudas, esta ruta no hace ningún guardado manual desde teléfonos.</li>
@@ -54,7 +52,7 @@ footer{padding:20px 0 35px;color:var(--muted);font-size:.85rem}
     </div>
   </section>
 
-  <div class="info"><strong>Importante:</strong> no confundas los números telefónicos de enigmas con un guardado. Puedes marcar los números que exige la historia (por ejemplo, <span class="code">496 0556</span>); lo que debes evitar es usar el servicio de guardado <span class="code">100</span>.</div>
+  <div class="info"><strong>Nota:</strong> las llamadas que resuelven enigmas sí están permitidas. Evita únicamente el servicio de guardado <span class="code">100</span>. Ejemplo de llamada necesaria: <span class="code">496 0556</span>.</div>
 
   <div class="part">Parte 1 · Arrival</div>
   <details class="chapter" open>
@@ -249,6 +247,30 @@ footer{padding:20px 0 35px;color:var(--muted);font-size:.85rem}
   <footer>Checklist independiente. Las marcas de esta página se guardan localmente en tu navegador; no realizan ningún guardado dentro del juego.</footer>
 </main>
 <script>
+
+const iconFor = (text) => {
+ const s=text.toLowerCase();
+ if(/autoguardado|guardar|guardado/.test(s)) return "↻";
+ if(/teléfono|llama|llamada|marque|marcar/.test(s)) return "☎";
+ if(/código|\bcode\b|\d{3,}/.test(s)) return "⌗";
+ if(/ordenador|computador|correo|email|disquete|disk|impresora|imprime/.test(s)) return "▤";
+ if(/puerta|llave|abre|abrir|casillero|locker|tarjeta|key/.test(s)) return "⌑";
+ if(/puzle|panel|interruptor|válvula|tubería|flujo|gas|báscula|rueda/.test(s)) return "⚙";
+ if(/combate|enemigo|jefe|derrota|escóndete|monstruo/.test(s)) return "◇";
+ if(/recoge|recoger|toma |consigue|bolsa|pistola|linterna|objeto/.test(s)) return "⌖";
+ if(/avanza|sigue|camina|salir|entra|sube|baja|regresa|atraviesa/.test(s)) return "➜";
+ if(/cinta|tape|radio|canal|sintoniza|crtv/.test(s)) return "◉";
+ if(/medicación|medicina|intuba|sangre|radiografía|paciente/.test(s)) return "＋";
+ if(/final|trofeo|secuencia|cinemática/.test(s)) return "✧";
+ return "·";
+};
+document.querySelectorAll('.task').forEach(task=>{
+ if(task.querySelector('.step-icon')) return;
+ const text=task.querySelector('.tasktext')?.innerText || task.innerText;
+ const icon=document.createElement('span');icon.className='step-icon';icon.setAttribute('aria-hidden','true');icon.textContent=iconFor(text);
+ task.insertBefore(icon,task.querySelector('.tasktext'));
+});
+
 const storageKey='townfallSpeedrunChecklistV1';
 const boxes=[...document.querySelectorAll('.task input[type=checkbox]')];
 function persist(){const state=boxes.map((b,i)=>!!b.checked);try{localStorage.setItem(storageKey,JSON.stringify(state))}catch(e){}update()}

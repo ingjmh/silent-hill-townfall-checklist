@@ -289,6 +289,18 @@ header nav a{font-size:.8rem!important;font-weight:550!important}
 .item.priority-no-return .step-icon{background:#fbf1f0;color:#a96a6a}
 @media(max-width:480px){.item .step-icon{width:20px;min-width:20px;height:20px;font-size:.72rem}.item .record-body{gap:5px}}
 </style>
+<style id="enemy-discovery-tracker">
+.tracker-section{padding:16px!important;margin:14px 0!important}.tracker-intro{font-size:.84rem;margin:0 0 12px}
+.enemy-cards{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);gap:10px;overflow-x:auto;padding:3px 2px 12px;scroll-snap-type:x proximity}
+.enemy-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;min-width:0;scroll-snap-align:start}.enemy-card .enemy-kind{font-size:.7rem;font-weight:750;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.enemy-card h3{font-size:1rem;margin:4px 0}.enemy-card p{font-size:.78rem;min-height:2.5em;margin:4px 0 12px}
+.enemy-counter{display:flex;align-items:center;justify-content:space-between;gap:8px}.enemy-count{font-size:1.6rem;font-weight:750;font-variant-numeric:tabular-nums;color:#52796f;min-width:2ch;text-align:center}.enemy-step{width:36px;height:36px;padding:0!important;font-size:1.2rem!important;border-radius:9px!important}
+.enemy-foot{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;border-top:1px solid var(--line);padding-top:10px;margin-top:2px;font-size:.82rem;color:var(--muted)}
+.discovery-legend{display:flex;gap:7px;flex-wrap:wrap;margin:10px 0 14px}.discovery-chip{font-size:.72rem;font-weight:750;padding:4px 8px;border-radius:6px;border:1px solid var(--line);background:#f8faf8;color:#52655e}
+.discovery-part{border:1px solid var(--line);border-radius:11px;margin:10px 0;overflow:hidden;background:#fff}.discovery-part>summary{cursor:pointer;list-style:none;display:flex;align-items:center;justify-content:space-between;gap:10px;padding:12px 14px;background:#f8faf8;font-weight:700}.discovery-part>summary::-webkit-details-marker{display:none}.discovery-count{font-size:.76rem;color:var(--muted);font-weight:600;white-space:nowrap}
+.discovery-chapter{margin:9px 10px;border:1px solid #e8ece9;border-radius:9px;overflow:hidden}.discovery-chapter>summary{cursor:pointer;padding:10px 12px;background:#fbfcfb;font-size:.87rem;font-weight:650}
+.discovery-items{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,260px),1fr));gap:8px;padding:10px}.discovery-card{display:flex;gap:9px;align-items:flex-start;border:1px solid #e8ece9;border-radius:9px;padding:10px;background:#fff;min-width:0}.discovery-card input{flex:0 0 auto;margin-top:3px;accent-color:#7a9b91;width:16px;height:16px}.discovery-body{min-width:0;flex:1}.discovery-title{display:block;font-size:.84rem;font-weight:700;color:var(--text);overflow-wrap:anywhere}.discovery-type{display:inline-block;font-size:.65rem;font-weight:750;text-transform:uppercase;letter-spacing:.04em;padding:2px 5px;border-radius:5px;margin:0 0 5px}.discovery-card[data-kind="Documentos"] .discovery-type{background:#e8f0ed;color:#52796f}.discovery-card[data-kind="Pistas"] .discovery-type{background:#eaf1f8;color:#315d7a}.discovery-location{display:block;margin-top:5px;font-size:.76rem;line-height:1.4;color:#52655e}.discovery-card.done{background:#f4f8f5;border-color:#d6e4dc}.discovery-card.done .discovery-title{text-decoration:line-through;color:#748187}.discovery-summary{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin:8px 2px}
+@media(max-width:520px){.tracker-section{padding:12px!important}.enemy-cards{grid-auto-columns:minmax(170px,78vw)}.discovery-chapter{margin:7px 5px}.discovery-items{grid-template-columns:1fr;padding:7px}}
+</style>
 </head>
 <body>
 <header><main>
@@ -345,6 +357,12 @@ header nav a{font-size:.8rem!important;font-weight:550!important}
   <nav id="partTabs" class="part-tabs" role="tablist" aria-label="Navegar entre Partes"></nav>
 </div>
 <div id="checklist"></div>
+<section class="chapter tracker-section" id="enemyTracker">
+<h2>Conteo de enemigos eliminados</h2><p class="tracker-intro">Registra manualmente las bajas de Simon. Las persecuciones de The Weight no cuentan como eliminaciones: súmalo solo si lo derrotas en el combate final.</p>
+<div class="enemy-cards" id="enemyCards" aria-label="Contadores de enemigos"></div><div class="enemy-foot"><span id="enemyTotal">0 enemigos eliminados registrados</span><button type="button" id="resetEnemyCounts">Reiniciar conteo</button></div></section>
+<section class="chapter tracker-section" id="discoveryCatalog"><h2>Catálogo de documentos y pistas</h2>
+<p class="tracker-intro">Listado por parte y capítulo. Cada ficha muestra el título, si es documento o pista y dónde encontrarlo. Las marcas se sincronizan con el checklist de arriba.</p>
+<div class="discovery-legend"><span class="discovery-chip">Documento · historia y contexto</span><span class="discovery-chip">Pista · investigación y puzles</span><span class="discovery-chip" id="discoveryTotal">Cargando descubrimientos…</span></div><div id="discoveryParts"></div><div class="discovery-summary" id="discoverySummary"></div></section>
 <section class="chapter" style="padding:16px;margin:12px 0">
   <h2>Resumen de trofeos de coleccionables</h2>
   <p>Marca cada objeto cuando lo hayas recogido, llamado, sintonizado o abierto. El progreso de estas categorías es acumulativo entre partidas, pero no hay selección de capítulos y no puedes volver libremente a zonas anteriores.</p>
@@ -495,6 +513,11 @@ splitEmailBundle('Facilities: Works Halted / DONTREAD.DOC — correos del ordena
 splitEmailBundle('CEG Tower: Evening News / CEG Tower: Engineer Public Statement — correos del ordenador de PR.',
  ['CEG Tower: Evening News','CEG Tower: Engineer Public Statement'],'CEG Tower, tercer piso, oficina de Public Relations; ordenador, abre cada correo por separado.');
 
+function splitDiscoveryBundle(chapterName,original,children){data.forEach(ch=>{if(ch.chapter!==chapterName)return;ch.groups.forEach(g=>{const index=g[1].indexOf(original);if(index<0)return;emailSplitMigrations.push({chapter:ch.chapter,groupName:g[0],original,children});g[1].splice(index,1,...children);});});}
+splitDiscoveryBundle('Capítulo 6 — Journey to Medical','Photo1.jpg y Photo2.jpg — imprime ambos archivos desde el ordenador y recógelos en la impresora de la cocina.',[
+'Photo1.jpg — apartamento 2/2, tercer piso; ordenador de la cocina y su impresora.',
+'Photo2.jpg — apartamento 2/2, tercer piso; ordenador de la cocina y su impresora.'
+]);
 function findGroup(chapterName,groupName){
  const ch=data.find(x=>x.chapter===chapterName);if(!ch)return null;
  let g=ch.groups.find(x=>x[0]===groupName);if(!g){g=[groupName,[]];ch.groups.push(g);}return g;
@@ -884,9 +907,33 @@ document.getElementById('reset').onclick=()=>{if(confirm('¿Borrar todas las mar
 document.getElementById('export').onclick=()=>{const blob=new Blob([JSON.stringify({checklist:'Silent Hill: Townfall',exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='silent-hill-townfall-progreso.json';a.click();URL.revokeObjectURL(a.href)};
 
 
+const enemyTypes=[
+{id:'lunger',name:'Lunger',kind:'Enemigo común',description:'Carga rápida con la cabeza en forma de hacha.'},
+{id:'sorrowful',name:'Sorrowful',kind:'Enemigo común',description:'Ataca a distancia con un cordón y puede agarrarte.'},
+{id:'fallen',name:'Fallen',kind:'Enemigo común',description:'Permanece inmóvil y se levanta para emboscar.'},
+{id:'widows',name:'Widows',kind:'Enemigo común',description:'Acechan en las esquinas y atacan por la espalda.'},
+{id:'weight',name:'The Weight',kind:'Jefe final',description:'Cuenta solo la derrota en el combate final, no sus persecuciones.'}];
+const enemyStorageKey='silentHillTownfallEnemyCountsV1';let enemyCounts={};try{enemyCounts=JSON.parse(localStorage.getItem(enemyStorageKey)||'{}')}catch(e){enemyCounts={}}
+function saveEnemyCounts(){try{localStorage.setItem(enemyStorageKey,JSON.stringify(enemyCounts))}catch(e){}}
+function renderEnemyCounters(){const host=document.getElementById('enemyCards');if(!host)return;host.innerHTML='';enemyTypes.forEach(enemy=>{const count=Math.max(0,Number(enemyCounts[enemy.id])||0);const card=document.createElement('article');card.className='enemy-card';card.innerHTML='<div class="enemy-kind">'+esc(enemy.kind)+'</div><h3>'+esc(enemy.name)+'</h3><p>'+esc(enemy.description)+'</p><div class="enemy-counter"><button type="button" class="enemy-step" data-enemy-action="minus" data-enemy="'+enemy.id+'" aria-label="Restar '+esc(enemy.name)+'" '+(count===0?'disabled':'')+'>−</button><span class="enemy-count">'+count+'</span><button type="button" class="enemy-step" data-enemy-action="plus" data-enemy="'+enemy.id+'" aria-label="Sumar '+esc(enemy.name)+'">+</button></div>';host.appendChild(card)});updateEnemyTotal()}
+function updateEnemyTotal(){const total=enemyTypes.reduce((sum,e)=>sum+Math.max(0,Number(enemyCounts[e.id])||0),0);const el=document.getElementById('enemyTotal');if(el)el.textContent=total+' '+(total===1?'enemigo eliminado':'enemigos eliminados')+' registrados'}
+document.getElementById('enemyCards').addEventListener('click',e=>{const b=e.target.closest('button[data-enemy-action]');if(!b)return;const id=b.dataset.enemy;const n=Math.max(0,Number(enemyCounts[id])||0);enemyCounts[id]=b.dataset.enemyAction==='plus'?n+1:Math.max(0,n-1);saveEnemyCounts();renderEnemyCounters()});
+document.getElementById('resetEnemyCounts').addEventListener('click',()=>{if(confirm('¿Reiniciar todos los contadores de enemigos?')){enemyCounts={};saveEnemyCounts();renderEnemyCounters()}});
+function renderDiscoveryCatalog(){const host=document.getElementById('discoveryParts');if(!host)return;const items=[];
+data.forEach(ch=>ch.groups.forEach(g=>{if(g[0]!=='Documentos'&&g[0]!=='Pistas')return;g[1].forEach(txt=>{const id=legacyIdByText.get(txt)||('new-'+stableTaskHash(ch.chapter+'|'+g[0]+'|'+txt));const sep=txt.indexOf(' — ');let title=(sep>=0?txt.slice(0,sep):txt).trim().replace(/^Correo:\s*/i,'');items.push({part:ch.part||'OTROS',chapter:ch.chapter,kind:g[0],title,location:getAreaLabel(ch,g[0],txt),id,checked:!!state[id]})})}));
+host.innerHTML='';const byPart=new Map();items.forEach(x=>{if(!byPart.has(x.part))byPart.set(x.part,[]);byPart.get(x.part).push(x)});
+byPart.forEach((partItems,partName)=>{const part=document.createElement('details');part.className='discovery-part';const done=partItems.filter(x=>x.checked).length;part.innerHTML='<summary><span>'+esc(partName)+'</span><span class="discovery-count">'+done+'/'+partItems.length+' marcados</span></summary>';const chapterHost=document.createElement('div');const byChapter=new Map();partItems.forEach(x=>{if(!byChapter.has(x.chapter))byChapter.set(x.chapter,[]);byChapter.get(x.chapter).push(x)});
+byChapter.forEach((chapterItems,chapterName)=>{const chapter=document.createElement('details');chapter.className='discovery-chapter';const cDone=chapterItems.filter(x=>x.checked).length;chapter.innerHTML='<summary>'+esc(chapterName)+' <span class="discovery-count"> · '+cDone+'/'+chapterItems.length+'</span></summary>';const cards=document.createElement('div');cards.className='discovery-items';
+chapterItems.forEach(x=>{const card=document.createElement('label');card.className='discovery-card'+(x.checked?' done':'');card.dataset.kind=x.kind;card.innerHTML='<input type="checkbox" data-discovery-id="'+esc(x.id)+'" '+(x.checked?'checked':'')+'><span class="discovery-body"><span class="discovery-type">'+(x.kind==='Documentos'?'Documento':'Pista')+'</span><span class="discovery-title">'+esc(x.title)+'</span><span class="discovery-location">⌖ '+esc(x.location)+'</span></span>';cards.appendChild(card)});chapter.appendChild(cards);chapterHost.appendChild(chapter)});part.appendChild(chapterHost);host.appendChild(part)});
+const done=items.filter(x=>x.checked).length;document.getElementById('discoveryTotal').textContent=items.length+' descubrimientos listados';document.getElementById('discoverySummary').textContent=done+' de '+items.length+' marcados · '+(items.length?Math.round(done/items.length*100):0)+'% completado'}
+document.getElementById('discoveryParts').addEventListener('change',e=>{const input=e.target.closest('input[type="checkbox"][data-discovery-id]');if(!input)return;const id=input.dataset.discoveryId;state[id]=input.checked;document.querySelectorAll('input[type="checkbox"][data-id]').forEach(other=>{if(other.dataset.id===id){other.checked=input.checked;other.closest('.item')?.classList.toggle('done',input.checked)}});save();renderDiscoveryCatalog()});
+document.addEventListener('change',e=>{const input=e.target.closest('input[type="checkbox"][data-id]');if(!input)return;document.querySelectorAll('input[data-discovery-id]').forEach(other=>{if(other.dataset.discoveryId===input.dataset.id){other.checked=input.checked;other.closest('.discovery-card')?.classList.toggle('done',input.checked)}});renderDiscoveryCatalog()});
+
 populateLocationFilters();
 populatePartTabs();
 render();
+renderEnemyCounters();
+renderDiscoveryCatalog();
 </script>
 </body>
 </html>

@@ -290,7 +290,7 @@ header nav a{font-size:.8rem!important;font-weight:550!important}
 @media(max-width:480px){.item .step-icon{width:20px;min-width:20px;height:20px;font-size:.72rem}.item .record-body{gap:5px}}
 </style>
 <style id="enemy-discovery-tracker">
-.tracker-section{padding:16px!important;margin:14px 0!important}.tracker-intro{font-size:.84rem;margin:0 0 12px}
+.tracker-section{padding:16px!important;margin:14px 0!important;background:#fff;border:1px solid var(--line);border-radius:13px;overflow:hidden}.tracker-intro{font-size:.84rem;margin:0 0 12px}
 .enemy-cards{display:grid;grid-auto-flow:column;grid-auto-columns:minmax(190px,1fr);gap:10px;overflow-x:auto;padding:3px 2px 12px;scroll-snap-type:x proximity}
 .enemy-card{background:#fff;border:1px solid var(--line);border-radius:12px;padding:13px;min-width:0;scroll-snap-align:start}.enemy-card .enemy-kind{font-size:.7rem;font-weight:750;text-transform:uppercase;letter-spacing:.06em;color:var(--muted)}.enemy-card h3{font-size:1rem;margin:4px 0}.enemy-card p{font-size:.78rem;min-height:2.5em;margin:4px 0 12px}
 .enemy-counter{display:flex;align-items:center;justify-content:space-between;gap:8px}.enemy-count{font-size:1.6rem;font-weight:750;font-variant-numeric:tabular-nums;color:#52796f;min-width:2ch;text-align:center}.enemy-step{width:36px;height:36px;padding:0!important;font-size:1.2rem!important;border-radius:9px!important}
@@ -357,10 +357,10 @@ header nav a{font-size:.8rem!important;font-weight:550!important}
   <nav id="partTabs" class="part-tabs" role="tablist" aria-label="Navegar entre Partes"></nav>
 </div>
 <div id="checklist"></div>
-<section class="chapter tracker-section" id="enemyTracker">
+<section class="tracker-section" id="enemyTracker">
 <h2>Conteo de enemigos eliminados</h2><p class="tracker-intro">Registra manualmente las bajas de Simon. Las persecuciones de The Weight no cuentan como eliminaciones: súmalo solo si lo derrotas en el combate final.</p>
 <div class="enemy-cards" id="enemyCards" aria-label="Contadores de enemigos"></div><div class="enemy-foot"><span id="enemyTotal">0 enemigos eliminados registrados</span><button type="button" id="resetEnemyCounts">Reiniciar conteo</button></div></section>
-<section class="chapter tracker-section" id="discoveryCatalog"><h2>Catálogo de documentos y pistas</h2>
+<section class="tracker-section" id="discoveryCatalog"><h2>Catálogo de documentos y pistas</h2>
 <p class="tracker-intro">Listado por parte y capítulo. Cada ficha muestra el título, si es documento o pista y dónde encontrarlo. Las marcas se sincronizan con el checklist de arriba.</p>
 <div class="discovery-legend"><span class="discovery-chip">Documento · historia y contexto</span><span class="discovery-chip">Pista · investigación y puzles</span><span class="discovery-chip" id="discoveryTotal">Cargando descubrimientos…</span></div><div id="discoveryParts"></div><div class="discovery-summary" id="discoverySummary"></div></section>
 <section class="chapter" style="padding:16px;margin:12px 0">
@@ -903,7 +903,7 @@ function applyFilter(){const q=document.getElementById('search').value.toLowerCa
 document.getElementById('search').addEventListener('input',update);document.getElementById('filter').addEventListener('change',update);document.getElementById('trophyFilter').addEventListener('change',update);
 document.getElementById('expand').onclick=()=>document.querySelectorAll('.chapter').forEach(d=>d.open=true);
 document.getElementById('collapse').onclick=()=>document.querySelectorAll('.chapter').forEach(d=>d.open=false);
-document.getElementById('reset').onclick=()=>{if(confirm('¿Borrar todas las marcas de este checklist?')){state={};save();render()}};
+document.getElementById('reset').onclick=()=>{if(confirm('¿Borrar todas las marcas de este checklist?')){state={};save();render();renderDiscoveryCatalog()}};
 document.getElementById('export').onclick=()=>{const blob=new Blob([JSON.stringify({checklist:'Silent Hill: Townfall',exported:new Date().toISOString(),state},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='silent-hill-townfall-progreso.json';a.click();URL.revokeObjectURL(a.href)};
 
 

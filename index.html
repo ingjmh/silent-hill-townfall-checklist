@@ -470,7 +470,7 @@ const data = [
 ];
 // Separar el grupo combinado en dos secciones visibles.
 // La clasificación se basa en el tipo de elemento descrito en el checklist.
-const pistaTerms = /\b(photo\d?\.jpg|\.txt\b|\.doc\b|email|emails|computer file|archivo|remote systems control|auxiliary lines|current count|the code (today|before|after)|grid of codes|reciprocating compressor|ammonite disk|tape:|reference sheet|room service card|organ transplant card|power card|press photos|code|código|photo of|photo1|photo2|clamp release procedure|strange access card)\b/i;
+const pistaTerms = /\b(\.doc\b|email|emails|computer file|archivo|remote systems control|auxiliary lines|current count|the code (today|before|after)|grid of codes|reciprocating compressor|ammonite disk|tape:|reference sheet|room service card|organ transplant card|power card|press photos|code|código|clamp release procedure|strange access card)\b/i;
 data.forEach(ch => {
   const split = [];
   ch.groups.forEach(g => {
